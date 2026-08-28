@@ -1,0 +1,113 @@
+/* =========================================================
+   NORTIA — Mobile Drawer Navigation Component
+   ========================================================= */
+
+#drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 55;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#drawer-backdrop.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#nav-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 60;
+  width: 85vw;
+  max-width: 320px;
+  height: 100%;
+  background: var(--surface);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+#nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+#nav-drawer .drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+#nav-drawer .drawer-header img {
+  height: 32px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+#close-drawer-btn {
+  color: var(--on-surface-variant);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+#close-drawer-btn:hover {
+  background: rgba(208,201,190,0.3);
+}
+
+#nav-drawer ul {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#nav-drawer ul a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 18px;
+  color: var(--on-surface);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+#nav-drawer ul a:hover {
+  background: rgba(208,201,190,0.3);
+}
+
+#nav-drawer ul a .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+#nav-drawer .drawer-footer {
+  padding-top: 24px;
+  border-top: 1px solid rgba(208,201,190,0.3);
+}
+
+#nav-drawer .drawer-footer button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--secondary);
+  color: var(--on-secondary);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 16px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 600;
+  transition: background 0.2s;
+}

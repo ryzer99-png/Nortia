@@ -1,0 +1,123 @@
+/* =========================================================
+   NORTIA — Footer Section
+   ========================================================= */
+
+footer {
+  background: var(--primary);
+  color: var(--on-primary);
+  padding: 64px 24px 112px;
+  border-top: 1px solid rgba(247,244,239,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(247,244,239,0.1);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-brand img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.92;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col a {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--on-primary);
+}
+
+.footer-col .wa-link {
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-col .wa-link:hover {
+  color: #6ee7b7;
+}
+
+.footer-col .location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.footer-col .location .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.footer-bottom {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(92,100,120,0.7);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--on-surface-variant);
+}

@@ -1,0 +1,379 @@
+/* =========================================================
+   NORTIA — Subpages & Dedicated Landing Pages Styles
+   ========================================================= */
+
+/* ── Subpage Header & Breadcrumbs ── */
+.subpage-hero {
+  padding: 130px 24px 72px;
+  background: var(--primary);
+  color: var(--on-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.subpage-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.subpage-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+}
+
+.subpage-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,42,74,0.98) 0%, rgba(27,42,74,0.85) 100%);
+}
+
+.subpage-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--primary-dim);
+  margin-bottom: 24px;
+}
+
+.breadcrumb-nav a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--secondary);
+  transition: opacity 0.2s;
+}
+
+.breadcrumb-nav a:hover {
+  opacity: 0.8;
+}
+
+.subpage-hero h1 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.15;
+  color: var(--on-primary);
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.subpage-hero-sub {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(247,244,239,0.9);
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+/* ── Detailed Risk Spotlight on Subpages ── */
+.subpage-risk-section {
+  padding: 96px 24px 80px;
+  background: var(--surface-low);
+}
+
+.subpage-risk-card {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.subpage-stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(217,164,65,0.15);
+  color: var(--secondary);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.subpage-stat-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+}
+
+.subpage-stat-hero {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.subpage-stat-source {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+/* ── 3 Column Analysis Grid ── */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.analysis-box {
+  background: var(--surface-low);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(208,201,190,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.analysis-box .icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analysis-box h4 {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+.analysis-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+}
+
+/* ── Risk Types & Scenarios Section ── */
+.subpage-scenarios-section {
+  padding: 96px 24px 80px;
+  background: var(--surface);
+  border-top: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.scenarios-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.scenarios-quote-box {
+  background: var(--surface-low);
+  border-left: 4px solid var(--secondary);
+  border-radius: 0 16px 16px 0;
+  padding: 24px 32px;
+  margin-bottom: 40px;
+}
+
+.scenarios-quote-box p {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-style: italic;
+  color: var(--primary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.scenario-item {
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.2s ease;
+}
+
+.scenario-item:hover {
+  border-color: var(--secondary);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+
+.scenario-item .item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(217,164,65,0.15);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scenario-item h4 {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.scenario-item p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Coverage Breakdown Cards ── */
+.subpage-coverages-section {
+  padding: 96px 24px 80px;
+  background: var(--surface-low);
+}
+
+.subpage-coverages-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.coverage-plans-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.coverage-plan-card {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid var(--outline-variant);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coverage-plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.coverage-plan-card h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.coverage-plan-card .plan-desc {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.coverage-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.coverage-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--on-surface);
+}
+
+.coverage-feature-list .check {
+  color: #10b981;
+  font-weight: 700;
+}
+
+/* ── FAQ Section ── */
+.subpage-faq-section {
+  padding: 96px 24px 80px;
+  background: var(--surface);
+}
+
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--surface-low);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  border: 1px solid var(--outline-variant);
+}
+
+.faq-item h4 {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.faq-item p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Subpage Responsive ── */
+@media (min-width: 640px) {
+  .coverage-plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scenarios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .analysis-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .coverage-plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .scenarios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

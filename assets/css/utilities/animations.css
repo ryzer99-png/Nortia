@@ -1,0 +1,33 @@
+/* =========================================================
+   NORTIA — Scroll Reveal & Animation Utilities (Optimizado GPU)
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateZ(0);
+  }
+
+  .reveal-fade-up {
+    transform: translate3d(0, 24px, 0);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-fade-up.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .reveal-scale {
+    transform: scale3d(0.96, 0.96, 1);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale.is-visible {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  .delay-100 { transition-delay: 60ms; }
+  .delay-200 { transition-delay: 120ms; }
+  .delay-300 { transition-delay: 180ms; }
+  .delay-400 { transition-delay: 240ms; }
+}

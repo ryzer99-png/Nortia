@@ -1,0 +1,27 @@
+/* =========================================================
+   NORTIA — CSS Variables & Design Tokens
+   Paleta Oficial:
+   - Azul Noche:  #1B2A4A
+   - Dorado:      #D9A441
+   - Crema:       #F7F4EF
+   - Gris Tinta:  #5C6478
+   ========================================================= */
+
+:root {
+  --primary:              #1B2A4A;
+  --secondary:            #D9A441;
+  --background:           #F7F4EF;
+  --surface:              #F7F4EF;
+  --surface-low:          #EFECE6;
+  --surface-container:    #EAE6DF;
+  --surface-high:         #23355B;
+  --on-surface-variant:   #5C6478;
+  --on-surface:           #1B2A4A;
+  --on-primary:           #ffffff;
+  --on-secondary:         #1B2A4A;
+  --outline:              #5C6478;
+  --outline-variant:      #D0C9BE;
+  --secondary-dim:        #D9A441;
+  --primary-dim:          #A0ABC0;
+  --green:                #34d399;
+}

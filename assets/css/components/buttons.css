@@ -1,0 +1,191 @@
+/* =========================================================
+   NORTIA — Buttons & WhatsApp Actions Component
+   ========================================================= */
+
+/* ── Header Asesor Button ── */
+.btn-asesor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: all 0.3s;
+  background: transparent;
+}
+
+.btn-asesor:hover {
+  background: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.btn-asesor .label {
+  display: none;
+}
+
+/* ── Hero Buttons ── */
+.btn-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  transition: all 0.3s;
+  box-shadow: 0 4px 14px rgba(217,164,65,0.3);
+}
+
+.btn-primary-cta:hover {
+  background: rgba(217,164,65,0.9);
+  transform: translateY(-1px);
+}
+
+.btn-outline-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid rgba(247,244,239,0.3);
+  color: #F7F4EF;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.btn-outline-hero:hover {
+  background: rgba(247,244,239,0.1);
+}
+
+/* ── Card WhatsApp Button ── */
+.btn-wa {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #25D366;
+  color: white;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Hanken Grotesk', sans-serif;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+  margin-top: 8px;
+}
+
+.btn-wa:hover {
+  background: #20ba5a;
+  transform: scale(1.01);
+}
+
+/* ── Spotlight Pill Button ── */
+.btn-wa-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Hanken Grotesk', sans-serif;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.btn-wa-pill:hover {
+  background: #20ba5a;
+  transform: scale(1.02);
+}
+
+/* ── Final CTA Large Button ── */
+.btn-wa-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #25D366;
+  color: white;
+  border-radius: 12px;
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Hanken Grotesk', sans-serif;
+  transition: all 0.3s;
+  box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+}
+
+.btn-wa-large:hover {
+  background: #20ba5a;
+  box-shadow: 0 20px 40px rgba(37,211,102,0.4);
+  transform: translateY(-2px);
+}
+
+/* ── Footer WhatsApp Button ── */
+.btn-footer-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(217,164,65,0.2);
+  border: 1px solid rgba(217,164,65,0.3);
+  color: var(--secondary);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Hanken Grotesk', sans-serif;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.btn-footer-wa:hover {
+  background: var(--secondary);
+  color: var(--on-secondary);
+}
+
+/* ── Floating WhatsApp Button ── */
+#floating-wa-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #25D366;
+  color: white;
+  padding: 14px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+#floating-wa-btn:hover {
+  background: #20ba5a;
+  transform: scale(1.05);
+}
+
+#floating-wa-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+#floating-wa-btn .wa-label {
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+}

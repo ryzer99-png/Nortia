@@ -1,0 +1,29 @@
+/* =========================================================
+   NORTIA — Arquitectura CSS Modular
+   Punto de Entrada Maestro (Master Entrypoint)
+   ========================================================= */
+
+/* ── 1. Capa Base & Tokens ── */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* ── 2. Componentes Reutilizables ── */
+@import url('./components/header.css');
+@import url('./components/drawer.css');
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+
+/* ── 3. Secciones Específicas ── */
+@import url('./sections/hero.css');
+@import url('./sections/coberturas.css');
+@import url('./sections/editorial.css');
+@import url('./sections/datos-oficiales.css');
+@import url('./sections/camino.css');
+@import url('./sections/cta.css');
+@import url('./sections/footer.css');
+@import url('./sections/subpage.css');
+
+/* ── 4. Utilidades, Animaciones y Responsive ── */
+@import url('./utilities/animations.css');
+@import url('./utilities/responsive.css');

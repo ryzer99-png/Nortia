@@ -1,0 +1,93 @@
+/* =========================================================
+   NORTIA — Editorial Section (Prevención)
+   ========================================================= */
+
+#editorial {
+  padding: 96px 24px;
+  background: var(--primary);
+  color: var(--on-primary);
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+#editorial .editorial-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(217,164,65,0.15), transparent 60%);
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+#editorial .editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.editorial-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(217,164,65,0.2);
+  border: 1px solid rgba(217,164,65,0.3);
+  color: var(--secondary);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+#editorial h2 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(26px, 4vw, 48px);
+  line-height: 1.2;
+  color: var(--on-primary);
+  font-weight: 600;
+}
+
+#editorial h2 span {
+  color: var(--secondary);
+}
+
+#editorial .subtitle {
+  font-size: 18px;
+  color: var(--primary-dim);
+}
+
+.editorial-quote {
+  padding: 24px 32px;
+  border-radius: 16px;
+  background: rgba(35,53,91,0.15);
+  border: 1px solid rgba(217,164,65,0.2);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-quote .left-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--secondary);
+}
+
+.editorial-quote p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  padding-left: 8px;
+}
+
+.editorial-quote strong {
+  color: var(--secondary);
+  font-weight: 600;
+}

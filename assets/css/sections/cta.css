@@ -1,0 +1,31 @@
+/* =========================================================
+   NORTIA — Final CTA Section
+   ========================================================= */
+
+#final-cta {
+  padding: 128px 24px;
+  background: var(--primary);
+  color: var(--on-primary);
+  text-align: center;
+}
+
+#final-cta .cta-content {
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+#final-cta h2 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+#final-cta p {
+  font-size: 18px;
+  color: var(--primary-dim);
+}

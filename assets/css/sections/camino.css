@@ -1,0 +1,136 @@
+/* =========================================================
+   NORTIA — El Camino Section & Interactive SVG Track
+   ========================================================= */
+
+#camino {
+  padding: 96px 24px 80px;
+  background: var(--surface);
+  scroll-margin-top: 80px;
+  overflow: hidden;
+}
+
+#camino .camino-header {
+  text-align: center;
+  max-width: 672px;
+  margin: 0 auto 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+#camino .camino-header h2 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(26px, 4vw, 48px);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+#camino .camino-header p {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+}
+
+.camino-track {
+  position: relative;
+  padding: 32px 0;
+}
+
+.camino-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* SVG Track */
+.camino-track svg {
+  display: none;
+  position: absolute;
+  left: -80px;
+  right: -80px;
+  top: 0;
+  bottom: 0;
+  width: calc(100% + 160px);
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.path-step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+}
+
+.path-step img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transition: all 0.5s;
+}
+
+.path-step img:hover {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--on-secondary);
+  font-weight: 700;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(217,164,65,0.3);
+  width: fit-content;
+}
+
+.step-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+}
+
+.step-text h3 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.step-text p {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+}
+
+/* El Camino Step Node (for path-step-node) */
+.path-step-node {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.path-step.active-step .path-step-node {
+  background-color: var(--secondary) !important;
+  color: var(--primary) !important;
+  border-color: var(--secondary) !important;
+  transform: scale(1.2);
+  box-shadow: 0 0 25px rgba(217,164,65,0.6);
+}
