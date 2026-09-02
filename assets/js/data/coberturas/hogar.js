@@ -47,32 +47,32 @@ export const HOGAR_DATA = {
       {
         icon: 'landslide',
         title: 'Sismo y terremoto',
-        desc: 'Protección estructural completa para reconstrucción en caso de movimientos telúricos o sismos.'
+        desc: 'Años de esfuerzo no se caen en unos segundos. Recursos garantizados para reparar o reconstruir tu casa si la tierra decide temblar.'
       },
       {
         icon: 'local_fire_department',
         title: 'Incendio y explosión',
-        desc: 'Cobertura ante incendios accidentales, rayos o daños por humo tanto en la vivienda como en muebles.'
+        desc: 'Desde un cortocircuito hasta un rayo imprevisto. Recuperas cada espacio y cada mueble de tu casa sin tocar tus ahorros familiares.'
       },
       {
         icon: 'water_damage',
         title: 'Inundación y daños por agua',
-        desc: 'Respaldo ante lluvias torrenciales, desbordamientos o rotura de tuberías internas del inmueble.'
+        desc: 'Un tubo roto o una temporada de lluvias no tienen que arruinar tus pisos. Reparaciones de plomería rápidas y reposición de enseres sin dolores de cabeza.'
       },
       {
         icon: 'apartment',
         title: 'Estructura y edificación',
-        desc: 'Protección de muros, techos, pisos e instalaciones fijas a su valor comercial real.'
+        desc: 'El techo que cobija a tu familia, completamente blindado. Muros, pisos y acabados protegidos a su valor real ante cualquier evento.'
       },
       {
         icon: 'tv',
         title: 'Contenidos y tecnología',
-        desc: 'Reposición de electrodomésticos, enseres y equipos electrónicos ante hurto calificado o cortocircuito.'
+        desc: 'Tus pantallas, computadores y muebles favoritos a salvo. Si hay un apagón con daño o entran a robar, te los reponemos sin rodeos.'
       },
       {
         icon: 'handshake',
         title: 'Responsabilidad civil familiar',
-        desc: 'Amparo económico por daños o lesiones que tú, tus hijos o mascotas puedan causar a terceros o vecinos.'
+        desc: 'Si el balón rompe el ventanal del vecino o tu mascota causa un daño accidental, nosotros respondemos por ti sin fricciones ni líos.'
       }
     ],
 

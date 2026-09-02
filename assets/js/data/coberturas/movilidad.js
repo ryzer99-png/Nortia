@@ -47,34 +47,32 @@ export const MOVILIDAD_DATA = {
       {
         icon: 'directions_car',
         title: 'Automóvil familiar y particular',
-        desc: 'Protección integral Todo Riesgo ante pérdidas totales o parciales por choque o hurto y vehículo sustituto.'
+        desc: 'Viaja tranquilo con los que amas. Carro sustituto si te quedas varado, cobertura total ante choques o robos y asistencia en carretera 24/7.'
       },
       {
         icon: 'local_taxi',
         title: 'Vehículo de trabajo o plataformas',
-        desc: 'Pólizas diseñadas para conductores de Uber, DiDi, taxis o utilitarios con coberturas de lucro cesante y RCE.'
+        desc: 'Tu carro produce todos los días y no puede parar. Si algo pasa, recuperas tus ingresos diarios y cuentas con respaldo legal inmediato.'
       },
       {
         icon: 'two_wheeler',
         title: 'Motero aventurero',
-        desc: 'Amparo contra hurto calificado, asistencia médica en carretera y grúa ilimitada a nivel nacional.'
+        desc: 'Tú concéntrate en la aventura, nosotros te cubrimos la espalda. Respaldo médico en ruta, grúa sin límite en todo el país y tu moto completamente blindada ante cualquier susto.'
       },
       {
         icon: 'delivery_dining',
         title: 'Moto trabajador',
-        desc: 'Protección para tu herramienta diaria de ingresos ante hurto, choques y responsabilidad civil.',
-        ctaText: 'Cotizar protección de trabajo',
-        waMsg: 'Hola NORTIA, me interesa cotizar un seguro para Moto Trabajador.'
+        desc: 'Tu moto es el motor de tu hogar. Protégela ante robos, caídas y daños a terceros para que nunca dejes de rodar ni de generar.'
       },
       {
         icon: 'pedal_bike',
         title: 'Ciclista urbano y de montaña',
-        desc: 'Protección ante robo de bicicleta dentro o fuera del hogar, daños por caída y responsabilidad civil.'
+        desc: 'Rueda libre por la ciudad o la trocha. Tu bici asegurada dentro y fuera de casa, gastos médicos si te caes y respaldo ante cualquier percance.'
       },
       {
         icon: 'electric_scooter',
         title: 'Movilidad eléctrica',
-        desc: 'Cobertura de daños a terceros, accidentes personales y asistencias para tu medio de transporte urbano.'
+        desc: 'Muévete con cero emisiones y cero estrés. Cobertura para tu patineta o scooter, grúa por descarga de batería y protección si ocurre un imprevisto.'
       }
     ],
 

@@ -86,25 +86,32 @@ function renderCoberturas() {
               <div class="card-tags">
                 ${card.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('')}
               </div>
+              <div class="card-flip-prompt" role="button" aria-label="Toca para voltear y leer qué incluye">
+                <div class="prompt-left">
+                  <span class="material-symbols-outlined prompt-icon">touch_app</span>
+                  <span class="prompt-text">Toca para leer qué incluye</span>
+                </div>
+                <span class="material-symbols-outlined prompt-arrow">arrow_forward</span>
+              </div>
             </div>
           </div>
 
           <!-- Cara Trasera -->
           <div class="flip-card-back card-back">
-            <div>
+            <div class="card-back-main">
               <div class="back-header">
                 <div class="card-back-icon">
-                  <span class="material-symbols-outlined" style="font-size:28px">${card.icon}</span>
+                  <span class="material-symbols-outlined" style="font-size:24px">${card.icon}</span>
                 </div>
                 <h3>${card.title}</h3>
                 <p class="desc">${card.backDesc}</p>
               </div>
-              <ul class="card-features" style="margin-top:12px">
-                ${card.features.map(f => `<li><span class="check">✓</span> ${f}</li>`).join('')}
+              <ul class="card-features">
+                ${card.features.map(f => `<li><span class="check">✓</span> <span>${f}</span></li>`).join('')}
               </ul>
             </div>
-            <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
-              <a href="${subpageUrl}" class="btn-subpage-link" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;background:rgba(217,164,65,0.18);border:1px solid rgba(217,164,65,0.4);border-radius:10px;color:var(--secondary);font-size:12px;font-weight:600;text-decoration:none;transition:all 0.2s">
+            <div class="card-back-actions">
+              <a href="${subpageUrl}" class="btn-subpage-link">
                 <span>Ver coberturas completas</span>
                 <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
               </a>
@@ -321,11 +328,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. Touch Flip Cards Handler
+  // 4. Flip Cards Handler (Touch & Desktop)
   document.querySelectorAll('.flip-card').forEach(card => {
+    // Click / Tap para alternar vuelta (gira y regresa)
     card.addEventListener('click', (e) => {
       if (!e.target.closest('.wa-btn') && !e.target.closest('a')) {
         card.classList.toggle('flipped');
+      }
+    });
+
+    // Accesibilidad por teclado (Enter o Espacio)
+    card.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.wa-btn') && !e.target.closest('a')) {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+
+    // En dispositivos con cursor (mouse): al pasar el cursor gira, al salir regresa
+    card.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        card.classList.add('flipped');
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        card.classList.remove('flipped');
       }
     });
   });

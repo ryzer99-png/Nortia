@@ -47,32 +47,32 @@ export const EMPRESAS_DATA = {
       {
         icon: 'store',
         title: 'Patrimonio empresarial',
-        desc: 'Protección de inmuebles, bodegas, inventarios y activos físicos ante siniestros imprevistos.'
+        desc: 'Tu empresa te costó perseverancia y visión. Protege tu oficina, bodega e inventarios para que ningún siniestro detenga tu crecimiento.'
       },
       {
         icon: 'gavel',
         title: 'Responsabilidad civil (RCE)',
-        desc: 'Blindaje financiero y cobertura de defensa jurídica ante demandas por daños a terceros o clientes.'
+        desc: 'Opera con total confianza. Si un cliente o tercero sufre un tropiezo o daño en tus instalaciones, asumimos los costos legales e indemnizaciones.'
       },
       {
         icon: 'badge',
         title: 'Bienestar de empleados',
-        desc: 'Planes colectivos de salud, seguros de vida grupal y asesoría preventiva en riesgos laborales (ARL).'
+        desc: 'El mejor talento se cuida de verdad. Pólizas de salud, vida y asesoría en ARL que motivan a tu equipo y protegen a quienes lo hacen posible.'
       },
       {
         icon: 'precision_manufacturing',
         title: 'Equipos y maquinaria',
-        desc: 'Cobertura especializada ante rotura de maquinaria, fallas eléctricas o daño en equipos de computación.'
+        desc: 'Las máquinas y servidores que mueven tu operación, a prueba de fallos. Reparación o reemplazo ágil ante sobrecargas o roturas súbitas.'
       },
       {
         icon: 'trending_up',
         title: 'Continuidad del negocio',
-        desc: 'Indemnización por pérdida de beneficios y costos fijos durante el cierre forzado tras un siniestro (lucro cesante).'
+        desc: 'Si te toca pausar la operación por una emergencia, no te ahogas. Cubrimos nóminas, arriendos e ingresos para que abras de nuevo con solidez.'
       },
       {
         icon: 'local_shipping',
         title: 'Riesgos operacionales y carga',
-        desc: 'Protección de mercancías en tránsito, transportes de carga y operaciones comerciales.'
+        desc: 'Tus despachos protegidos de bodega a cliente final. Carga segura en carretera ante vuelcos, hurtos o imprevistos de ruta.'
       }
     ],
 

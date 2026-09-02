@@ -47,37 +47,37 @@ export const PERSONAS_DATA = {
       {
         icon: 'favorite',
         title: 'Vida e invalidez',
-        desc: 'Respaldo financiero para tu familia en caso de fallecimiento, invalidez accidental o enfermedad grave.'
+        desc: 'La certeza de que a los tuyos nunca les faltará nada. Un fondo seguro que protege su calidad de vida y sus sueños, pase lo que pase.'
       },
       {
         icon: 'medical_services',
         title: 'Salud y medicina prepagada',
-        desc: 'Atención médica con libre elección de especialistas, clínicas preferenciales y urgencias sin filas.'
+        desc: 'Salud sin esperas ni autorizaciones eternas. Acceso directo a los mejores especialistas, las mejores clínicas del país y trato humano cuando más lo necesitas.'
       },
       {
         icon: 'healing',
         title: 'Accidentes personales',
-        desc: 'Indemnizaciones económicas y reembolso de gastos médicos inmediatos ante cualquier eventualidad.'
+        desc: 'La vida da giros en un segundo. Cuentas con reembolso médico inmediato y respaldo económico para recuperarte con total calma.'
       },
       {
         icon: 'payments',
         title: 'Protección de ingresos',
-        desc: 'Garantía de continuidad en tus ingresos habituales en caso de incapacidad médica temporal o prolongada.'
+        desc: 'Si una pausa médica te frena, tus ingresos no se detienen. Mantén tus cuentas al día y tu tranquilidad intacta mientras vuelves al ruedo.'
       },
       {
         icon: 'school',
         title: 'Rentas educativas',
-        desc: 'Fondos garantizados para la educación superior de tus hijos, pase lo que pase en el camino.'
+        desc: 'El futuro profesional de tus hijos escrito en piedra. Su universidad asegurada desde hoy, sin importar los giros del destino.'
       },
       {
         icon: 'flight',
         title: 'Asistencia médica en viaje',
-        desc: 'Cobertura médica y repatriación internacional para ti y tu familia durante vacaciones o viajes de trabajo.'
+        desc: 'Empaca maletas sin preocupaciones. Asistencia médica en cualquier rincón del mundo, cobertura por pérdida de equipaje y emergencias resueltas.'
       },
       {
         icon: 'local_hospital',
         title: 'Renta diaria por hospitalización',
-        desc: 'Apoyo y respaldo económico diario para cubrir gastos habituales durante periodos de internación médica por enfermedad o accidente.'
+        desc: 'Un respiro económico cada día que estés internado, ayudándote a cubrir los gastos del día a día para que solo pienses en sanar.'
       }
     ],
 
