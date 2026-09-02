@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Escudo / Fondo NORTIA -->
+  <path d="M32 4L10 14V30C10 44.8 19.4 55.4 32 60C44.6 55.4 54 44.8 54 30V14L32 4Z" fill="#1B2A4A" stroke="#D9A441" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Brillo / Gradiente interno sutil -->
+  <path d="M32 7L13 15.5V30C13 43 21.1 52.5 32 56.5C42.9 52.5 51 43 51 30V15.5L32 7Z" fill="url(#nortia-shield-grad)" opacity="0.3"/>
+  
+  <!-- Estrella del Norte / Brújula NORTIA -->
+  <!-- Punta Superior (Dorada Brillante) -->
+  <polygon points="32,16 36,30 32,32" fill="#F0C568"/>
+  <polygon points="32,16 28,30 32,32" fill="#D9A441"/>
+  
+  <!-- Punta Derecha -->
+  <polygon points="48,32 34,36 32,32" fill="#F0C568"/>
+  <polygon points="48,32 34,28 32,32" fill="#D9A441"/>
+  
+  <!-- Punta Inferior -->
+  <polygon points="32,48 28,34 32,32" fill="#B38025"/>
+  <polygon points="32,48 36,34 32,32" fill="#D9A441"/>
+  
+  <!-- Punta Izquierda -->
+  <polygon points="16,32 30,28 32,32" fill="#B38025"/>
+  <polygon points="16,32 30,36 32,32" fill="#D9A441"/>
+  
+  <!-- Centro Estrella -->
+  <circle cx="32" cy="32" r="2" fill="#FFFFFF"/>
+
+  <defs>
+    <linearGradient id="nortia-shield-grad" x1="13" y1="7" x2="51" y2="56.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9A441"/>
+      <stop offset="1" stop-color="#1B2A4A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

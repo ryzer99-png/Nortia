@@ -28,6 +28,7 @@ export const SITE_CONTENT = {
   hero: HOME_DATA.hero,
   editorial: HOME_DATA.editorial,
   camino: HOME_DATA.camino,
+  trustBanner: HOME_DATA.trustBanner,
   finalCta: HOME_DATA.finalCta,
 
   // ── 3. Sección Coberturas (Flip Cards en Home) ──

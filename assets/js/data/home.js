@@ -16,7 +16,7 @@ export const HOME_DATA = {
 
   // Encabezado de la sección Coberturas en Home
   coberturasHeader: {
-    chip: 'Líneas de Protección',
+    chip: 'Líneas de protección',
     title: '¿Qué quieres proteger?',
     subtitle: 'Soluciones integrales de seguros diseñadas a la medida para personas, familias, patrimonio y empresas.'
   },
@@ -32,7 +32,7 @@ export const HOME_DATA = {
 
   // Sección DATOS OFICIALES (Resumen Ejecutivo en Home)
   datosOficialesHeader: {
-    chip: 'Datos con Fuente Oficial',
+    chip: 'Datos con fuente oficial',
     title: 'Conoce los riesgos. Toma mejores decisiones.',
     subtitle: 'Las cifras no están para asustarte. Están para ayudarte a entender mejor los riesgos que pueden afectar lo que más te importa.',
     quoteBannerTitle: 'Una cifra puede cambiar la forma en que tomas una decisión.',
@@ -58,7 +58,7 @@ export const HOME_DATA = {
       {
         number: '03',
         title: 'Comparar',
-        desc: 'Buscamos las mejores opciones del mercado. Filtramos el ruido para presentarte alternativas sólidas y objetivas.'
+        desc: 'Trabajamos con diferentes aseguradoras para tener mejores opciones de coberturas, valores asegurados y facilidades de pago.'
       },
       {
         number: '04',
@@ -71,6 +71,15 @@ export const HOME_DATA = {
         desc: 'Disfruta la tranquilidad de estar cubierto. Porque prevenir hoy es garantizar tu paz mental de mañana.'
       }
     ]
+  },
+
+  // Sección de Transparencia en Pagos y Aseguradoras Aliadas
+  trustBanner: {
+    badge: 'Cero intermediación de dinero',
+    title: 'No recibimos dinero',
+    highlight: 'El pago lo haces directamente en la aseguradora que decides.',
+    desc: 'Tu tranquilidad y transparencia son nuestra prioridad. La contratación y el pago de tu seguro se realiza directamente en los canales oficiales de la compañía aseguradora de tu elección.',
+    aseguradorasTitle: 'Compara entre las principales aseguradoras del país y elige la cobertura que realmente necesitas.'
   },
 
   // Sección LLAMADO A LA ACCIÓN FINAL (Home)

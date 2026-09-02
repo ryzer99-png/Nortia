@@ -1,19 +1,19 @@
 // =========================================================
-// NORTIA — Datos: Empresas & PyMEs
+// NORTIA — Datos: Empresas y pymes
 // =========================================================
 
 export const EMPRESAS_DATA = {
   id: 'empresas',
   url: './empresas.html',
   icon: 'domain',
-  title: 'Empresas & PyMEs',
+  title: 'Empresas y pymes',
   frontDesc: 'Protege tu negocio, tus personas y aquello que has construido.',
   tags: ['Patrimonio', 'RCE', 'Empleados', 'Continuidad'],
   backDesc: 'Tu empresa es el resultado de años de trabajo, inversión, decisiones y personas que dependen de ella.',
   features: [
     'Patrimonio y blindaje de activos empresariales',
     'Responsabilidad civil extracontractual',
-    'Empleados: Salud colectiva, accidentes y ARL',
+    'Empleados: salud colectiva, accidentes y ARL',
     'Continuidad del negocio y riesgos operacionales'
   ],
   waTopic: 'empresas',
@@ -21,85 +21,85 @@ export const EMPRESAS_DATA = {
   // Datos oficiales de riesgo
   riskSpotlight: {
     icon: 'domain',
-    category: 'Empresas & PyMEs',
-    title: 'Análisis de Riesgo Corporativo',
+    category: 'Empresas y pymes',
+    title: 'Análisis de riesgo corporativo',
     metric: '1.347.043 empresas afiliadas',
     source: 'Fuente: MinSalud – SGRL 2024',
     meaning: 'Millones de trabajadores en Colombia dependen de la cobertura de riesgos laborales de su empresa.',
     why: 'Un accidente laboral no gestionado puede representar procesos legales, costos médicos y afectación operativa.',
     action: 'Revisar si tu empresa tiene las coberturas adecuadas para su tamaño, sector y nivel de actividad.',
     waTopic: 'empresas',
-    waBtnText: 'Solicitar Asesoría para Empresas'
+    waBtnText: 'Solicitar asesoría para empresas'
   },
 
   // Contenido de la Subpágina Dedicada
   subpage: {
-    badge: 'Línea Corporativa',
-    title: 'Seguros para Empresas & PyMEs',
+    badge: 'Línea corporativa',
+    title: 'Seguros para empresas y pymes',
     subtitle: 'Blindaje jurídico, financiero y operativo para garantizar que tu negocio nunca detenga su crecimiento.',
-    ctaHero: 'Solicitar Asesoría Corporativa',
-    riskBadge: 'Datos Oficiales de Riesgo',
-    riskCtaBtn: 'Cotizar Seguros Empresariales en WhatsApp',
+    ctaHero: 'Solicitar asesoría corporativa',
+    riskBadge: 'Datos oficiales de riesgo',
+    riskCtaBtn: 'Cotizar seguros empresariales en WhatsApp',
 
     // Sección de Tipos de Riesgo y Escenarios
     scenariosQuote: 'Tu empresa es el resultado de años de trabajo, inversión, decisiones y personas que dependen de ella.',
     scenarios: [
       {
         icon: 'store',
-        title: 'Patrimonio Empresarial',
+        title: 'Patrimonio empresarial',
         desc: 'Protección de inmuebles, bodegas, inventarios y activos físicos ante siniestros imprevistos.'
       },
       {
         icon: 'gavel',
-        title: 'Responsabilidad Civil (RCE)',
+        title: 'Responsabilidad civil (RCE)',
         desc: 'Blindaje financiero y cobertura de defensa jurídica ante demandas por daños a terceros o clientes.'
       },
       {
         icon: 'badge',
-        title: 'Bienestar de Empleados',
+        title: 'Bienestar de empleados',
         desc: 'Planes colectivos de salud, seguros de vida grupal y asesoría preventiva en riesgos laborales (ARL).'
       },
       {
         icon: 'precision_manufacturing',
-        title: 'Equipos y Maquinaria',
+        title: 'Equipos y maquinaria',
         desc: 'Cobertura especializada ante rotura de maquinaria, fallas eléctricas o daño en equipos de computación.'
       },
       {
         icon: 'trending_up',
-        title: 'Continuidad del Negocio',
+        title: 'Continuidad del negocio',
         desc: 'Indemnización por pérdida de beneficios y costos fijos durante el cierre forzado tras un siniestro (lucro cesante).'
       },
       {
         icon: 'local_shipping',
-        title: 'Riesgos Operacionales y Carga',
+        title: 'Riesgos operacionales y carga',
         desc: 'Protección de mercancías en tránsito, transportes de carga y operaciones comerciales.'
       }
     ],
 
     // Planes y Coberturas
-    plansChip: 'Soluciones Corporativas',
+    plansChip: 'Soluciones corporativas',
     plansTitle: 'Continuidad y respaldo para tu negocio',
     plansSubtitle: 'Pólizas para contratos, empleados y activos empresariales.',
     plans: [
       {
-        title: 'Pólizas de Cumplimiento',
+        title: 'Pólizas de cumplimiento',
         desc: 'Garantiza la seriedad de ofertas, buen manejo de anticipos y cumplimiento de contratos comerciales y estatales.',
         features: ['Emisión ágil para licitaciones', 'Pólizas de salarios y prestaciones', 'Estabilidad de obra y calidad de servicio']
       },
       {
-        title: 'Responsabilidad Civil Extracontractual',
+        title: 'Responsabilidad civil extracontractual',
         desc: 'Protege a tu empresa frente a reclamos por daños materiales o corporales a terceros derivados de tu actividad comercial.',
         features: ['Cobertura en predios, labores y operaciones', 'Protección ante productos defectuosos', 'Defensa legal y gastos judiciales']
       },
       {
-        title: 'Todo Riesgo Daño Material & PyME',
+        title: 'Todo riesgo daño material y pymes',
         desc: 'Protege las instalaciones de tu empresa, maquinaria, inventarios e interrupción del negocio (lucro cesante).',
         features: ['Cobertura de maquinaria y equipos', 'Protección ante incendio y catástrofes', 'Indemnización por días de cierre forzado']
       }
     ],
 
     // FAQs
-    faqsChip: 'Preguntas Frecuentes',
+    faqsChip: 'Preguntas frecuentes',
     faqsTitle: 'Dudas habituales sobre seguros empresariales',
     faqs: [
       {

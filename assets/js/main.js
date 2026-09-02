@@ -72,7 +72,10 @@ function renderCoberturas() {
         <div class="flip-card-inner">
           <!-- Cara Frontal -->
           <div class="flip-card-front card-front">
-            <img alt="${card.title}" src="${imgUrl}">
+            <div class="card-brand-badge" title="NORTIA">
+              <img alt="NORTIA" src="${ASSETS.logos.favicon}">
+            </div>
+            <img class="card-cover-img" alt="${card.title}" src="${imgUrl}">
             <div class="gradient-overlay"></div>
             <div class="card-content">
               <div class="card-icon">
@@ -128,7 +131,10 @@ function renderCaminoSteps() {
 
     return `
       <div class="path-step ${isEven ? 'step-even' : ''}">
-        <div class="img-col scroll-reveal reveal-scale delay-200">
+        <div class="img-col scroll-reveal reveal-scale delay-200" style="position:relative">
+          <div class="card-brand-badge" title="NORTIA">
+            <img alt="NORTIA" src="${ASSETS.logos.favicon}">
+          </div>
           <img alt="${step.title}" src="${imgUrl}">
         </div>
         <div class="text-col step-text scroll-reveal reveal-fade-up">
@@ -199,17 +205,27 @@ function renderSubpageContent() {
   }
 
   if (scenariosContainer && subData.scenarios) {
-    scenariosContainer.innerHTML = subData.scenarios.map((item, idx) => `
-      <div class="scenario-item scroll-reveal reveal-fade-up delay-${(idx % 3 + 1) * 100}">
-        <div class="item-icon">
-          <span class="material-symbols-outlined" style="font-size:20px">${item.icon || 'verified'}</span>
+    scenariosContainer.innerHTML = subData.scenarios.map((item, idx) => {
+      const ctaBtn = item.ctaText ? `
+        <button data-wa-topic="${pageKey}" ${item.waMsg ? `data-wa-msg="${item.waMsg}"` : ''} class="wa-btn btn-scenario-cta">
+          <span class="material-symbols-outlined">chat</span>
+          <span>${item.ctaText}</span>
+        </button>
+      ` : '';
+
+      return `
+        <div class="scenario-item scroll-reveal reveal-fade-up delay-${(idx % 3 + 1) * 100}">
+          <div class="item-icon">
+            <span class="material-symbols-outlined">${item.icon || 'verified'}</span>
+          </div>
+          <div style="flex:1">
+            <h4>${item.title}</h4>
+            <p>${item.desc}</p>
+            ${ctaBtn}
+          </div>
         </div>
-        <div>
-          <h4>${item.title}</h4>
-          <p>${item.desc}</p>
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   // Renderizado de Planes

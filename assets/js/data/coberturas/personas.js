@@ -21,85 +21,90 @@ export const PERSONAS_DATA = {
   // Datos oficiales de riesgo
   riskSpotlight: {
     icon: 'person',
-    category: 'Personas y Familias',
-    title: 'Análisis de Riesgo en Personas',
+    category: 'Personas y familias',
+    title: 'Análisis de riesgo en personas',
     metric: '528.942 accidentes en 2024',
     source: 'Fuente: MinSalud – SGRL 2024',
     meaning: 'Cada día se califican en promedio más de 1.400 accidentes laborales en el país.',
     why: 'Un accidente o una enfermedad laboral puede afectar tu capacidad de generar ingresos de un día para otro.',
     action: 'Revisar qué coberturas de vida, salud y accidentes se ajustan a tu actividad y a tu familia.',
     waTopic: 'personas',
-    waBtnText: 'Solicitar Asesoría para Personas'
+    waBtnText: 'Solicitar asesoría para personas'
   },
 
   // Contenido de la Subpágina Dedicada
   subpage: {
-    badge: 'Línea Personas',
-    title: 'Seguros para Personas y Familias',
+    badge: 'Línea personas',
+    title: 'Seguros para personas y familias',
     subtitle: 'Protege tu bienestar físico, tu capacidad de generar ingresos y el futuro de tus seres queridos con planes a tu medida.',
-    ctaHero: 'Solicitar Asesoría para Personas',
-    riskBadge: 'Datos Oficiales de Riesgo',
-    riskCtaBtn: 'Cotizar Protección Familiar en WhatsApp',
+    ctaHero: 'Solicitar asesoría para personas',
+    riskBadge: 'Datos oficiales de riesgo',
+    riskCtaBtn: 'Cotizar protección familiar en WhatsApp',
 
     // Sección de Tipos de Riesgo y Escenarios
     scenariosQuote: 'Tu capacidad de trabajar, tus ingresos y tu salud también hacen parte de lo que debes proteger.',
     scenarios: [
       {
         icon: 'favorite',
-        title: 'Vida e Invalidez',
+        title: 'Vida e invalidez',
         desc: 'Respaldo financiero para tu familia en caso de fallecimiento, invalidez accidental o enfermedad grave.'
       },
       {
         icon: 'medical_services',
-        title: 'Salud & Medicina Prepagada',
+        title: 'Salud y medicina prepagada',
         desc: 'Atención médica con libre elección de especialistas, clínicas preferenciales y urgencias sin filas.'
       },
       {
         icon: 'healing',
-        title: 'Accidentes Personales',
+        title: 'Accidentes personales',
         desc: 'Indemnizaciones económicas y reembolso de gastos médicos inmediatos ante cualquier eventualidad.'
       },
       {
         icon: 'payments',
-        title: 'Protección de Ingresos',
+        title: 'Protección de ingresos',
         desc: 'Garantía de continuidad en tus ingresos habituales en caso de incapacidad médica temporal o prolongada.'
       },
       {
         icon: 'school',
-        title: 'Rentas Educativas',
+        title: 'Rentas educativas',
         desc: 'Fondos garantizados para la educación superior de tus hijos, pase lo que pase en el camino.'
       },
       {
         icon: 'flight',
-        title: 'Asistencia Médica en Viaje',
+        title: 'Asistencia médica en viaje',
         desc: 'Cobertura médica y repatriación internacional para ti y tu familia durante vacaciones o viajes de trabajo.'
+      },
+      {
+        icon: 'local_hospital',
+        title: 'Renta diaria por hospitalización',
+        desc: 'Apoyo y respaldo económico diario para cubrir gastos habituales durante periodos de internación médica por enfermedad o accidente.'
       }
     ],
 
     // Planes y Coberturas
-    plansChip: 'Coberturas Disponibles',
+    plansChip: 'Coberturas disponibles',
     plansTitle: 'Planes diseñados para tu tranquilidad',
     plansSubtitle: 'Opciones integrales adaptadas al momento de vida de tu familia.',
     plans: [
       {
-        title: 'Salud & Medicina Prepagada',
+        title: 'Salud y medicina prepagada',
         desc: 'Acceso directo a los mejores especialistas, clínicas de primer nivel y coberturas ambulatorias y hospitalarias sin trámites engorrosos.',
         features: ['Acceso a red médica preferencial', 'Cobertura nacional e internacional', 'Atención de urgencias 24/7']
       },
       {
-        title: 'Seguro de Vida & Invalidez',
+        title: 'Seguro de vida e invalidez',
         desc: 'Respaldo financiero para tu familia en caso de fallecimiento, invalidez o enfermedades graves, garantizando su estabilidad económica.',
         features: ['Indemnización rápida para beneficiarios', 'Cobertura de enfermedades de alto costo', 'Protección de patrimonio familiar']
       },
       {
-        title: 'Rentas & Educación Futura',
+        title: 'Rentas y educación futura',
         desc: 'Garantiza que la educación de tus hijos continúe pase lo que pase, con planes de ahorro y protección educativa estructurada.',
         features: ['Fondos garantizados para universidad', 'Ahorro programado con rentabilidad', 'Asesoría pedagógica y patrimonial']
       }
     ],
 
     // FAQs
-    faqsChip: 'Preguntas Frecuentes',
+    faqsChip: 'Preguntas frecuentes',
     faqsTitle: 'Dudas habituales sobre este seguro',
     faqs: [
       {

@@ -15,10 +15,10 @@ export const GLOBAL_DATA = {
 
   // Mensajes preconfigurados para WhatsApp según el contexto del usuario
   whatsappMessages: {
-    personas: 'Hola NORTIA, me gustaría recibir asesoría personalizada para la protección de Personas y Familias (Salud / Vida).',
-    hogar: 'Hola NORTIA, me gustaría cotizar y recibir información sobre el seguro de Hogar y Patrimonio.',
-    empresas: 'Hola NORTIA, busco asesoría corporativa para blindar y cotizar seguros para mi Empresa / PyME.',
-    movilidad: 'Hola NORTIA, me interesa cotizar un seguro Todo Riesgo / SOAT para mi Vehículo o Moto.',
+    personas: 'Hola NORTIA, me gustaría recibir asesoría personalizada para la protección de personas y familias (salud / vida).',
+    hogar: 'Hola NORTIA, me gustaría cotizar y recibir información sobre el seguro de hogar y patrimonio.',
+    empresas: 'Hola NORTIA, busco asesoría corporativa para blindar y cotizar seguros para mi empresa / pyme.',
+    movilidad: 'Hola NORTIA, me interesa cotizar un seguro todo riesgo / SOAT para mi vehículo o moto.',
     general: 'Hola NORTIA, quisiera hablar con un asesor para conocer sus opciones de seguros y recibir una cotización.'
   },
 
@@ -36,7 +36,7 @@ export const GLOBAL_DATA = {
     col1Title: 'Protección',
     col2Title: 'Nosotros',
     col3Title: 'Contacto',
-    termsText: 'Términos y Condiciones',
-    privacyText: 'Política de Privacidad'
+    termsText: 'Términos y condiciones',
+    privacyText: 'Política de privacidad'
   }
 };
