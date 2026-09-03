@@ -1,0 +1,9 @@
+# =========================================================
+# NORTIA — Directivas de Rastreo Robots.txt
+# =========================================================
+
+User-agent: *
+Allow: /
+
+# Sitemap Oficial para Google y Motores de Búsqueda
+Sitemap: https://nortia.com.co/sitemap-index.xml

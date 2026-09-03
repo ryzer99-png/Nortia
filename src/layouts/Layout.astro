@@ -3,19 +3,56 @@ import Header from '@components/layout/Header.astro';
 import Drawer from '@components/layout/Drawer.astro';
 import Footer from '@components/layout/Footer.astro';
 import FloatingWhatsApp from '@components/layout/FloatingWhatsApp.astro';
+import JsonLd from '@components/seo/JsonLd.astro';
 import '@styles/styles.css';
 
 interface Props {
   title?: string;
   description?: string;
   waTopic?: string;
+  keywords?: string;
+  ogImage?: string;
+  schemas?: Record<string, any>[];
 }
 
 const {
-  title = 'NORTIA - Encuentra tu Norte | Seguros Claros y Asesoría Experta',
-  description = 'Acompañamiento experto y preventivo en seguros en Colombia. Protección patrimonial, vida, salud, hogar y vehículos sin intermediación de dinero.',
-  waTopic = 'general'
+  title = 'NORTIA | Asesoría en Seguros y Protección Patrimonial en Colombia',
+  description = 'Compara y contrata seguros de vida, salud, hogar, autos y empresas en Colombia. Asesoría clara y transparente sin intermediación de dinero.',
+  waTopic = 'general',
+  keywords = 'seguros colombia, asesoria seguros, seguro de vida, medicina prepagada, seguro de hogar, seguro todo riesgo autos, poliza cumplimiento empresas, nortia',
+  ogImage = 'https://nortia.com.co/assets/img/happy-family.jpg',
+  schemas = []
 } = Astro.props;
+
+const siteUrl = 'https://nortia.com.co';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href.replace(/\/$/, '') || siteUrl;
+
+// Schema.org Oficial de Agencia de Seguros
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "@id": `${siteUrl}/#organization`,
+  "name": "NORTIA",
+  "url": siteUrl,
+  "logo": `${siteUrl}/assets/img/brand/nortia-logo.png`,
+  "image": `${siteUrl}/assets/img/happy-family.jpg`,
+  "description": description,
+  "telephone": "+573239004028",
+  "email": "info@nortia.com.co",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CO",
+    "addressRegion": "Colombia"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Colombia"
+  },
+  "priceRange": "$$",
+  "sameAs": [
+    "https://wa.me/573239004028"
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -25,15 +62,38 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="NORTIA" />
 
-  <!-- OpenGraph / Social Meta Tags -->
+  <!-- Directivas de Indexación para Motores de Búsqueda -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Georreferenciación para SEO Local Colombia -->
+  <meta name="geo.region" content="CO" />
+  <meta name="geo.placename" content="Colombia" />
+
+  <!-- OpenGraph (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:site_name" content="NORTIA" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content="NORTIA Seguros Colombia" />
 
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate icon" href="/favicon.ico" />
+
+  <!-- Preconnect & Fuentes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -44,6 +104,12 @@ const {
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Datos Estructurados Schema.org (JSON-LD) para Rich Snippets en Google -->
+  <JsonLd schema={organizationSchema} />
+  {schemas.map((schema) => (
+    <JsonLd schema={schema} />
+  ))}
 </head>
 <body>
   <Header waTopic={waTopic} />

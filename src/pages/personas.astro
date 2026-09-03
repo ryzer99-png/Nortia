@@ -13,12 +13,54 @@ const sub = PERSONAS_DATA.subpage;
 const risk = PERSONAS_DATA.riskSpotlight;
 const bgImage = ASSETS.coberturas.personas;
 const waTopic = 'personas';
+
+const siteUrl = 'https://nortia.com.co';
+const title = 'Seguro de Vida y Salud Privada en Colombia | Medicina Prepagada - NORTIA';
+const description = 'Tranquilidad médica y respaldo económico para tu familia. Medicina prepagada, pólizas de vida, accidentes y rentas educativas con las mejores aseguradoras de Colombia.';
+const keywords = 'seguro de vida colombia, medicina prepagada colombia, poliza de salud privada, seguro accidentes personales, seguro vida sura, coomeva medicina prepagada, allianz salud, nortia personas';
+
+// Schema.org FAQPage para Rich Snippets en Google
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": sub.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+// Schema.org Breadcrumbs
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": sub.breadcrumb,
+      "item": `${siteUrl}/personas`
+    }
+  ]
+};
 ---
 
 <Layout
-  title={`${sub.title} | NORTIA`}
-  description={sub.subtitle}
+  title={title}
+  description={description}
+  keywords={keywords}
   waTopic={waTopic}
+  ogImage={`${siteUrl}${bgImage}`}
+  schemas={[breadcrumbSchema, faqSchema]}
 >
   <main>
     <SubpageHero
