@@ -1,8 +1,8 @@
 // =========================================================
 // NORTIA — Catálogo Centralizado de Imágenes y Assets
 // =========================================================
-// Para cambiar cualquier imagen del sitio web, simplemente
-// actualiza la URL o ruta del archivo correspondiente en este objeto.
+// Todas las imágenes ahora están alojadas localmente en public/assets/img/
+// para máxima velocidad de carga, privacidad y disponibilidad offline.
 
 export const ASSETS = {
   logos: {
@@ -16,16 +16,16 @@ export const ASSETS = {
     background: '/assets/img/happy-family.jpg'
   },
   coberturas: {
-    personas: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80',
-    hogar: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
-    empresas: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+    personas: '/assets/img/coverages/personas.jpg',
+    hogar: '/assets/img/coverages/hogar.jpg',
+    empresas: '/assets/img/coverages/empresas.jpg',
     movilidad: '/assets/img/movilidad-collage.jpg'
   },
   camino: [
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80',
-    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80',
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80',
-    'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80',
-    'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80'
+    '/assets/img/camino/paso-1.jpg',
+    '/assets/img/camino/paso-2.jpg',
+    '/assets/img/camino/paso-3.jpg',
+    '/assets/img/camino/paso-4.jpg',
+    '/assets/img/camino/paso-5.jpg'
   ]
 };
