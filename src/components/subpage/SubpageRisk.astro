@@ -1,0 +1,58 @@
+---
+interface Props {
+  riskBadge: string;
+  riskSpotlight: {
+    metric: string;
+    source: string;
+    meaning: string;
+    why: string;
+    action: string;
+  };
+  riskCtaBtn: string;
+  waTopic: string;
+}
+
+const { riskBadge, riskSpotlight, riskCtaBtn, waTopic } = Astro.props;
+---
+
+<section class="subpage-risk-section">
+  <div class="subpage-risk-card scroll-reveal reveal-fade-up">
+    <div class="subpage-stat-badge">
+      <span class="dot"></span>
+      <span>{riskBadge}</span>
+    </div>
+    <div class="subpage-stat-hero">{riskSpotlight.metric}</div>
+    <div class="subpage-stat-source">{riskSpotlight.source}</div>
+
+    <div class="analysis-grid">
+      <div class="analysis-box">
+        <div class="icon-wrap">
+          <span class="material-symbols-outlined">help_outline</span>
+        </div>
+        <h4>¿Qué significa?</h4>
+        <p>{riskSpotlight.meaning}</p>
+      </div>
+      <div class="analysis-box">
+        <div class="icon-wrap">
+          <span class="material-symbols-outlined">warning</span>
+        </div>
+        <h4>¿Por qué importa?</h4>
+        <p>{riskSpotlight.why}</p>
+      </div>
+      <div class="analysis-box">
+        <div class="icon-wrap">
+          <span class="material-symbols-outlined">verified_user</span>
+        </div>
+        <h4>¿Qué puedo hacer?</h4>
+        <p>{riskSpotlight.action}</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding-top:16px;border-top:1px solid var(--outline-variant)">
+      <button data-wa-topic={waTopic} class="wa-btn btn-wa-pill">
+        <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+        <span>{riskCtaBtn}</span>
+      </button>
+    </div>
+  </div>
+</section>

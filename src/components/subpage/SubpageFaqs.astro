@@ -1,0 +1,34 @@
+---
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  faqsChip: string;
+  faqsTitle: string;
+  faqs: FaqItem[];
+}
+
+const { faqsChip, faqsTitle, faqs = [] } = Astro.props;
+---
+
+<section class="subpage-faq-section">
+  <div class="faq-inner scroll-reveal reveal-fade-up">
+    <div class="section-header" style="text-align:center;margin-bottom:40px">
+      <div class="chip" style="margin:0 auto">
+        <span class="dot"></span>
+        <span>{faqsChip}</span>
+      </div>
+      <h2>{faqsTitle}</h2>
+    </div>
+    <div id="subpage-faqs-container">
+      {faqs.map(faq => (
+        <div class="faq-item">
+          <h4>{faq.q}</h4>
+          <p>{faq.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

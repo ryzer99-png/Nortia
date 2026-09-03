@@ -1,0 +1,76 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+import { ASSETS } from '@data/assets.js';
+
+const { camino } = SITE_CONTENT;
+---
+
+<section id="camino">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="camino-header scroll-reveal reveal-fade-up">
+      <div class="chip">
+        <span class="dot"></span>
+        <span>{camino.chip}</span>
+      </div>
+      <h2>{camino.title}</h2>
+      <p>{camino.subtitle}</p>
+    </div>
+
+    <div class="camino-track">
+      <!-- SVG Sine Wave Track -->
+      <svg preserveAspectRatio="none" viewBox="0 0 1600 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="camino-clip">
+            <rect id="camino-clip-rect" x="0" y="0" width="1600" height="0"></rect>
+          </clipPath>
+        </defs>
+        <path
+          d="M 800,20 C 1450,200 1450,500 800,650 C 150,800 150,1100 800,1250 C 1450,1400 1450,1500 800,1550"
+          stroke="#D9A441"
+          stroke-opacity="0.35"
+          stroke-width="3"
+          stroke-dasharray="6 8"
+          stroke-linecap="round"
+          fill="none"
+        ></path>
+        <path
+          d="M 800,20 C 1450,200 1450,500 800,650 C 150,800 150,1100 800,1250 C 1450,1400 1450,1500 800,1550"
+          stroke="#D9A441"
+          stroke-opacity="0.85"
+          stroke-width="3.5"
+          stroke-dasharray="6 8"
+          stroke-linecap="round"
+          fill="none"
+          clip-path="url(#camino-clip)"
+        ></path>
+      </svg>
+
+      <!-- Camino Steps Pre-Rendered at Build-Time -->
+      <div id="camino-steps-container" class="camino-steps">
+        {camino.steps.map((step, idx) => {
+          const isEven = idx % 2 === 1;
+          const imgUrl = Array.isArray(ASSETS.camino) ? ASSETS.camino[idx] : (ASSETS.camino?.[`paso${idx + 1}`] || '');
+
+          return (
+            <div class={`path-step ${isEven ? 'step-even' : ''}`}>
+              <div class="img-col scroll-reveal reveal-scale delay-200" style="position:relative">
+                <div class="card-brand-badge" title="NORTIA">
+                  <img alt="NORTIA" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} />
+                </div>
+                <img alt={step.title} src={imgUrl} />
+              </div>
+              <div class="text-col step-text scroll-reveal reveal-fade-up">
+                <div class="step-badge">
+                  <span class="dot"></span>
+                  <span>PASO {step.number}</span>
+                </div>
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>

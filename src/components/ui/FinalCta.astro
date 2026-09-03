@@ -1,0 +1,28 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  btnText?: string;
+  waTopic?: string;
+}
+
+const {
+  title = SITE_CONTENT.finalCta.title,
+  subtitle = SITE_CONTENT.finalCta.subtitle,
+  btnText = SITE_CONTENT.finalCta.btnText,
+  waTopic = 'general'
+} = Astro.props;
+---
+
+<section id="final-cta">
+  <div class="cta-content scroll-reveal reveal-fade-up">
+    <h2>{title}</h2>
+    <p>{subtitle}</p>
+    <button data-wa-topic={waTopic} class="wa-btn btn-wa-large">
+      <span class="material-symbols-outlined" style="font-size:24px">chat</span>
+      <span>{btnText}</span>
+    </button>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+import { ASSETS } from '@data/assets.js';
+
+interface Props {
+  waTopic?: string;
+}
+
+const { waTopic = 'general' } = Astro.props;
+const { footer, brand, coberturas } = SITE_CONTENT;
+---
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <!-- Marca -->
+      <div class="footer-brand">
+        <a href="/">
+          <img src={ASSETS.logos.footer} alt={brand.name} />
+        </a>
+        <p>{footer.brandDesc}</p>
+      </div>
+
+      <!-- Enlaces -->
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>{footer.col1Title}</h4>
+          <ul>
+            <li><a href="/life.html">{coberturas.cards[0]?.title || 'Personas y familias'}</a></li>
+            <li><a href="/home.html">{coberturas.cards[1]?.title || 'Hogar y patrimonio'}</a></li>
+            <li><a href="/business.html">{coberturas.cards[2]?.title || 'Empresas y pymes'}</a></li>
+            <li><a href="/mobility.html">{coberturas.cards[3]?.title || 'Movilidad y vehículos'}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>{footer.col2Title}</h4>
+          <ul>
+            <li><a href="/#editorial">Prevención</a></li>
+            <li><a href="/#camino">El Camino</a></li>
+            <li><a href="#" data-wa-topic={waTopic} class="wa-btn">Asesoría Privada</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>{footer.col3Title}</h4>
+          <ul>
+            <li>
+              <a href="#" data-wa-topic={waTopic} class="wa-btn wa-link">
+                <span class="material-symbols-outlined" style="font-size:16px">chat</span>
+                <span>WhatsApp Directo</span>
+              </a>
+            </li>
+            <li><a href={`mailto:${brand.email}`}>{brand.email}</a></li>
+            <li class="location">
+              <span class="material-symbols-outlined" style="font-size:16px">location_on</span>
+              <span>{brand.location}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {brand.copyrightYear} {brand.name}. Todos los derechos reservados.</p>
+      <div class="footer-bottom-links">
+        <a href="#">{footer.termsText}</a>
+        <a href="#">{footer.privacyText}</a>
+      </div>
+    </div>
+  </div>
+</footer>

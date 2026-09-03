@@ -1,0 +1,102 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+import { ASSETS } from '@data/assets.js';
+
+const { coberturas } = SITE_CONTENT;
+---
+
+<section id="coberturas">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="section-header scroll-reveal reveal-fade-up">
+      <div class="chip">
+        <span class="dot"></span>
+        <span>{coberturas.chip}</span>
+      </div>
+      <h2>{coberturas.title}</h2>
+      <p>{coberturas.subtitle}</p>
+    </div>
+
+    <!-- Flip Cards Grid Pre-Rendered at Build-Time for SEO -->
+    <div id="coberturas-cards-grid" class="cards-grid">
+      {coberturas.cards.map((card, index) => {
+        const imgUrl = ASSETS.coberturas?.[card.id] || '';
+        const delay = (index + 1) * 100;
+        const subpageUrl = card.url || `/${card.id}.html`;
+
+        return (
+          <div id={card.id} class={`flip-card scroll-reveal reveal-fade-up delay-${delay}`} tabindex="0">
+            <div class="flip-card-inner">
+              <!-- Cara Frontal -->
+              <div class="flip-card-front card-front">
+                <div class="card-brand-badge" title="NORTIA">
+                  <img alt="NORTIA" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} />
+                </div>
+                <div class="card-tap-pill" aria-hidden="true">
+                  <span class="material-symbols-outlined tap-hand">touch_app</span>
+                  <span>Toca para ver</span>
+                </div>
+                <img class="card-cover-img" alt={card.title} src={imgUrl} />
+                <div class="gradient-overlay"></div>
+                <div class="card-content">
+                  <div class="card-icon">
+                    <span class="material-symbols-outlined" style="font-size:24px">{card.icon}</span>
+                  </div>
+                  <h3>{card.title}</h3>
+                  <p>{card.frontDesc}</p>
+                  <div class="card-tags">
+                    {card.tags.map((tag: string) => (
+                      <span class="card-tag">{tag}</span>
+                    ))}
+                  </div>
+                  <div class="card-flip-prompt" role="button" aria-label="Toca la tarjeta para voltear y leer qué incluye">
+                    <div class="prompt-left">
+                      <span class="material-symbols-outlined prompt-icon">touch_app</span>
+                      <span class="prompt-text">Toca para conocer qué incluye</span>
+                    </div>
+                    <div class="prompt-badge">
+                      <span class="material-symbols-outlined prompt-arrow">sync</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cara Trasera -->
+              <div class="flip-card-back card-back">
+                <div class="card-back-flip-hint" aria-hidden="true">
+                  <span class="material-symbols-outlined">rotate_left</span>
+                  <span>Toca para voltear</span>
+                </div>
+                <div class="card-back-main">
+                  <div class="back-header">
+                    <div class="card-back-icon">
+                      <span class="material-symbols-outlined" style="font-size:24px">{card.icon}</span>
+                    </div>
+                    <h3>{card.title}</h3>
+                    <p class="desc">{card.backDesc}</p>
+                  </div>
+                  <ul class="card-features">
+                    {card.features.map((f: string) => (
+                      <li>
+                        <span class="check">✓</span> <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="card-back-actions">
+                  <a href={subpageUrl} class="btn-subpage-link">
+                    <span>Ver coberturas completas</span>
+                    <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+                  </a>
+                  <button data-wa-topic={card.waTopic} class="wa-btn btn-wa" style="margin-top:0">
+                    <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+                    <span>Cotizar por WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

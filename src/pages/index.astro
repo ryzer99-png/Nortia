@@ -1,0 +1,32 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/home/Hero.astro';
+import CoberturasGrid from '@components/home/CoberturasGrid.astro';
+import Editorial from '@components/home/Editorial.astro';
+import OfficialData from '@components/home/OfficialData.astro';
+import TrustBanner from '@components/home/TrustBanner.astro';
+import CaminoSteps from '@components/home/CaminoSteps.astro';
+import FinalCta from '@components/ui/FinalCta.astro';
+import { SITE_CONTENT } from '@data/content.js';
+
+const title = "NORTIA - Encuentra tu Norte | Seguros y Asesoría Patrimonial";
+const description = "Acompañamiento experto y preventivo en seguros en Colombia. Protección integral para personas, familias, hogar, empresas y movilidad sin intermediación de dinero.";
+---
+
+<Layout title={title} description={description} waTopic="general">
+  <main>
+    <Hero />
+    <CoberturasGrid />
+    <Editorial>
+      <OfficialData />
+    </Editorial>
+    <TrustBanner />
+    <CaminoSteps />
+    <FinalCta
+      title={SITE_CONTENT.finalCta.title}
+      subtitle={SITE_CONTENT.finalCta.subtitle}
+      btnText={SITE_CONTENT.finalCta.btnText}
+      waTopic="general"
+    />
+  </main>
+</Layout>

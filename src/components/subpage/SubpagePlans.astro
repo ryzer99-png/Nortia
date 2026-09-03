@@ -1,0 +1,63 @@
+---
+interface PlanItem {
+  title: string;
+  desc: string;
+  features: string[];
+}
+
+interface Props {
+  plansChip: string;
+  plansTitle: string;
+  plansSubtitle: string;
+  plans: PlanItem[];
+  waTopic: string;
+  targetNoun?: string;
+}
+
+const {
+  plansChip,
+  plansTitle,
+  plansSubtitle,
+  plans = [],
+  waTopic,
+  targetNoun = 'necesidad'
+} = Astro.props;
+---
+
+<section class="subpage-coverages-section">
+  <div class="subpage-coverages-inner">
+    <div class="section-header scroll-reveal reveal-fade-up">
+      <div class="chip">
+        <span class="dot"></span>
+        <span>{plansChip}</span>
+      </div>
+      <h2>{plansTitle}</h2>
+      <p>{plansSubtitle}</p>
+    </div>
+
+    <div class="coverage-plans-grid">
+      {plans.map((plan, idx) => {
+        const planMsg = `Hola NORTIA, me gustaría recibir asesoría y cotizar el plan: ${plan.title} para mi ${targetNoun}.`;
+        return (
+          <div class={`coverage-plan-card scroll-reveal reveal-fade-up delay-${(idx + 1) * 100}`}>
+            <div>
+              <h3>{plan.title}</h3>
+              <p class="plan-desc">{plan.desc}</p>
+              <ul class="coverage-feature-list">
+                {plan.features.map(f => (
+                  <li>
+                    <span class="check">✓</span> <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <button data-wa-topic={waTopic} data-wa-msg={planMsg} class="wa-btn btn-wa">
+              <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+              <span>Cotizar este Plan</span>
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

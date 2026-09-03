@@ -1,0 +1,49 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+import { ASSETS } from '@data/assets.js';
+
+interface Props {
+  waTopic?: string;
+}
+
+const { waTopic = 'general' } = Astro.props;
+---
+
+<!-- Drawer Backdrop -->
+<div id="drawer-backdrop"></div>
+
+<!-- Mobile Drawer -->
+<nav id="nav-drawer">
+  <div class="drawer-header">
+    <img src={ASSETS.logos.drawer} alt={SITE_CONTENT.brand.name} />
+    <button id="close-drawer-btn" aria-label="Cerrar menú">
+      <span class="material-symbols-outlined" style="font-size:24px">close</span>
+    </button>
+  </div>
+  <ul>
+    <li>
+      <a class="nav-drawer-link" href="/#coberturas">
+        <span class="material-symbols-outlined">shield</span>
+        <span>{SITE_CONTENT.nav[0]?.label || 'Protección'}</span>
+      </a>
+    </li>
+    <li>
+      <a class="nav-drawer-link" href="/#editorial">
+        <span class="material-symbols-outlined">lightbulb</span>
+        <span>{SITE_CONTENT.nav[1]?.label || 'Prevención'}</span>
+      </a>
+    </li>
+    <li>
+      <a class="nav-drawer-link" href="/#camino">
+        <span class="material-symbols-outlined">alt_route</span>
+        <span>{SITE_CONTENT.nav[2]?.label || 'El Camino'}</span>
+      </a>
+    </li>
+  </ul>
+  <div class="drawer-footer">
+    <button class="wa-btn" data-wa-topic={waTopic}>
+      <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+      <span>{SITE_CONTENT.hero.ctaSecondary}</span>
+    </button>
+  </div>
+</nav>

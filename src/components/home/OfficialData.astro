@@ -1,0 +1,58 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+
+const { datosOficiales } = SITE_CONTENT;
+const spotlightEntries = Object.entries(datosOficiales.riskSpotlight || {});
+
+const pageUrlMap: Record<string, string> = {
+  personas: '/life.html',
+  hogar: '/home.html',
+  empresas: '/business.html',
+  movilidad: '/mobility.html'
+};
+---
+
+<div id="datos-oficiales">
+  <div class="datos-header scroll-reveal reveal-fade-up">
+    <div class="editorial-chip">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--secondary);display:inline-block"></span>
+      <span>{datosOficiales.chip}</span>
+    </div>
+    <h3>{datosOficiales.title}</h3>
+    <p>{datosOficiales.subtitle}</p>
+  </div>
+
+  <!-- Dynamic Stat Cards Grid pre-rendered for SEO -->
+  <div id="stat-tabs-grid" class="stat-tabs-grid">
+    {spotlightEntries.map(([key, data]: [string, any], idx) => {
+      const delay = (idx + 1) * 100;
+      const shortCategory = data.category ? data.category.split(' ')[0] : key;
+      const subpageUrl = pageUrlMap[key] || `/${key}.html`;
+
+      return (
+        <a href={subpageUrl} class={`risk-tab-btn scroll-reveal reveal-fade-up delay-${delay}`} style="text-decoration:none">
+          <div>
+            <div class="tab-top">
+              <div class="tab-label">
+                <span class="material-symbols-outlined" style="font-size:16px">{data.icon}</span>
+                <span>{shortCategory}</span>
+              </div>
+            </div>
+            <div class="tab-metric">{data.metric ? data.metric.split(' ')[0] : ''}</div>
+            <p class="tab-desc">{data.title}</p>
+          </div>
+          <div class="tab-footer">
+            <span>Ver análisis y planes</span>
+            <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+          </div>
+        </a>
+      );
+    })}
+  </div>
+
+  <!-- Quote Banner -->
+  <div class="quote-banner scroll-reveal reveal-fade-up">
+    <h4>{datosOficiales.quoteBannerTitle}</h4>
+    <p>{datosOficiales.quoteBannerDesc}</p>
+  </div>
+</div>

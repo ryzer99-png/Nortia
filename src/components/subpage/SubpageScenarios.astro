@@ -1,0 +1,70 @@
+---
+interface ScenarioItem {
+  icon?: string;
+  title: string;
+  desc: string;
+  ctaText?: string;
+  waMsg?: string;
+}
+
+interface Props {
+  chip?: string;
+  title?: string;
+  subtitle?: string;
+  quote?: string;
+  scenarios?: ScenarioItem[];
+  waTopic?: string;
+}
+
+const {
+  chip = 'Escenarios y tipos de protección',
+  title = 'Protección según tus necesidades',
+  subtitle = 'Identificamos los riesgos imprevistos para estructurar la cobertura ideal.',
+  quote,
+  scenarios = [],
+  waTopic = 'general'
+} = Astro.props;
+---
+
+<section class="subpage-scenarios-section">
+  <div class="scenarios-inner">
+    <div class="section-header scroll-reveal reveal-fade-up">
+      <div class="chip">
+        <span class="dot"></span>
+        <span>{chip}</span>
+      </div>
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    {quote && (
+      <div class="scenarios-quote-box scroll-reveal reveal-fade-up">
+        <p>“{quote}”</p>
+      </div>
+    )}
+
+    <div class="scenarios-grid">
+      {scenarios.map((item, idx) => (
+        <div class={`scenario-item scroll-reveal reveal-fade-up delay-${(idx % 3 + 1) * 100}`}>
+          <div class="item-icon">
+            <span class="material-symbols-outlined">{item.icon || 'verified'}</span>
+          </div>
+          <div style="flex:1">
+            <h4>{item.title}</h4>
+            <p>{item.desc}</p>
+            {item.ctaText && (
+              <button
+                data-wa-topic={waTopic}
+                data-wa-msg={item.waMsg}
+                class="wa-btn btn-scenario-cta"
+              >
+                <span class="material-symbols-outlined">chat</span>
+                <span>{item.ctaText}</span>
+              </button>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

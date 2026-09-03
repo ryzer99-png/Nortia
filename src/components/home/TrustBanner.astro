@@ -1,0 +1,48 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+
+const { trustBanner } = SITE_CONTENT;
+
+const insurers = [
+  { name: 'SURA', logo: '/assets/img/insurers/sura.svg' },
+  { name: 'Allianz', logo: '/assets/img/insurers/allianz.svg' },
+  { name: 'HDI Seguros', logo: '/assets/img/insurers/hdi.svg' },
+  { name: 'Seguros Bolívar', logo: '/assets/img/insurers/bolivar.png' },
+  { name: 'Coomeva Medicina Prepagada', logo: '/assets/img/insurers/coomeva.png' },
+  { name: 'AXA Colpatria', logo: '/assets/img/insurers/axa-colpatria.png' },
+  { name: 'Seguros Mundial', logo: '/assets/img/insurers/mundial.svg' },
+  { name: 'La Equidad Seguros', logo: '/assets/img/insurers/equidad.svg' }
+];
+---
+
+<section id="confianza-pagos" class="trust-aseguradoras-section">
+  <div class="trust-container">
+    <!-- Banner de Confianza y Transparencia en Pagos -->
+    <div class="trust-banner-card scroll-reveal reveal-fade-up">
+      <div class="trust-banner-icon">
+        <span class="material-symbols-outlined">verified_user</span>
+      </div>
+      <div class="trust-banner-text">
+        <div class="trust-chip">
+          <span class="dot"></span>
+          <span>{trustBanner.badge}</span>
+        </div>
+        <h3>{trustBanner.title}</h3>
+        <p class="trust-highlight">{trustBanner.highlight}</p>
+        <p class="trust-desc">{trustBanner.desc}</p>
+      </div>
+    </div>
+
+    <!-- Bloque de Aseguradoras Aliadas -->
+    <div class="aseguradoras-block scroll-reveal reveal-fade-up delay-100">
+      <h4>{trustBanner.aseguradorasTitle}</h4>
+      <div class="aseguradoras-grid">
+        {insurers.map(insurer => (
+          <div class="aseguradora-badge" title={insurer.name}>
+            <img src={insurer.logo} alt={insurer.name} class="aseguradora-logo" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

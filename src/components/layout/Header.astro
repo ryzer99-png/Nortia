@@ -1,0 +1,37 @@
+---
+import { SITE_CONTENT } from '@data/content.js';
+import { ASSETS } from '@data/assets.js';
+
+interface Props {
+  waTopic?: string;
+}
+
+const { waTopic = 'general' } = Astro.props;
+---
+
+<header>
+  <div class="inner">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src={ASSETS.logos.header} alt={SITE_CONTENT.brand.name} />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav>
+      <a href="/#coberturas">{SITE_CONTENT.nav[0]?.label || 'Protección'}</a>
+      <a href="/#editorial">{SITE_CONTENT.nav[1]?.label || 'Prevención'}</a>
+      <a href="/#camino">{SITE_CONTENT.nav[2]?.label || 'El Camino'}</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <button class="btn-asesor wa-btn" data-wa-topic={waTopic}>
+        <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+        <span class="label">{SITE_CONTENT.hero.ctaSecondary}</span>
+      </button>
+      <button id="mobile-menu-btn" class="btn-hamburger" aria-label="Abrir menú">
+        <span class="material-symbols-outlined" style="font-size:24px">menu</span>
+      </button>
+    </div>
+  </div>
+</header>

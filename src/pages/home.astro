@@ -1,0 +1,72 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubpageHero from '@components/subpage/SubpageHero.astro';
+import SubpageRisk from '@components/subpage/SubpageRisk.astro';
+import SubpageScenarios from '@components/subpage/SubpageScenarios.astro';
+import SubpagePlans from '@components/subpage/SubpagePlans.astro';
+import SubpageFaqs from '@components/subpage/SubpageFaqs.astro';
+import FinalCta from '@components/ui/FinalCta.astro';
+import { HOGAR_DATA } from '@data/coverages/home.js';
+import { ASSETS } from '@data/assets.js';
+
+const sub = HOGAR_DATA.subpage;
+const risk = HOGAR_DATA.riskSpotlight;
+const bgImage = ASSETS.coberturas.hogar;
+const waTopic = 'hogar';
+---
+
+<Layout
+  title={`${sub.title} | NORTIA`}
+  description={sub.subtitle}
+  waTopic={waTopic}
+>
+  <main>
+    <SubpageHero
+      breadcrumb={sub.breadcrumb}
+      badge={sub.badge}
+      title={sub.title}
+      subtitle={sub.subtitle}
+      ctaHero={sub.ctaHero}
+      bgImage={bgImage}
+      waTopic={waTopic}
+    />
+
+    <SubpageRisk
+      riskBadge={sub.riskBadge}
+      riskSpotlight={risk}
+      riskCtaBtn={sub.riskCtaBtn}
+      waTopic={waTopic}
+    />
+
+    <SubpageScenarios
+      chip="Escenarios y tipos de riesgo"
+      title="¿Qué situaciones y riesgos debes considerar?"
+      subtitle="Identificamos los riesgos imprevistos que pueden afectar tu vivienda y patrimonio."
+      quote={sub.scenariosQuote}
+      scenarios={sub.scenarios}
+      waTopic={waTopic}
+    />
+
+    <SubpagePlans
+      plansChip={sub.plansChip}
+      plansTitle={sub.plansTitle}
+      plansSubtitle={sub.plansSubtitle}
+      plans={sub.plans}
+      waTopic={waTopic}
+      targetNoun="Hogar"
+    />
+
+    <SubpageFaqs
+      faqsChip={sub.faqsChip}
+      faqsTitle={sub.faqsTitle}
+      faqs={sub.faqs}
+    />
+
+    <FinalCta
+      title={sub.finalCtaTitle}
+      subtitle={sub.finalCtaSubtitle}
+      btnText={sub.finalCtaBtn}
+      waTopic={waTopic}
+    />
+  </main>
+</Layout>

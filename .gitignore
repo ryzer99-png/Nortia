@@ -1,0 +1,35 @@
+# --- Entornos y Builds ---
+dist/
+.astro/
+.cache/
+
+# --- Dependencias ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Variables de Entorno y Secretos ---
+.env
+.env.*
+!.env.example
+
+# --- Archivos de Sistema Operativo ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.swp
+*.swo
+*~
+
+# --- IDEs y Editores ---
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# --- Logs y Cobertura ---
+*.log
+coverage/
+.temp/

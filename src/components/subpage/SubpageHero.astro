@@ -1,0 +1,39 @@
+---
+interface Props {
+  breadcrumb: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  ctaHero: string;
+  bgImage: string;
+  waTopic: string;
+}
+
+const { breadcrumb, badge, title, subtitle, ctaHero, bgImage, waTopic } = Astro.props;
+---
+
+<section class="subpage-hero">
+  <div class="subpage-hero-bg">
+    <img alt={breadcrumb} src={bgImage} />
+  </div>
+  <div class="subpage-hero-overlay"></div>
+  <div class="subpage-hero-content">
+    <div class="breadcrumb-nav">
+      <a href="/">
+        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span> Inicio
+      </a>
+      <span>/</span>
+      <span style="color:var(--on-primary)">{breadcrumb}</span>
+    </div>
+    <div class="subpage-stat-badge">
+      <span class="dot"></span>
+      <span>{badge}</span>
+    </div>
+    <h1>{title}</h1>
+    <p class="subpage-hero-sub">{subtitle}</p>
+    <button data-wa-topic={waTopic} class="wa-btn btn-primary-cta">
+      <span>{ctaHero}</span>
+      <span class="material-symbols-outlined" style="font-size:20px">chat</span>
+    </button>
+  </div>
+</section>
