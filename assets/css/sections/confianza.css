@@ -145,23 +145,39 @@
 }
 
 .aseguradora-badge {
-  background: var(--surface);
+  background: #ffffff;
   border: 1px solid var(--outline-variant);
-  border-radius: 14px;
-  padding: 14px 24px;
+  border-radius: 16px;
+  padding: 16px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 140px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s ease;
+  min-width: 155px;
+  height: 82px;
+  box-shadow: 0 4px 14px rgba(10, 25, 47, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 }
 
 .aseguradora-badge:hover {
   border-color: var(--secondary);
-  box-shadow: 0 8px 24px rgba(217, 164, 65, 0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(217, 164, 65, 0.18);
+  transform: translateY(-3px);
+}
+
+.aseguradora-logo {
+  max-width: 125px;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.aseguradora-badge:hover .aseguradora-logo {
+  transform: scale(1.04);
 }
 
 .aseguradora-badge .aseguradora-name {
@@ -191,10 +207,17 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    gap: 12px;
   }
 
   .aseguradora-badge {
     min-width: auto;
+    height: 72px;
     padding: 12px 16px;
+  }
+
+  .aseguradora-logo {
+    max-width: 105px;
+    max-height: 38px;
   }
 }

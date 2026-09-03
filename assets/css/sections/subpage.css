@@ -395,6 +395,22 @@
 }
 
 /* ── Subpage Responsive ── */
+@media (max-width: 640px) {
+  .subpage-risk-section {
+    padding: 48px 16px;
+  }
+  .subpage-risk-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  .subpage-stat-hero {
+    font-size: 26px;
+  }
+  .subpage-hero {
+    padding: 64px 16px 48px;
+  }
+}
+
 @media (min-width: 640px) {
   .coverage-plans-grid {
     grid-template-columns: repeat(2, 1fr);

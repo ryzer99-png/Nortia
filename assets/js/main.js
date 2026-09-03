@@ -73,7 +73,12 @@ function renderCoberturas() {
           <!-- Cara Frontal -->
           <div class="flip-card-front card-front">
             <div class="card-brand-badge" title="NORTIA">
-              <img alt="NORTIA" src="${ASSETS.logos.favicon}">
+              <img alt="NORTIA" src="${ASSETS.logos.isotipo || ASSETS.logos.favicon}">
+            </div>
+            <!-- Indicador superior de Tap interactivo en Mobile -->
+            <div class="card-tap-pill" aria-hidden="true">
+              <span class="material-symbols-outlined tap-hand">touch_app</span>
+              <span>Toca para ver</span>
             </div>
             <img class="card-cover-img" alt="${card.title}" src="${imgUrl}">
             <div class="gradient-overlay"></div>
@@ -86,18 +91,25 @@ function renderCoberturas() {
               <div class="card-tags">
                 ${card.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('')}
               </div>
-              <div class="card-flip-prompt" role="button" aria-label="Toca para voltear y leer qué incluye">
+              <!-- Llamado de acción inferior al tap -->
+              <div class="card-flip-prompt" role="button" aria-label="Toca la tarjeta para voltear y leer qué incluye">
                 <div class="prompt-left">
                   <span class="material-symbols-outlined prompt-icon">touch_app</span>
-                  <span class="prompt-text">Toca para leer qué incluye</span>
+                  <span class="prompt-text">Toca para conocer qué incluye</span>
                 </div>
-                <span class="material-symbols-outlined prompt-arrow">arrow_forward</span>
+                <div class="prompt-badge">
+                  <span class="material-symbols-outlined prompt-arrow">sync</span>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Cara Trasera -->
           <div class="flip-card-back card-back">
+            <div class="card-back-flip-hint" aria-hidden="true">
+              <span class="material-symbols-outlined">rotate_left</span>
+              <span>Toca para voltear</span>
+            </div>
             <div class="card-back-main">
               <div class="back-header">
                 <div class="card-back-icon">
@@ -140,7 +152,7 @@ function renderCaminoSteps() {
       <div class="path-step ${isEven ? 'step-even' : ''}">
         <div class="img-col scroll-reveal reveal-scale delay-200" style="position:relative">
           <div class="card-brand-badge" title="NORTIA">
-            <img alt="NORTIA" src="${ASSETS.logos.favicon}">
+            <img alt="NORTIA" src="${ASSETS.logos.isotipo || ASSETS.logos.favicon}">
           </div>
           <img alt="${step.title}" src="${imgUrl}">
         </div>

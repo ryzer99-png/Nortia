@@ -96,19 +96,19 @@
   top: 18px;
   left: 18px;
   z-index: 15;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: rgba(27, 42, 74, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(217, 164, 65, 0.45);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(217, 164, 65, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(10, 25, 47, 0.18);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-brand-badge img {
@@ -117,11 +117,13 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
+  display: block;
 }
 
 .flip-card:hover .card-brand-badge {
   border-color: var(--secondary);
-  box-shadow: 0 4px 16px rgba(217, 164, 65, 0.35);
+  box-shadow: 0 6px 20px rgba(217, 164, 65, 0.45);
+  transform: translateY(-2px);
 }
 
 .flip-card:hover .card-front img {
@@ -185,67 +187,171 @@
   font-weight: 500;
 }
 
-/* ── Llamado a leer el respaldo (Exclusivo para Mobile / Touch) ── */
+/* ── Interactive Tap Indicators (Exclusivo para Mobile / Touch < 1024px) ── */
+.card-tap-pill {
+  display: none;
+}
+
 .card-flip-prompt {
   display: none;
 }
 
+.card-back-flip-hint {
+  display: none;
+}
+
 @media (max-width: 1023px) {
+  /* 1. Badge superior derecho que invita al tap de inmediato */
+  .card-tap-pill {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 15;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(10, 25, 47, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(217, 164, 65, 0.6);
+    color: #F0C568;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    animation: tapPillPulse 2.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .card-tap-pill .tap-hand {
+    font-size: 15px;
+    color: var(--secondary);
+    animation: tapHandBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes tapPillPulse {
+    0%, 100% {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(217, 164, 65, 0.4);
+      border-color: rgba(217, 164, 65, 0.6);
+    }
+    50% {
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 0 5px rgba(217, 164, 65, 0.18);
+      border-color: rgba(217, 164, 65, 0.95);
+    }
+  }
+
+  @keyframes tapHandBounce {
+    0%, 100% {
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      transform: scale(1.2) translateY(-2px);
+    }
+  }
+
+  /* 2. Barra interactiva inferior de la tarjeta */
   .card-flip-prompt {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
-    margin-top: 4px;
-    padding: 8px 12px;
-    background: rgba(217, 164, 65, 0.16);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(217, 164, 65, 0.4);
-    border-radius: 10px;
-    color: #fbf9f5;
-    font-size: 12px;
-    font-weight: 600;
+    gap: 10px;
+    margin-top: 6px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, rgba(217, 164, 65, 0.22) 0%, rgba(10, 25, 47, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(217, 164, 65, 0.55);
+    border-radius: 14px;
+    color: #ffffff;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   }
 
   .card-flip-prompt .prompt-left {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
 
   .card-flip-prompt .prompt-icon {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--secondary);
-    animation: pulseTouch 2s ease-in-out infinite;
-  }
-
-  @keyframes pulseTouch {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.25); }
+    animation: tapHandBounce 1.5s ease-in-out infinite;
   }
 
   .card-flip-prompt .prompt-text {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #f7f4ef;
     letter-spacing: 0.2px;
+  }
+
+  .card-flip-prompt .prompt-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(217, 164, 65, 0.25);
+    border: 1px solid rgba(217, 164, 65, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .card-flip-prompt .prompt-arrow {
     font-size: 16px;
     color: var(--secondary);
-    transition: transform 0.25s ease;
+    animation: spinSlow 6s linear infinite;
+  }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .card-flip-prompt:active {
-    background: rgba(217, 164, 65, 0.32);
+    transform: scale(0.97);
+    background: linear-gradient(135deg, rgba(217, 164, 65, 0.38) 0%, rgba(10, 25, 47, 0.95) 100%);
     border-color: var(--secondary);
+  }
+
+  /* 3. Indicador de vuelta en el respaldo */
+  .card-back-flip-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    color: rgba(247, 244, 239, 0.75);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    user-select: none;
+  }
+
+  .card-back-flip-hint .material-symbols-outlined {
+    font-size: 14px;
+    color: var(--secondary);
   }
 }
 
 @media (min-width: 1024px) {
-  .card-flip-prompt {
+  .card-tap-pill,
+  .card-flip-prompt,
+  .card-back-flip-hint {
     display: none !important;
   }
 }

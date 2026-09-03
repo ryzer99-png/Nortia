@@ -94,21 +94,34 @@
 .btn-wa-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: #25D366;
   color: white;
   padding: 12px 24px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
   font-family: 'Hanken Grotesk', sans-serif;
-  white-space: nowrap;
   transition: all 0.2s;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+  line-height: 1.35;
 }
 
 .btn-wa-pill:hover {
   background: #20ba5a;
   transform: scale(1.02);
+}
+
+@media (max-width: 640px) {
+  .btn-wa-pill {
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 13px;
+    border-radius: 100px;
+  }
 }
 
 /* ── Final CTA Large Button ── */
