@@ -5,17 +5,17 @@
 //
 // 1. './global.js'               -> Marca, contacto, WhatsApp, navegación y footer
 // 2. './home.js'                 -> Hero, filosofía, resumen de datos, El Camino y CTA
-// 3. './coberturas/personas.js'  -> Personas y Familias (Home card + Subpágina dedicada)
-// 4. './coberturas/hogar.js'     -> Hogar y Patrimonio (Home card + Subpágina dedicada)
-// 5. './coberturas/empresas.js'  -> Empresas & PyMEs (Home card + Subpágina dedicada)
-// 6. './coberturas/movilidad.js' -> Movilidad & Vehículos (Home card + Subpágina dedicada)
+// 3. './coverages/life.js'      -> Personas y familias (Home card + Subpágina dedicada)
+// 4. './coverages/home.js'      -> Hogar y patrimonio (Home card + Subpágina dedicada)
+// 5. './coverages/business.js'  -> Empresas y pymes (Home card + Subpágina dedicada)
+// 6. './coverages/mobility.js'  -> Movilidad y vehículos (Home card + Subpágina dedicada)
 
 import { GLOBAL_DATA } from './global.js';
 import { HOME_DATA } from './home.js';
-import { PERSONAS_DATA } from './coberturas/personas.js';
-import { HOGAR_DATA } from './coberturas/hogar.js';
-import { EMPRESAS_DATA } from './coberturas/empresas.js';
-import { MOVILIDAD_DATA } from './coberturas/movilidad.js';
+import { PERSONAS_DATA } from './coverages/life.js';
+import { HOGAR_DATA } from './coverages/home.js';
+import { EMPRESAS_DATA } from './coverages/business.js';
+import { MOVILIDAD_DATA } from './coverages/mobility.js';
 
 export const SITE_CONTENT = {
   // ── 1. Configuración y Datos Globales ──

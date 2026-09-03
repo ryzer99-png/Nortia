@@ -4,9 +4,9 @@
 
 export const HOGAR_DATA = {
   id: 'hogar',
-  url: './hogar.html',
+  url: './home.html',
   icon: 'home_work',
-  title: 'Hogar y Patrimonio',
+  title: 'Hogar y patrimonio',
   frontDesc: 'Protege el resultado de años de trabajo y esfuerzo.',
   tags: ['Sismo', 'Incendio', 'Inundación', 'Contenidos'],
   backDesc: 'No sería justo que años de esfuerzo pudieran perderse en segundos por un evento de la naturaleza sin siquiera haber revisado las alternativas de protección.',
@@ -34,6 +34,7 @@ export const HOGAR_DATA = {
 
   // Contenido de la Subpágina Dedicada
   subpage: {
+    breadcrumb: 'Hogar y patrimonio',
     badge: 'Línea hogar',
     title: 'Seguro de hogar y patrimonio',
     subtitle: 'Tu casa representa años de esfuerzo y construcción. Protégela contra desastres, imprevistos y daños a terceros.',

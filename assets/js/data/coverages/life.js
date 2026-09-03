@@ -4,9 +4,9 @@
 
 export const PERSONAS_DATA = {
   id: 'personas',
-  url: './personas.html',
+  url: './life.html',
   icon: 'family_restroom',
-  title: 'Personas y Familias',
+  title: 'Personas y familias',
   frontDesc: 'Protege a quienes más quieres y aquello que les permite seguir adelante.',
   tags: ['Vida', 'Salud', 'Accidentes', 'Ingresos'],
   backDesc: 'Tu capacidad de trabajar, tus ingresos y tu salud también hacen parte de lo que debes proteger.',
@@ -34,6 +34,7 @@ export const PERSONAS_DATA = {
 
   // Contenido de la Subpágina Dedicada
   subpage: {
+    breadcrumb: 'Personas y familias',
     badge: 'Línea personas',
     title: 'Seguros para personas y familias',
     subtitle: 'Protege tu bienestar físico, tu capacidad de generar ingresos y el futuro de tus seres queridos con planes a tu medida.',

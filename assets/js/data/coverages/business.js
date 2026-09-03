@@ -4,7 +4,7 @@
 
 export const EMPRESAS_DATA = {
   id: 'empresas',
-  url: './empresas.html',
+  url: './business.html',
   icon: 'domain',
   title: 'Empresas y pymes',
   frontDesc: 'Protege tu negocio, tus personas y aquello que has construido.',
@@ -34,6 +34,7 @@ export const EMPRESAS_DATA = {
 
   // Contenido de la Subpágina Dedicada
   subpage: {
+    breadcrumb: 'Empresas y pymes',
     badge: 'Línea corporativa',
     title: 'Seguros para empresas y pymes',
     subtitle: 'Blindaje jurídico, financiero y operativo para garantizar que tu negocio nunca detenga su crecimiento.',

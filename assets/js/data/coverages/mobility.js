@@ -4,7 +4,7 @@
 
 export const MOVILIDAD_DATA = {
   id: 'movilidad',
-  url: './movilidad.html',
+  url: './mobility.html',
   icon: 'directions_car',
   title: 'Movilidad y vehículos',
   frontDesc: 'Protección para la forma en que te movilizas, trabajas y disfrutas.',
@@ -34,6 +34,7 @@ export const MOVILIDAD_DATA = {
 
   // Contenido de la Subpágina Dedicada
   subpage: {
+    breadcrumb: 'Movilidad y vehículos',
     badge: 'Línea movilidad',
     title: 'Seguro de autos, motos y movilidad',
     subtitle: 'Tranquilidad total al conducir con la mayor red de asistencia y protección económica contra accidentes y hurtos.',
