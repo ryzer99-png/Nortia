@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_CONTENT } from '@data/content.js';
 import { ASSETS } from '@data/assets.js';
 
@@ -8,6 +9,10 @@ interface Props {
 
 const { waTopic = 'general' } = Astro.props;
 const { footer, brand, coberturas } = SITE_CONTENT;
+const phone = brand.phone;
+const waMessages = SITE_CONTENT.whatsappMessages as Record<string, string>;
+const message = waMessages[waTopic] || waMessages.general || '';
+const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 ---
 
 <footer>
@@ -16,7 +21,7 @@ const { footer, brand, coberturas } = SITE_CONTENT;
       <!-- Marca -->
       <div class="footer-brand">
         <a href="/">
-          <img src={ASSETS.logos.footer} alt={brand.name} />
+          <Image src={ASSETS.logos.footer} alt={brand.name} width={160} height={42} />
         </a>
         <p>{footer.brandDesc}</p>
       </div>
@@ -38,7 +43,7 @@ const { footer, brand, coberturas } = SITE_CONTENT;
           <ul>
             <li><a href="/#editorial">Prevención</a></li>
             <li><a href="/#camino">El Camino</a></li>
-            <li><a href="#" data-wa-topic={waTopic} class="wa-btn">Asesoría Privada</a></li>
+            <li><a href={waLink} target="_blank" rel="noopener noreferrer" data-wa-topic={waTopic} class="wa-btn">Asesoría Privada</a></li>
           </ul>
         </div>
 
@@ -46,7 +51,7 @@ const { footer, brand, coberturas } = SITE_CONTENT;
           <h4>{footer.col3Title}</h4>
           <ul>
             <li>
-              <a href="#" data-wa-topic={waTopic} class="wa-btn wa-link">
+              <a href={waLink} target="_blank" rel="noopener noreferrer" data-wa-topic={waTopic} class="wa-btn wa-link">
                 <span class="material-symbols-outlined" style="font-size:16px">chat</span>
                 <span>WhatsApp Directo</span>
               </a>
@@ -64,8 +69,8 @@ const { footer, brand, coberturas } = SITE_CONTENT;
     <div class="footer-bottom">
       <p>© {brand.copyrightYear} {brand.name}. Todos los derechos reservados.</p>
       <div class="footer-bottom-links">
-        <a href="#">{footer.termsText}</a>
-        <a href="#">{footer.privacyText}</a>
+        <a href="/terminos">{footer.termsText}</a>
+        <a href="/privacidad">{footer.privacyText}</a>
       </div>
     </div>
   </div>

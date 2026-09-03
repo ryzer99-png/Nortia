@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_CONTENT } from '@data/content.js';
 import { ASSETS } from '@data/assets.js';
 
@@ -15,7 +16,7 @@ const { waTopic = 'general' } = Astro.props;
 <!-- Mobile Drawer -->
 <nav id="nav-drawer">
   <div class="drawer-header">
-    <img src={ASSETS.logos.drawer} alt={SITE_CONTENT.brand.name} />
+    <Image src={ASSETS.logos.drawer} alt={SITE_CONTENT.brand.name} width={140} height={36} loading="eager" />
     <button id="close-drawer-btn" aria-label="Cerrar menú">
       <span class="material-symbols-outlined" style="font-size:24px">close</span>
     </button>

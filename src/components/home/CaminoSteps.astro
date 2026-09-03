@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_CONTENT } from '@data/content.js';
 import { ASSETS } from '@data/assets.js';
 
@@ -55,9 +56,9 @@ const { camino } = SITE_CONTENT;
             <div class={`path-step ${isEven ? 'step-even' : ''}`}>
               <div class="img-col scroll-reveal reveal-scale delay-200" style="position:relative">
                 <div class="card-brand-badge" title="NORTIA">
-                  <img alt="NORTIA" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} />
+                  <Image alt="NORTIA" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} width={36} height={36} />
                 </div>
-                <img alt={step.title} src={imgUrl} />
+                <Image alt={step.title} src={imgUrl} width={600} height={400} loading="lazy" decoding="async" />
               </div>
               <div class="text-col step-text scroll-reveal reveal-fade-up">
                 <div class="step-badge">

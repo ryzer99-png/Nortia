@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_CONTENT } from '@data/content.js';
 import { ASSETS } from '@data/assets.js';
 
@@ -7,7 +8,7 @@ const { hero } = SITE_CONTENT;
 
 <section id="hero">
   <div class="hero-bg">
-    <img alt="Lifestyle Protection" src={ASSETS.hero.background} />
+    <Image alt="Lifestyle Protection" src={ASSETS.hero.background} width={1920} height={1080} loading="eager" decoding="async" />
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">

@@ -1,0 +1,47 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { SITE_CONTENT } from '@data/content.js';
+
+const title = 'Política de Privacidad y Tratamiento de Datos | NORTIA';
+const description = 'Política de privacidad y protección de datos personales de NORTIA en cumplimiento de la Ley 1581 de 2012 en Colombia.';
+---
+
+<Layout title={title} description={description} waTopic="general">
+  <main style="max-width: 800px; margin: 0 auto; padding: 140px 24px 80px; color: var(--text);">
+    <a href="/" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 24px;">
+      <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+      <span>Volver al inicio</span>
+    </a>
+
+    <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; color: var(--text-dark);">Política de Privacidad</h1>
+    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px;">Cumplimiento Ley 1581 de 2012 y Decreto 1377 de 2013 (Colombia)</p>
+
+    <div style="line-height: 1.7; font-size: 1rem; display: flex; flex-direction: column; gap: 24px;">
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">1. Responsable del Tratamiento de Datos</h2>
+        <p>
+          {SITE_CONTENT.brand.name} declara que la información y datos personales suministrados por los titulares serán tratados de manera confidencial, segura y con apego estricto a las disposiciones normativas vigentes en la República de Colombia.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">2. Finalidad de la Información Recolectada</h2>
+        <p>
+          Los datos de contacto (nombre, teléfono, correo electrónico e información básica de riesgo o bienes a asegurar) serán utilizados exclusivamente para:
+        </p>
+        <ul style="padding-left: 20px; margin-top: 8px; display: flex; flex-direction: column; gap: 6px;">
+          <li>Elaborar cotizaciones y comparativos de seguros solicitados voluntariamente por el usuario.</li>
+          <li>Brindar acompañamiento y asesoría técnica respecto a coberturas y pólizas de interés.</li>
+          <li>Gestionar la comunicación directa mediante WhatsApp o correo electrónico.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">3. Derechos del Titular (Habeas Data)</h2>
+        <p>
+          Como titular de los datos personales, usted tiene derecho a conocer, actualizar, rectificar y solicitar la supresión de su información de nuestras bases de datos en cualquier momento enviando una solicitud a <a href={`mailto:${SITE_CONTENT.brand.email}`} style="color: var(--primary);">{SITE_CONTENT.brand.email}</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+</Layout>

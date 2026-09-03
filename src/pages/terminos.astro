@@ -1,0 +1,49 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { SITE_CONTENT } from '@data/content.js';
+
+const title = 'Términos y Condiciones | NORTIA';
+const description = 'Términos y condiciones de uso de los servicios de asesoría, comparación y corretaje de seguros de NORTIA en Colombia.';
+---
+
+<Layout title={title} description={description} waTopic="general">
+  <main style="max-width: 800px; margin: 0 auto; padding: 140px 24px 80px; color: var(--text);">
+    <a href="/" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 24px;">
+      <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+      <span>Volver al inicio</span>
+    </a>
+
+    <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; color: var(--text-dark);">Términos y Condiciones</h1>
+    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px;">Última actualización: Enero de 2026</p>
+
+    <div style="line-height: 1.7; font-size: 1rem; display: flex; flex-direction: column; gap: 24px;">
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">1. Naturaleza de los Servicios</h2>
+        <p>
+          {SITE_CONTENT.brand.name} actúa como consultora y asesora en intermediación y corretaje de seguros en Colombia. Nuestro propósito es ofrecer acompañamiento experto, análisis de riesgos y comparación independiente de pólizas ofrecidas por compañías de seguros legalmente autorizadas por la Superintendencia Financiera de Colombia.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">2. Cero Intermediación de Dinero</h2>
+        <p>
+          En {SITE_CONTENT.brand.name} <strong>no recibimos dinero en efectivo, transferencias personales ni gestionamos recaudos directos de primas</strong>. El pago de cualquier póliza se realiza de forma directa y transparente entre el cliente y la compañía aseguradora correspondiente (SURA, Allianz, Bolívar, AXA Colpatria, entre otras) a través de sus canales oficiales de facturación y pasarelas bancarias.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">3. Responsabilidad y Coberturas</h2>
+        <p>
+          Las condiciones generales, exclusiones, deducibles y coberturas de cada seguro corresponden a los clausulados contractuales expedidos por la respectiva compañía aseguradora. La asesoría brindada busca orientar la toma de decisiones informadas conforme al perfil de riesgo suministrado por el usuario.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">4. Contacto y Canales Oficiales</h2>
+        <p>
+          Cualquier comunicación o solicitud formal puede dirigirse a nuestro correo electrónico oficial: <a href={`mailto:${SITE_CONTENT.brand.email}`} style="color: var(--primary);">{SITE_CONTENT.brand.email}</a> o a través de nuestra línea autorizada de WhatsApp corporativo.
+        </p>
+      </section>
+    </div>
+  </main>
+</Layout>

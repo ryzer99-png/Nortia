@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_CONTENT } from '@data/content.js';
 
 const { trustBanner } = SITE_CONTENT;
@@ -39,7 +40,7 @@ const insurers = [
       <div class="aseguradoras-grid">
         {insurers.map(insurer => (
           <div class="aseguradora-badge" title={insurer.name}>
-            <img src={insurer.logo} alt={insurer.name} class="aseguradora-logo" loading="lazy" />
+            <Image src={insurer.logo} alt={insurer.name} width={120} height={36} class="aseguradora-logo" loading="lazy" decoding="async" />
           </div>
         ))}
       </div>
