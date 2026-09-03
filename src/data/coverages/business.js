@@ -4,7 +4,7 @@
 
 export const EMPRESAS_DATA = {
   id: 'empresas',
-  url: './business.html',
+  url: '/empresas',
   icon: 'domain',
   title: 'Empresas y pymes',
   frontDesc: 'Protege tu negocio, tus personas y aquello que has construido.',

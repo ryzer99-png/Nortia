@@ -5,10 +5,10 @@ const { datosOficiales } = SITE_CONTENT;
 const spotlightEntries = Object.entries(datosOficiales.riskSpotlight || {});
 
 const pageUrlMap: Record<string, string> = {
-  personas: '/life.html',
-  hogar: '/home.html',
-  empresas: '/business.html',
-  movilidad: '/mobility.html'
+  personas: '/personas',
+  hogar: '/hogar',
+  empresas: '/empresas',
+  movilidad: '/movilidad'
 };
 ---
 
@@ -27,7 +27,7 @@ const pageUrlMap: Record<string, string> = {
     {spotlightEntries.map(([key, data]: [string, any], idx) => {
       const delay = (idx + 1) * 100;
       const shortCategory = data.category ? data.category.split(' ')[0] : key;
-      const subpageUrl = pageUrlMap[key] || `/${key}.html`;
+      const subpageUrl = pageUrlMap[key] || `/${key}`;
 
       return (
         <a href={subpageUrl} class={`risk-tab-btn scroll-reveal reveal-fade-up delay-${delay}`} style="text-decoration:none">

@@ -21,7 +21,7 @@ const { coberturas } = SITE_CONTENT;
       {coberturas.cards.map((card, index) => {
         const imgUrl = ASSETS.coberturas?.[card.id] || '';
         const delay = (index + 1) * 100;
-        const subpageUrl = card.url || `/${card.id}.html`;
+        const subpageUrl = card.url || `/${card.id}`;
 
         return (
           <div id={card.id} class={`flip-card scroll-reveal reveal-fade-up delay-${delay}`} tabindex="0">

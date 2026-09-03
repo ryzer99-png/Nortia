@@ -37,12 +37,12 @@ Nortia/
 │   ├── layouts/                # Plantillas estructurales
 │   │   └── Layout.astro        # Head, Meta tags, SEO, OpenGraph, Fuentes, Scripts
 │   │
-│   ├── pages/                  # Enrutamiento basado en archivos
+│   ├── pages/                  # Enrutamiento basado en archivos (URLs Limpias)
 │   │   ├── index.astro         # / (Home)
-│   │   ├── life.astro          # /life.html (Personas y Familias)
-│   │   ├── home.astro          # /home.html (Hogar y Patrimonio)
-│   │   ├── mobility.astro      # /mobility.html (Movilidad y Vehículos)
-│   │   └── business.astro      # /business.html (Empresas y Pymes)
+│   │   ├── personas.astro      # /personas (Personas y Familias)
+│   │   ├── hogar.astro         # /hogar (Hogar y Patrimonio)
+│   │   ├── movilidad.astro     # /movilidad (Movilidad y Vehículos)
+│   │   └── empresas.astro      # /empresas (Empresas y Pymes)
 │   │
 │   ├── scripts/                # Interactividad de cliente (sin generación de DOM)
 │   │   └── interactions.js     # Flip cards, menú móvil, scroll reveal, anclas, WhatsApp

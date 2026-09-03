@@ -7,19 +7,19 @@ export const GLOBAL_DATA = {
   brand: {
     name: 'NORTIA',
     tagline: 'Encuentra tu Norte',
-    phone: '573000000000', // Número de WhatsApp (código de país 57 para Colombia)
-    email: 'contacto@nortia.com',
+    phone: '573239004028', // Número de WhatsApp (código de país 57 para Colombia)
+    email: 'info@nortia.com.co',
     location: 'Colombia',
     copyrightYear: 2026
   },
 
   // Mensajes preconfigurados para WhatsApp según el contexto del usuario
   whatsappMessages: {
-    personas: 'Hola NORTIA, me gustaría recibir asesoría personalizada para la protección de personas y familias (salud / vida).',
-    hogar: 'Hola NORTIA, me gustaría cotizar y recibir información sobre el seguro de hogar y patrimonio.',
-    empresas: 'Hola NORTIA, busco asesoría corporativa para blindar y cotizar seguros para mi empresa / pyme.',
-    movilidad: 'Hola NORTIA, me interesa cotizar un seguro todo riesgo / SOAT para mi vehículo o moto.',
-    general: 'Hola NORTIA, quisiera hablar con un asesor para conocer sus opciones de seguros y recibir una cotización.'
+    personas: 'Hola nortia, me gustaría recibir asesoría personalizada para la protección de personas y familias (salud / vida).',
+    hogar: 'Hola nortia, me gustaría cotizar y recibir información sobre el seguro de hogar y patrimonio.',
+    empresas: 'Hola nortia, busco asesoría corporativa para blindar y cotizar seguros para mi empresa / pyme.',
+    movilidad: 'Hola nortia, me interesa cotizar un seguro todo riesgo / SOAT para mi vehículo o moto.',
+    general: 'Hola nortia, quisiera hablar con un asesor para conocer sus opciones de seguros y recibir una cotización.'
   },
 
   // Menú de navegación principal
