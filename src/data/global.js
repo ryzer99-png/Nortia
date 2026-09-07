@@ -6,7 +6,7 @@ export const GLOBAL_DATA = {
   // Información de contacto y marca
   brand: {
     name: 'NORTIA',
-    tagline: 'Encuentra tu Norte',
+    tagline: 'Te guiamos para proteger lo que más valoras',
     phone: '573239004028', // Número de WhatsApp (código de país 57 para Colombia)
     email: 'info@nortia.com.co',
     location: 'Colombia',
@@ -31,7 +31,7 @@ export const GLOBAL_DATA = {
 
   // Textos generales de pie de página
   footer: {
-    brandDesc: 'Encontrando claridad para proteger lo que realmente importa. Acompañamiento experto y preventivo en seguros.',
+    brandDesc: 'Te guiamos para proteger lo que más valoras. Acompañamiento experto y preventivo en seguros.',
     btnText: 'Hablar con un asesor',
     col1Title: 'Protección',
     col2Title: 'Nosotros',

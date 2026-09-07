@@ -59,10 +59,12 @@
 }
 
 .subpage-hero h1 {
-  font-family: 'Newsreader', serif;
-  font-size: clamp(32px, 5vw, 56px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 4.5vw, 52px);
   line-height: 1.15;
   color: var(--on-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin-top: 16px;
   margin-bottom: 16px;
 }
@@ -96,7 +98,7 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(217,164,65,0.15);
+  background: rgba(var(--secondary-rgb), 0.15);
   color: var(--secondary);
   border-radius: 999px;
   font-size: 12px;
@@ -113,9 +115,10 @@
 }
 
 .subpage-stat-hero {
-  font-family: 'Newsreader', serif;
-  font-size: clamp(28px, 4vw, 44px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--primary);
   margin-bottom: 8px;
 }
@@ -157,7 +160,7 @@
 }
 
 .analysis-box h4 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -193,9 +196,10 @@
 }
 
 .scenarios-quote-box p {
-  font-family: 'Newsreader', serif;
-  font-size: clamp(18px, 2.5vw, 22px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
   font-style: italic;
+  font-weight: 500;
   color: var(--primary);
   line-height: 1.5;
   margin: 0;
@@ -244,13 +248,13 @@
 }
 
 .scenario-item:hover .item-icon {
-  background: rgba(217, 164, 65, 0.15);
-  border-color: rgba(217, 164, 65, 0.5);
+  background: rgba(var(--secondary-rgb), 0.15);
+  border-color: rgba(var(--secondary-rgb), 0.5);
   color: var(--secondary);
 }
 
 .scenario-item h4 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: var(--primary);
@@ -327,8 +331,10 @@
 }
 
 .coverage-plan-card h3 {
-  font-family: 'Newsreader', serif;
-  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--primary);
   margin-bottom: 12px;
 }
@@ -380,7 +386,7 @@
 }
 
 .faq-item h4 {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--primary);

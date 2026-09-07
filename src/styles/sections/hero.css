@@ -56,10 +56,10 @@ main {
   gap: 8px;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(217,164,65,0.18);
-  border: 1px solid rgba(217,164,65,0.35);
+  background: rgba(var(--secondary-rgb), 0.18);
+  border: 1px solid rgba(var(--secondary-rgb), 0.35);
   color: var(--secondary);
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -75,11 +75,12 @@ main {
 }
 
 #hero h1 {
-  font-family: 'Newsreader', serif;
-  font-size: clamp(32px, 5vw, 60px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 4.5vw, 56px);
   line-height: 1.15;
   color: var(--on-primary);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 #hero h1 .highlight {
@@ -87,8 +88,8 @@ main {
 }
 
 #hero .hero-sub {
-  font-family: 'Hanken Grotesk', sans-serif;
-  font-size: clamp(16px, 2vw, 18px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 1.8vw, 17px);
   line-height: 28px;
   color: rgba(247,244,239,0.95);
   max-width: 540px;

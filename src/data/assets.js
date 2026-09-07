@@ -10,7 +10,12 @@ export const ASSETS = {
     header: '/assets/img/brand/nortia-logo.png',
     drawer: '/assets/img/brand/nortia-logo.png',
     footer: '/assets/img/brand/nortia-logo-white.png',
-    isotipo: '/assets/img/brand/nortia-isotipo-512.png'
+    clean: '/assets/img/brand/nortia-logo-clean.png',
+    isotipo: '/assets/img/brand/nortia-isotipo-512.png',
+    vertical: '/assets/img/brand/nortia-logo-vertical.png',
+    verticalClean: '/assets/img/brand/nortia-logo-vertical-clean.png',
+    verticalWhite: '/assets/img/brand/nortia-logo-vertical-white.png',
+    verticalBlack: '/assets/img/brand/nortia-logo-vertical-black.png'
   },
   hero: {
     background: '/assets/img/happy-family.jpg'

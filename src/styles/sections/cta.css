@@ -19,10 +19,11 @@
 }
 
 #final-cta h2 {
-  font-family: 'Newsreader', serif;
-  font-size: clamp(32px, 4.5vw, 56px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 4vw, 50px);
   line-height: 1.15;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 #final-cta p {
