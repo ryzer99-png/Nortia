@@ -37,7 +37,7 @@ const {
 
     <div class="coverage-plans-grid">
       {plans.map((plan, idx) => {
-        const planMsg = `Hola NORTIA, me gustaría recibir asesoría y cotizar el plan: ${plan.title} para mi ${targetNoun}.`;
+        const planMsg = `Hola NORTIA, me gustaría recibir asesoría sobre el plan: ${plan.title} para mi ${targetNoun}.`;
         return (
           <div class={`coverage-plan-card scroll-reveal reveal-fade-up delay-${(idx + 1) * 100}`}>
             <div>
@@ -53,7 +53,7 @@ const {
             </div>
             <button data-wa-topic={waTopic} data-wa-msg={planMsg} class="wa-btn btn-wa">
               <span class="material-symbols-outlined" style="font-size:18px">chat</span>
-              <span>Cotizar este Plan</span>
+              <span>Solicitar Asesoría</span>
             </button>
           </div>
         );

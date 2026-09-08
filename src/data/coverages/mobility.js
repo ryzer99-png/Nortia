@@ -12,7 +12,6 @@ export const MOVILIDAD_DATA = {
   backDesc: 'Cada persona se moviliza de una manera diferente. Por eso la protección también debe analizarse según el uso que le das a tu vehículo.',
   features: [
     'Automóvil familiar y de uso particular',
-    'Vehículo de trabajo o plataformas digitales',
     'Moteros aventureros y moto trabajadores',
     'Ciclistas urbanos, de montaña y movilidad eléctrica'
   ],
@@ -40,7 +39,7 @@ export const MOVILIDAD_DATA = {
     subtitle: 'Tranquilidad total al conducir con la mayor red de asistencia y protección económica contra accidentes y hurtos.',
     ctaHero: 'Solicitar asesoría para vehículos',
     riskBadge: 'Datos oficiales de riesgo',
-    riskCtaBtn: 'Cotizar seguro de autos/motos en WhatsApp',
+    riskCtaBtn: 'Solicitar asesoría de movilidad en WhatsApp',
 
     // Sección de Tipos de Riesgo y Escenarios
     scenariosQuote: 'Cada persona se moviliza de una manera diferente. Por eso la protección también debe analizarse según el uso que le das a tu vehículo.',
@@ -49,11 +48,6 @@ export const MOVILIDAD_DATA = {
         icon: 'directions_car',
         title: 'Automóvil familiar y particular',
         desc: 'Viaja tranquilo con los que amas. Carro sustituto si te quedas varado, cobertura total ante choques o robos y asistencia en carretera 24/7.'
-      },
-      {
-        icon: 'local_taxi',
-        title: 'Vehículo de trabajo o plataformas',
-        desc: 'Tu carro produce todos los días y no puede parar. Si algo pasa, recuperas tus ingresos diarios y cuentas con respaldo legal inmediato.'
       },
       {
         icon: 'two_wheeler',
@@ -113,7 +107,7 @@ export const MOVILIDAD_DATA = {
       }
     ],
     finalCtaTitle: 'Conduce seguro con el respaldo de NORTIA.',
-    finalCtaSubtitle: 'Te ayudamos a cotizar y comparar entre las principales aseguradoras del país.',
+    finalCtaSubtitle: 'Te brindamos asesoría personalizada y comparamos entre las principales aseguradoras del país.',
     finalCtaBtn: 'Hablar con un asesor de movilidad'
   }
 };

@@ -40,7 +40,7 @@ export const HOGAR_DATA = {
     subtitle: 'Tu casa representa años de esfuerzo y construcción. Protégela contra desastres, imprevistos y daños a terceros.',
     ctaHero: 'Solicitar asesoría para hogar',
     riskBadge: 'Datos oficiales de riesgo',
-    riskCtaBtn: 'Cotizar seguro de hogar en WhatsApp',
+    riskCtaBtn: 'Solicitar asesoría de hogar en WhatsApp',
 
     // Sección de Tipos de Riesgo y Escenarios
     scenariosQuote: 'No sería justo que años de esfuerzo pudieran perderse en segundos por un evento de la naturaleza sin siquiera haber revisado las alternativas de protección.',

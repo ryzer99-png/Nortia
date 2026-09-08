@@ -72,7 +72,7 @@ export function initInteractions() {
     const customMsg = trigger.getAttribute('data-wa-msg');
     const text = trigger.textContent || '';
 
-    if (trigger.classList.contains('wa-btn') || topic || customMsg || text.includes('Hablar con un asesor') || text.includes('Cotizar por WhatsApp') || text.includes('Cotizar este Plan') || text.includes('Quiero una asesoría')) {
+    if (trigger.classList.contains('wa-btn') || topic || customMsg || text.includes('Hablar con un asesor') || text.includes('Cotizar por WhatsApp') || text.includes('Solicitar asesoría') || text.includes('Cotizar este Plan') || text.includes('Solicitar Asesoría') || text.includes('Quiero una asesoría')) {
       e.preventDefault();
       openWhatsApp(topic || 'general', customMsg || '');
     }

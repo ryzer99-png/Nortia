@@ -40,7 +40,7 @@ export const EMPRESAS_DATA = {
     subtitle: 'Blindaje jurídico, financiero y operativo para garantizar que tu negocio nunca detenga su crecimiento.',
     ctaHero: 'Solicitar asesoría corporativa',
     riskBadge: 'Datos oficiales de riesgo',
-    riskCtaBtn: 'Cotizar seguros empresariales en WhatsApp',
+    riskCtaBtn: 'Solicitar asesoría empresarial en WhatsApp',
 
     // Sección de Tipos de Riesgo y Escenarios
     scenariosQuote: 'Tu empresa es el resultado de años de trabajo, inversión, decisiones y personas que dependen de ella.',

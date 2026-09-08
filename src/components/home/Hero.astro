@@ -36,5 +36,14 @@ const { hero } = SITE_CONTENT;
         <div class="hero-cta-note" set:html={hero.ctaNoteHtml} />
       </div>
     </div>
+    <div class="hero-brand-col scroll-reveal reveal-fade-up delay-200 is-visible">
+      <Image
+        src={ASSETS.logos.verticalWhite}
+        alt={SITE_CONTENT.brand.name}
+        width={320}
+        height={264}
+        class="hero-brand-logo"
+      />
+    </div>
   </div>
 </section>

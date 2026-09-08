@@ -40,7 +40,7 @@ export const PERSONAS_DATA = {
     subtitle: 'Protege tu bienestar físico, tu capacidad de generar ingresos y el futuro de tus seres queridos con planes a tu medida.',
     ctaHero: 'Solicitar asesoría para personas',
     riskBadge: 'Datos oficiales de riesgo',
-    riskCtaBtn: 'Cotizar protección familiar en WhatsApp',
+    riskCtaBtn: 'Solicitar asesoría familiar en WhatsApp',
 
     // Sección de Tipos de Riesgo y Escenarios
     scenariosQuote: 'Tu capacidad de trabajar, tus ingresos y tu salud también hacen parte de lo que debes proteger.',

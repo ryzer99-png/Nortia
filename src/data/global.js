@@ -13,13 +13,13 @@ export const GLOBAL_DATA = {
     copyrightYear: 2026
   },
 
-  // Mensajes preconfigurados para WhatsApp según el contexto del usuario
+  // Mensajes preconfigurados para WhatsApp según el contexto del usuario (enfoque de asesoría)
   whatsappMessages: {
-    personas: 'Hola nortia, me gustaría recibir asesoría personalizada para la protección de personas y familias (salud / vida).',
-    hogar: 'Hola nortia, me gustaría cotizar y recibir información sobre el seguro de hogar y patrimonio.',
-    empresas: 'Hola nortia, busco asesoría corporativa para blindar y cotizar seguros para mi empresa / pyme.',
-    movilidad: 'Hola nortia, me interesa cotizar un seguro todo riesgo / SOAT para mi vehículo o moto.',
-    general: 'Hola nortia, quisiera hablar con un asesor para conocer sus opciones de seguros y recibir una cotización.'
+    personas: 'Hola Nortia, me gustaría recibir asesoría personalizada para la protección de personas y familias (salud / vida).',
+    hogar: 'Hola Nortia, me gustaría recibir asesoría e información sobre la protección de mi hogar y patrimonio.',
+    empresas: 'Hola Nortia, busco asesoría corporativa para blindar y proteger mi empresa / pyme.',
+    movilidad: 'Hola Nortia, me gustaría recibir asesoría sobre opciones de protección todo riesgo / SOAT para mi vehículo o moto.',
+    general: 'Hola Nortia, quisiera hablar con un agente para conocer su portafolio de seguros y recibir asesoría.'
   },
 
   // Menú de navegación principal
