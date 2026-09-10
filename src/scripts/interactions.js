@@ -14,6 +14,7 @@ export function openWhatsApp(topic = 'general', customMessage = '') {
     else if (path.includes('personas') || path.includes('life')) activeTopic = 'personas';
     else if (path.includes('hogar') || path.includes('home')) activeTopic = 'hogar';
     else if (path.includes('movilidad') || path.includes('mobility')) activeTopic = 'movilidad';
+    else if (path.includes('creditos') || path.includes('credit')) activeTopic = 'creditos';
   }
 
   const message = customMessage || SITE_CONTENT.whatsappMessages[activeTopic] || SITE_CONTENT.whatsappMessages.general;

@@ -85,7 +85,7 @@ const { coberturas } = SITE_CONTENT;
                 </div>
                 <div class="card-back-actions">
                   <a href={subpageUrl} class="btn-subpage-link">
-                    <span>Ver coberturas completas</span>
+                    <span>{card.id === 'creditos' ? 'Conocer opciones de crédito' : 'Ver coberturas completas'}</span>
                     <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
                   </a>
                   <button data-wa-topic={card.waTopic} class="wa-btn btn-wa" style="margin-top:0">

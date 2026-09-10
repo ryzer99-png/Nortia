@@ -99,11 +99,19 @@ export const MOVILIDAD_DATA = {
     faqs: [
       {
         q: '¿El seguro Todo Riesgo reemplaza el SOAT?',
-        a: 'No. El SOAT es un seguro obligatorio por ley que cubre lesiones de personas. El seguro Todo Riesgo cubre el valor de tu carro, hurto, choques y daños a otros vehículos.'
+        a: 'No. El SOAT es un seguro obligatorio por ley que cubre lesiones corporales de personas. El seguro Todo Riesgo cubre el valor comercial de tu carro, pérdidas por hurto o choque y daños a terceros.'
       },
       {
         q: '¿Qué hago en caso de un choque o accidente?',
         a: 'Te comunicas a la línea de asistencia 24/7 de tu aseguradora o nos escribes por WhatsApp para acompañarte en el reporte y la gestión de la grúa.'
+      },
+      {
+        q: '¿Qué vehículos puedo asegurar con una póliza Todo Riesgo?',
+        a: 'Aseguramos automóviles particulares y familiares, camionetas, motocicletas de cualquier cilindraje, bicicletas y patinetas de movilidad eléctrica, tanto para uso personal como de trabajo.'
+      },
+      {
+        q: '¿Qué amparos incluye un seguro para motocicletas?',
+        a: 'Cubre pérdida total o parcial por hurto o daños, amparo patrimonial por daños a terceros (responsabilidad civil), gastos médicos y asistencia con grúa sin límite en todo el territorio nacional.'
       }
     ],
     finalCtaTitle: 'Conduce seguro con el respaldo de NORTIA.',

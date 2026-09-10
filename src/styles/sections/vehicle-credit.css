@@ -1,0 +1,400 @@
+/* =========================================================
+   NORTIA — Vehicle Credit & Financing Section Styles
+   ========================================================= */
+
+.vehicle-credit-section {
+  padding: 96px 24px 80px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-low) 100%);
+  border-top: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.vehicle-credit-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Cabecera de la sección ── */
+.credit-header {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 48px;
+}
+
+.credit-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(var(--secondary-rgb), 0.15);
+  color: var(--secondary);
+  border: 1px solid rgba(var(--secondary-rgb), 0.35);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.credit-chip .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.credit-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.credit-header h2 .highlight {
+  color: var(--secondary);
+  position: relative;
+  white-space: nowrap;
+}
+
+.credit-header p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--on-surface-variant);
+  margin: 0 auto;
+}
+
+/* ── 4 Pilares / Beneficios Clave ── */
+.credit-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.credit-pillar-card {
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: 18px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.credit-pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--secondary);
+  box-shadow: 0 10px 24px rgba(16, 27, 77, 0.07);
+}
+
+.credit-pillar-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(16, 27, 77, 0.05);
+  color: var(--primary);
+  border: 1px solid rgba(16, 27, 77, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.credit-pillar-card:hover .credit-pillar-icon {
+  background: var(--primary);
+  color: var(--secondary);
+  border-color: var(--primary);
+}
+
+.credit-pillar-icon .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.credit-pillar-body h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.credit-pillar-body p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Grid de Opciones de Crédito ── */
+.credit-options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-bottom: 56px;
+}
+
+.credit-option-card {
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: 24px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.credit-option-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary);
+  box-shadow: 0 20px 40px rgba(16, 27, 77, 0.09);
+}
+
+/* Estilo para la tarjeta destacada o recomendada */
+.credit-option-card.is-featured {
+  border-color: rgba(var(--secondary-rgb), 0.7);
+  box-shadow: 0 12px 30px rgba(217, 165, 43, 0.12);
+}
+
+.credit-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.credit-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: rgba(16, 27, 77, 0.08);
+  color: var(--primary);
+}
+
+.credit-option-card.is-featured .credit-card-badge {
+  background: rgba(var(--secondary-rgb), 0.2);
+  color: #a47614;
+}
+
+.credit-card-icon-indicator {
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+}
+
+.credit-option-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.credit-card-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 14px;
+}
+
+.credit-card-desc {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Tags de conveniencia */
+.credit-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.credit-tag-pill {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--surface-low);
+  color: var(--primary);
+  border: 1px solid rgba(208, 201, 190, 0.7);
+}
+
+/* Lista de ventajas */
+.credit-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.credit-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--on-surface);
+  line-height: 1.45;
+}
+
+.credit-features-list .check-icon {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Botón WhatsApp de la tarjeta */
+.credit-btn-cta {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* ── Franja de Entidades Aliadas ── */
+.credit-allies-box {
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.allies-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+.allies-header .material-symbols-outlined {
+  color: var(--secondary);
+  font-size: 20px;
+}
+
+.allies-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.ally-bank-card {
+  background: var(--surface-low);
+  border: 1px solid rgba(208, 201, 190, 0.7);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ally-bank-card:hover {
+  background: #ffffff;
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.ally-bank-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.ally-bank-sub {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.ally-bank-note {
+  font-size: 12px;
+  color: var(--on-surface-variant);
+}
+
+/* ── Nota Legal y Transparencia ── */
+.credit-legal-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 12px;
+  opacity: 0.85;
+}
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+  .credit-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .allies-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .credit-pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .credit-options-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .vehicle-credit-section {
+    padding: 64px 16px 56px;
+  }
+
+  .credit-option-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .credit-allies-box {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+}

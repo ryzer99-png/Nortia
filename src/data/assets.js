@@ -24,7 +24,8 @@ export const ASSETS = {
     personas: '/assets/img/coverages/personas.jpg',
     hogar: '/assets/img/coverages/hogar.jpg',
     empresas: '/assets/img/coverages/empresas.jpg',
-    movilidad: '/assets/img/movilidad-collage.jpg'
+    movilidad: '/assets/img/movilidad-collage.jpg',
+    creditos: '/assets/img/coverages/creditos.jpg'
   },
   camino: [
     '/assets/img/camino/paso-1.jpg',

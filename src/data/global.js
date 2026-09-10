@@ -19,6 +19,7 @@ export const GLOBAL_DATA = {
     hogar: 'Hola Nortia, me gustaría recibir asesoría e información sobre la protección de mi hogar y patrimonio.',
     empresas: 'Hola Nortia, busco asesoría corporativa para blindar y proteger mi empresa / pyme.',
     movilidad: 'Hola Nortia, me gustaría recibir asesoría sobre opciones de protección todo riesgo / SOAT para mi vehículo o moto.',
+    creditos: 'Hola Nortia, me gustaría recibir asesoría sobre las opciones de crédito para vehículo, compra de cartera o libre inversión con prenda.',
     general: 'Hola Nortia, quisiera hablar con un agente para conocer su portafolio de seguros y recibir asesoría.'
   },
 

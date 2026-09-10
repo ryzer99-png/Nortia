@@ -3,21 +3,22 @@ import Layout from '@layouts/Layout.astro';
 import SubpageHero from '@components/subpage/SubpageHero.astro';
 import SubpageRisk from '@components/subpage/SubpageRisk.astro';
 import SubpageScenarios from '@components/subpage/SubpageScenarios.astro';
-import SubpagePlans from '@components/subpage/SubpagePlans.astro';
+import SubpageVehicleCredit from '@components/subpage/SubpageVehicleCredit.astro';
 import SubpageFaqs from '@components/subpage/SubpageFaqs.astro';
 import FinalCta from '@components/ui/FinalCta.astro';
-import { MOVILIDAD_DATA } from '@data/coverages/mobility.js';
+import { CREDITOS_DATA } from '@data/coverages/credit.js';
 import { ASSETS } from '@data/assets.js';
 
-const sub = MOVILIDAD_DATA.subpage;
-const risk = MOVILIDAD_DATA.riskSpotlight;
-const bgImage = ASSETS.coberturas.movilidad;
-const waTopic = 'movilidad';
+const sub = CREDITOS_DATA.subpage;
+const risk = CREDITOS_DATA.riskSpotlight;
+const credit = sub.vehicleCredit;
+const bgImage = ASSETS.coberturas.creditos;
+const waTopic = 'creditos';
 
 const siteUrl = 'https://nortia.com.co';
-const title = 'Seguro Todo Riesgo para Autos y Motos en Colombia | NORTIA';
-const description = 'Compara y cotiza tu seguro todo riesgo para autos, motos y flotas en Colombia. Cobertura por pérdida total, hurto y daños a terceros con asistencia 24/7.';
-const keywords = 'seguro todo riesgo autos colombia, seguro para motos colombia, cotizar seguro carro, seguro todo riesgo sura, allianz autos, seguros bolivar autos, soat digital, nortia';
+const title = 'Crédito para Vehículo 100% Digital y Libre Inversión en Colombia | NORTIA';
+const description = 'Solicita tu crédito para vehículo nuevo o usado, compra de cartera y libre inversión con garantía de vehículo en Colombia. Estudio simultáneo con Sufi, Banco de Occidente y Banco de Bogotá.';
+const keywords = 'credito vehiculo colombia, credito para carro usado nuevo, compra de cartera vehiculo, libre inversion prenda vehiculo, sura alternativas credito, sufi autos, banco de occidente vehiculos, banco de bogota credito auto, nortia';
 
 // Schema.org FAQPage para Rich Snippets en Google
 const faqSchema = {
@@ -48,7 +49,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": sub.breadcrumb,
-      "item": `${siteUrl}/movilidad`
+      "item": `${siteUrl}/creditos`
     }
   ]
 };
@@ -81,22 +82,20 @@ const breadcrumbSchema = {
     />
 
     <SubpageScenarios
-      chip="Escenarios y tipos de movilidad"
-      title="Protección según la forma en que te mueves"
-      subtitle="La cobertura adecuada depende del uso real que le das a tu medio de transporte."
+      chip="Opciones de financiación"
+      title="Alternativas según tus metas financieras"
+      subtitle="Financiación para compra, optimización de cuota mensual y liquidez con respaldo de tu vehículo."
       quote={sub.scenariosQuote}
       scenarios={sub.scenarios}
       waTopic={waTopic}
     />
 
-    <SubpagePlans
-      plansChip={sub.plansChip}
-      plansTitle={sub.plansTitle}
-      plansSubtitle={sub.plansSubtitle}
-      plans={sub.plans}
-      waTopic={waTopic}
-      targetNoun="Vehículo"
-    />
+    {credit && (
+      <SubpageVehicleCredit
+        data={credit}
+        waTopic={waTopic}
+      />
+    )}
 
     <SubpageFaqs
       faqsChip={sub.faqsChip}

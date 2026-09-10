@@ -8,27 +8,97 @@ interface Props {
   faqsChip: string;
   faqsTitle: string;
   faqs: FaqItem[];
+  waTopic?: string;
+  subtitle?: string;
 }
 
-const { faqsChip, faqsTitle, faqs = [] } = Astro.props;
+const {
+  faqsChip,
+  faqsTitle,
+  faqs = [],
+  waTopic = 'general',
+  subtitle = 'Resolvemos tus dudas habituales para que elijas tu protección con total claridad y tranquilidad.'
+} = Astro.props;
 ---
 
-<section class="subpage-faq-section">
-  <div class="faq-inner scroll-reveal reveal-fade-up">
-    <div class="section-header" style="text-align:center;margin-bottom:40px">
-      <div class="chip" style="margin:0 auto">
-        <span class="dot"></span>
-        <span>{faqsChip}</span>
-      </div>
-      <h2>{faqsTitle}</h2>
-    </div>
-    <div id="subpage-faqs-container">
-      {faqs.map(faq => (
-        <div class="faq-item">
-          <h4>{faq.q}</h4>
-          <p>{faq.a}</p>
+<section class="subpage-faq-section" id="faqs">
+  <div class="faq-split-inner scroll-reveal reveal-fade-up">
+    
+    <!-- Columna Izquierda: Cabecera y Caja de Contacto -->
+    <div class="faq-sidebar">
+      <div class="faq-sidebar-sticky">
+        <div class="chip">
+          <span class="dot"></span>
+          <span>{faqsChip}</span>
         </div>
+        <h2>{faqsTitle}</h2>
+        <p class="faq-sidebar-desc">{subtitle}</p>
+
+        <div class="faq-sidebar-card">
+          <div class="faq-card-header">
+            <span class="material-symbols-outlined help-icon">contact_support</span>
+            <h4>¿Tienes una duda diferente?</h4>
+          </div>
+          <p>Nuestros asesores están listos para orientarte de forma personalizada y sin costo.</p>
+          <button
+            data-wa-topic={waTopic}
+            data-wa-msg="Hola NORTIA, tengo una consulta puntual sobre las opciones de protección."
+            class="wa-btn btn-faq-wa"
+          >
+            <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+            <span>Hablar con un asesor</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Acordeón Vertical Fluido (Exclusivo: 1 a la vez) -->
+    <div class="faq-accordion-list">
+      {faqs.map((faq, idx) => (
+        <details class="faq-item" name="faq-group" open={idx === 0}>
+          <summary class="faq-question">
+            <span class="faq-q-text">{faq.q}</span>
+            <span class="material-symbols-outlined faq-toggle-icon">expand_more</span>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.a}</p>
+          </div>
+        </details>
       ))}
     </div>
+
   </div>
 </section>
+
+<script>
+  function initExclusiveFaqs() {
+    // Si el navegador ya soporta nativamente name="..." en <details>, no duplicar listeners
+    if ('name' in HTMLDetailsElement.prototype) {
+      return;
+    }
+
+    const containers = document.querySelectorAll('.faq-accordion-list');
+    containers.forEach(container => {
+      const detailsList = container.querySelectorAll('details');
+      detailsList.forEach(detail => {
+        detail.addEventListener('toggle', () => {
+          if (detail.open) {
+            detailsList.forEach(other => {
+              if (other !== detail && other.open) {
+                other.open = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExclusiveFaqs);
+  } else {
+    initExclusiveFaqs();
+  }
+</script>
+
+

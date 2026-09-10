@@ -16,6 +16,7 @@ import { PERSONAS_DATA } from './coverages/life.js';
 import { HOGAR_DATA } from './coverages/home.js';
 import { EMPRESAS_DATA } from './coverages/business.js';
 import { MOVILIDAD_DATA } from './coverages/mobility.js';
+import { CREDITOS_DATA } from './coverages/credit.js';
 
 export const SITE_CONTENT = {
   // ── 1. Configuración y Datos Globales ──
@@ -40,7 +41,8 @@ export const SITE_CONTENT = {
       PERSONAS_DATA,
       HOGAR_DATA,
       EMPRESAS_DATA,
-      MOVILIDAD_DATA
+      MOVILIDAD_DATA,
+      CREDITOS_DATA
     ]
   },
 

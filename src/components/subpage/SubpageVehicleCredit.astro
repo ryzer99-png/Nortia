@@ -1,0 +1,158 @@
+---
+interface PillarItem {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+interface OptionItem {
+  id: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  tags: string[];
+  features: string[];
+  ctaText: string;
+  waMsg: string;
+}
+
+interface BankItem {
+  name: string;
+  institution: string;
+  highlight: string;
+}
+
+interface CreditData {
+  chip: string;
+  title: string;
+  subtitle: string;
+  pillars: PillarItem[];
+  options: OptionItem[];
+  banks: BankItem[];
+  legalDisclaimer: string;
+}
+
+interface Props {
+  data: CreditData;
+  waTopic?: string;
+}
+
+const { data, waTopic = 'movilidad' } = Astro.props;
+const { chip, title, subtitle, pillars = [], options = [], banks = [], legalDisclaimer } = data;
+
+// Mapeo de iconos para cada opción
+const optionIcons: Record<string, string> = {
+  'compra-vehiculo': 'directions_car',
+  'compra-cartera': 'price_change',
+  'libre-inversion-prenda': 'account_balance_wallet'
+};
+---
+
+<section class="vehicle-credit-section" id="credito-vehicular">
+  <div class="vehicle-credit-inner">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="credit-header scroll-reveal reveal-fade-up">
+      <div class="credit-chip">
+        <span class="material-symbols-outlined">payments</span>
+        <span>{chip}</span>
+      </div>
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    <!-- 4 Pilares de Beneficio Clave -->
+    <div class="credit-pillars-grid">
+      {pillars.map((pillar, idx) => (
+        <div class={`credit-pillar-card scroll-reveal reveal-fade-up delay-${(idx + 1) * 100}`}>
+          <div class="credit-pillar-icon">
+            <span class="material-symbols-outlined">{pillar.icon}</span>
+          </div>
+          <div class="credit-pillar-body">
+            <h3>{pillar.title}</h3>
+            <p>{pillar.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Las 3 Modalidades de Financiación / Opciones -->
+    <div class="credit-options-grid">
+      {options.map((option, idx) => {
+        const isFeatured = idx === 0;
+        const iconName = optionIcons[option.id] || 'check_circle';
+
+        return (
+          <div class={`credit-option-card ${isFeatured ? 'is-featured' : ''} scroll-reveal reveal-fade-up delay-${(idx + 1) * 150}`}>
+            <div>
+              <div class="credit-card-top">
+                <span class="credit-card-badge">{option.badge}</span>
+                <span class="credit-card-icon-indicator">
+                  <span class="material-symbols-outlined">{iconName}</span>
+                </span>
+              </div>
+
+              <h3>{option.title}</h3>
+              <div class="credit-card-subtitle">{option.subtitle}</div>
+              <p class="credit-card-desc">{option.desc}</p>
+
+              <!-- Tags de la opción -->
+              <div class="credit-tags-wrap">
+                {option.tags.map(tag => (
+                  <span class="credit-tag-pill">{tag}</span>
+                ))}
+              </div>
+
+              <!-- Lista de beneficios destacados -->
+              <ul class="credit-features-list">
+                {option.features.map(f => (
+                  <li>
+                    <span class="check-icon">✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Botón CTA a WhatsApp -->
+            <button
+              data-wa-topic={waTopic}
+              data-wa-msg={option.waMsg}
+              class="wa-btn btn-wa credit-btn-cta"
+            >
+              <span class="material-symbols-outlined" style="font-size: 18px;">chat</span>
+              <span>{option.ctaText}</span>
+            </button>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Franja de Entidades Financieras Aliadas -->
+    <div class="credit-allies-box scroll-reveal reveal-fade-up">
+      <div class="allies-header">
+        <span class="material-symbols-outlined">handshake</span>
+        <span>Entidades financieras aliadas para tu estudio de crédito</span>
+      </div>
+
+      <div class="allies-cards-row">
+        {banks.map(bank => (
+          <div class="ally-bank-card">
+            <div class="ally-bank-name">{bank.name}</div>
+            <div class="ally-bank-sub">{bank.institution}</div>
+            <div class="ally-bank-note">{bank.highlight}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Nota Legal y Regulatoria de Transparencia SURA -->
+    {legalDisclaimer && (
+      <p class="credit-legal-note scroll-reveal reveal-fade-up">
+        {legalDisclaimer}
+      </p>
+    )}
+
+  </div>
+</section>
