@@ -18,20 +18,20 @@ export const ASSETS = {
     verticalBlack: '/assets/img/brand/nortia-logo-vertical-black.png'
   },
   hero: {
-    background: '/assets/img/happy-family.jpg'
+    background: '/assets/img/happy-family.webp'
   },
   coberturas: {
-    personas: '/assets/img/coverages/personas.jpg',
-    hogar: '/assets/img/coverages/hogar.jpg',
-    empresas: '/assets/img/coverages/empresas.jpg',
-    movilidad: '/assets/img/movilidad-collage.jpg',
-    creditos: '/assets/img/coverages/creditos.jpg'
+    personas: '/assets/img/coverages/personas.webp',
+    hogar: '/assets/img/coverages/hogar.webp',
+    empresas: '/assets/img/coverages/empresas.webp',
+    movilidad: '/assets/img/movilidad-collage.webp',
+    creditos: '/assets/img/coverages/creditos.webp'
   },
   camino: [
-    '/assets/img/camino/paso-1.jpg',
-    '/assets/img/camino/paso-2.jpg',
-    '/assets/img/camino/paso-3.jpg',
-    '/assets/img/camino/paso-4.jpg',
-    '/assets/img/camino/paso-5.jpg'
+    '/assets/img/camino/paso-1.webp',
+    '/assets/img/camino/paso-2.webp',
+    '/assets/img/camino/paso-3.webp',
+    '/assets/img/camino/paso-4.webp',
+    '/assets/img/camino/paso-5.webp'
   ]
 };

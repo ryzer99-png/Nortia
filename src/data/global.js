@@ -10,7 +10,12 @@ export const GLOBAL_DATA = {
     phone: '573239004028', // Número de WhatsApp (código de país 57 para Colombia)
     email: 'info@nortia.com.co',
     location: 'Colombia',
-    copyrightYear: 2026
+    copyrightYear: 2026,
+    social: {
+      instagram: 'https://www.instagram.com/nortia.col',
+      linkedin: 'https://www.linkedin.com/company/nortia',
+      facebook: 'https://www.facebook.com/nortia.col'
+    }
   },
 
   // Mensajes preconfigurados para WhatsApp según el contexto del usuario (enfoque de asesoría)

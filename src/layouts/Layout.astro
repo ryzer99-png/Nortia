@@ -16,8 +16,8 @@ interface Props {
 }
 
 const {
-  title = 'NORTIA | Asesoría en Seguros y Protección Patrimonial en Colombia',
-  description = 'Compara y contrata seguros de vida, salud, hogar, autos y empresas en Colombia. Asesoría clara y transparente sin intermediación de dinero.',
+  title = 'NORTIA | Seguros y Protección Patrimonial en Colombia',
+  description = 'Compara seguros de vida, salud, hogar, autos y empresas en Colombia con las mejores aseguradoras. Asesoría experta y transparente.',
   waTopic = 'general',
   keywords = 'seguros colombia, asesoria seguros, seguro de vida, medicina prepagada, seguro de hogar, seguro todo riesgo autos, poliza cumplimiento empresas, nortia',
   ogImage = 'https://nortia.com.co/assets/img/happy-family.jpg',
@@ -35,7 +35,7 @@ const organizationSchema = {
   "name": "NORTIA",
   "url": siteUrl,
   "logo": `${siteUrl}/assets/img/brand/nortia-logo.png`,
-  "image": `${siteUrl}/assets/img/happy-family.jpg`,
+  "image": `${siteUrl}/assets/img/happy-family.webp`,
   "description": description,
   "telephone": "+573239004028",
   "email": "info@nortia.com.co",
@@ -50,7 +50,10 @@ const organizationSchema = {
   },
   "priceRange": "$$",
   "sameAs": [
-    "https://wa.me/573239004028"
+    "https://wa.me/573239004028",
+    "https://www.instagram.com/nortia.col",
+    "https://www.linkedin.com/company/nortia",
+    "https://www.facebook.com/nortia.col"
   ]
 };
 ---
@@ -67,7 +70,15 @@ const organizationSchema = {
 
   <!-- Directivas de Indexación para Motores de Búsqueda -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Canónica e Internacionalización Hreflang para Colombia (SEO Técnico) -->
   <link rel="canonical" href={canonicalUrl} />
+  <link rel="alternate" hreflang="es-CO" href={canonicalUrl} />
+  <link rel="alternate" hreflang="es" href={canonicalUrl} />
+  <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+  <!-- Preload de imagen Hero para optimización de LCP (Core Web Vitals) -->
+  <link rel="preload" as="image" href="/assets/img/happy-family.webp" type="image/webp" />
 
   <!-- Georreferenciación para SEO Local Colombia -->
   <meta name="geo.region" content="CO" />
