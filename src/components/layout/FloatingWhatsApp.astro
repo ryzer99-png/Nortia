@@ -6,17 +6,11 @@ interface Props {
 }
 
 const { waTopic = 'general' } = Astro.props;
-const phone = SITE_CONTENT.brand.phone;
-const waMessages = SITE_CONTENT.whatsappMessages as Record<string, string>;
-const message = waMessages[waTopic] || waMessages.general || '';
-const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 ---
 
-<a
+<button
+  type="button"
   id="floating-wa-btn"
-  href={waLink}
-  target="_blank"
-  rel="noopener noreferrer"
   data-wa-topic={waTopic}
   class="wa-btn"
   aria-label="Contactar por WhatsApp"
@@ -27,4 +21,4 @@ const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     ></path>
   </svg>
   <span class="wa-label">{SITE_CONTENT.hero.ctaSecondary}</span>
-</a>
+</button>
