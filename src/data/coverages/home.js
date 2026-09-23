@@ -4,7 +4,7 @@
 
 export const HOGAR_DATA = {
   id: 'hogar',
-  url: '/hogar',
+  url: '/hogar/',
   icon: 'home_work',
   title: 'Hogar y patrimonio',
   frontDesc: 'Protege el resultado de años de trabajo y esfuerzo.',

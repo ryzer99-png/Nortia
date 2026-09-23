@@ -93,13 +93,21 @@ footer {
   gap: 10px;
 }
 
-.footer-col a {
+.footer-col a,
+.footer-col button {
   font-size: 14px;
   color: var(--on-surface-variant);
   transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
 }
 
-.footer-col a:hover {
+.footer-col a:hover,
+.footer-col button:hover {
   color: var(--on-primary);
 }
 

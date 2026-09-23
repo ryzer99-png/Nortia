@@ -4,7 +4,7 @@
 
 export const MOVILIDAD_DATA = {
   id: 'movilidad',
-  url: '/movilidad',
+  url: '/movilidad/',
   icon: 'directions_car',
   title: 'Movilidad y vehículos',
   frontDesc: 'Protección para la forma en que te movilizas, trabajas y disfrutas.',
