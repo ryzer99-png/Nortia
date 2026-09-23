@@ -20,7 +20,7 @@ const { coberturas } = SITE_CONTENT;
     <!-- Flip Cards Grid Pre-Rendered at Build-Time for SEO -->
     <div id="coberturas-cards-grid" class="cards-grid">
       {coberturas.cards.map((card, index) => {
-        const imgUrl = ASSETS.coberturas?.[card.id] || '';
+        const imgUrl = ASSETS.coberturas?.[card.id as keyof typeof ASSETS.coberturas] || '';
         const delay = (index + 1) * 100;
         const subpageUrl = card.url || `/${card.id}/`;
 
