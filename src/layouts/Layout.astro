@@ -25,7 +25,9 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://nortia.com.co';
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href.replace(/\/$/, '') || siteUrl;
+const rawPath = Astro.url.pathname;
+const normalizedPath = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
+const canonicalUrl = new URL(normalizedPath, siteUrl).href;
 
 // Schema.org Oficial de Agencia de Seguros
 const organizationSchema = {

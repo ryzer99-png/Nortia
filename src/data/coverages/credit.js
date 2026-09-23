@@ -4,7 +4,7 @@
 
 export const CREDITOS_DATA = {
   id: 'creditos',
-  url: '/creditos',
+  url: '/creditos/',
   icon: 'payments',
   title: 'Crédito y financiación',
   frontDesc: 'Crédito vehicular 100% digital, compra de cartera y libre inversión con prenda.',

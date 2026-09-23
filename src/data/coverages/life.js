@@ -4,7 +4,7 @@
 
 export const PERSONAS_DATA = {
   id: 'personas',
-  url: '/personas',
+  url: '/personas/',
   icon: 'family_restroom',
   title: 'Personas y familias',
   frontDesc: 'Protege a quienes más quieres y aquello que les permite seguir adelante.',

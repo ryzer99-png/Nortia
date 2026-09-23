@@ -5,40 +5,40 @@
 # Redirecciones automáticas para URLs antiguas (.html -> limpias)
 [[redirects]]
   from = "/home.html"
-  to = "/hogar"
+  to = "/hogar/"
   status = 301
 
 [[redirects]]
   from = "/mobility.html"
-  to = "/movilidad"
+  to = "/movilidad/"
   status = 301
 
 [[redirects]]
   from = "/life.html"
-  to = "/personas"
+  to = "/personas/"
   status = 301
 
 [[redirects]]
   from = "/business.html"
-  to = "/empresas"
+  to = "/empresas/"
   status = 301
 
 [[redirects]]
   from = "/home"
-  to = "/hogar"
+  to = "/hogar/"
   status = 301
 
 [[redirects]]
   from = "/mobility"
-  to = "/movilidad"
+  to = "/movilidad/"
   status = 301
 
 [[redirects]]
   from = "/life"
-  to = "/personas"
+  to = "/personas/"
   status = 301
 
 [[redirects]]
   from = "/business"
-  to = "/empresas"
+  to = "/empresas/"
   status = 301
