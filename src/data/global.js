@@ -12,9 +12,8 @@ export const GLOBAL_DATA = {
     location: 'Colombia',
     copyrightYear: 2026,
     social: {
-      instagram: 'https://www.instagram.com/nortia.col',
-      linkedin: 'https://www.linkedin.com/company/nortia',
-      facebook: 'https://www.facebook.com/nortia.col'
+      instagram: 'https://www.instagram.com/nortiaseguros/',
+      facebook: 'https://www.facebook.com/profile.php?id=61593321252648'
     }
   },
 
