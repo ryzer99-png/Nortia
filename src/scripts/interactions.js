@@ -28,6 +28,162 @@ if (typeof window !== 'undefined') {
 }
 
 export function initInteractions() {
+  // ── A. Gestión de Consentimiento Legal (Ley 1581 de 2012) ──
+  const consentInputs = document.querySelectorAll('.nortia-consent-input');
+  const privacyModal = document.getElementById('privacy-policy-modal');
+  const closePrivacyModalBtn = document.getElementById('close-privacy-modal-btn');
+  const modalBackdrop = document.getElementById('privacy-modal-backdrop');
+  const acceptModalBtn = document.getElementById('accept-and-close-modal-btn');
+
+  function isConsentGranted() {
+    try {
+      if (sessionStorage.getItem('nortia_data_consent') === 'true') return true;
+    } catch (e) {
+      // Fallback si storage está bloqueado
+    }
+    const anyChecked = Array.from(consentInputs).some(input => input.checked);
+    return anyChecked;
+  }
+
+  function applyConsent(granted = true) {
+    try {
+      sessionStorage.setItem('nortia_data_consent', granted ? 'true' : 'false');
+      if (granted) {
+        sessionStorage.setItem('nortia_consent_timestamp', new Date().toISOString());
+      }
+    } catch (e) {}
+
+    consentInputs.forEach(input => {
+      input.checked = granted;
+    });
+
+    // Ocultar cualquier tooltip de validación activo
+    document.querySelectorAll('[data-consent-tooltip]').forEach(tooltip => {
+      tooltip.classList.remove('is-visible');
+    });
+    document.querySelectorAll('[data-consent-container]').forEach(container => {
+      container.classList.remove('shake-attention');
+    });
+  }
+
+  // Restaurar consentimiento en la sesión si ya fue otorgado previamente
+  if (isConsentGranted()) {
+    applyConsent(true);
+  }
+
+  // Sincronizar estado entre todos los checkboxes de la página
+  consentInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      applyConsent(input.checked);
+    });
+  });
+
+  // ── B. Control del Modal / Drawer de Privacidad ──
+  function openPrivacyModal() {
+    if (!privacyModal) return;
+
+    // Asegurar que el scroll siempre comience arriba
+    const modalBody = privacyModal.querySelector('.privacy-modal-body');
+    if (modalBody) {
+      modalBody.scrollTop = 0;
+    }
+
+    privacyModal.removeAttribute('hidden');
+    // Forzar reflow para animación suave
+    void privacyModal.offsetWidth;
+    privacyModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+
+    // Auto-focus para accesibilidad sin forzar scroll del viewport
+    if (closePrivacyModalBtn) {
+      try {
+        closePrivacyModalBtn.focus({ preventScroll: true });
+      } catch (e) {
+        closePrivacyModalBtn.focus();
+      }
+    }
+  }
+
+  function closePrivacyModal() {
+    if (!privacyModal) return;
+    privacyModal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      if (!privacyModal.classList.contains('is-open')) {
+        privacyModal.setAttribute('hidden', '');
+      }
+    }, 250);
+  }
+
+  // Disparadores para abrir el modal en enlaces legales
+  document.addEventListener('click', (e) => {
+    const legalTrigger = e.target.closest('[data-open-privacy-modal], .legal-policy-trigger, .legal-modal-trigger');
+    if (legalTrigger) {
+      e.preventDefault();
+      openPrivacyModal();
+    }
+  });
+
+  if (closePrivacyModalBtn) closePrivacyModalBtn.addEventListener('click', closePrivacyModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closePrivacyModal);
+
+  if (acceptModalBtn) {
+    acceptModalBtn.addEventListener('click', () => {
+      applyConsent(true);
+      closePrivacyModal();
+    });
+  }
+
+  // Cerrar con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('is-open')) {
+      closePrivacyModal();
+    }
+  });
+
+  // Función para destacar el checkbox con micro-resaltado y animación
+  function highlightConsentRequirement(sourceElement) {
+    // Buscar el checkbox más cercano al botón o el primero disponible en la pantalla
+    let targetWrapper = null;
+    if (sourceElement) {
+      const section = sourceElement.closest('section, .hero-content, .cta-content, .footer-inner') || document;
+      targetWrapper = section.querySelector('[data-consent-container]');
+    }
+    if (!targetWrapper) {
+      targetWrapper = document.querySelector('[data-consent-container]');
+    }
+
+    if (targetWrapper) {
+      const tooltip = targetWrapper.querySelector('[data-consent-tooltip]');
+      const checkbox = targetWrapper.querySelector('.nortia-consent-input');
+
+      targetWrapper.classList.remove('shake-attention');
+      void targetWrapper.offsetWidth; // reiniciar animación
+      targetWrapper.classList.add('shake-attention');
+
+      if (tooltip) {
+        tooltip.classList.add('is-visible');
+        setTimeout(() => {
+          tooltip.classList.remove('is-visible');
+        }, 4500);
+      }
+
+      if (checkbox) {
+        checkbox.focus({ preventScroll: true });
+      }
+
+      // Scroll suave hacia el contenedor si no está visible
+      const rect = targetWrapper.getBoundingClientRect();
+      const inView = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+      if (!inView) {
+        targetWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } else {
+      // Si no hay checkbox en la vista (por ej. botón flotante aislado), abrir el modal de consulta
+      openPrivacyModal();
+    }
+  }
+
   // 1. Mobile Drawer Navigation
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const closeDrawerBtn = document.getElementById('close-drawer-btn');
@@ -59,7 +215,7 @@ export function initInteractions() {
     link.addEventListener('click', closeDrawer);
   });
 
-  // 2. Eventos de WhatsApp en todo el sitio
+  // 2. Eventos de WhatsApp en todo el sitio con Validación de Ley 1581
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.wa-btn, button, a');
     if (!trigger) return;
@@ -73,8 +229,21 @@ export function initInteractions() {
     const customMsg = trigger.getAttribute('data-wa-msg');
     const text = trigger.textContent || '';
 
-    if (trigger.classList.contains('wa-btn') || topic || customMsg || text.includes('Hablar con un asesor') || text.includes('Cotizar por WhatsApp') || text.includes('Solicitar asesoría') || text.includes('Cotizar este Plan') || text.includes('Solicitar Asesoría') || text.includes('Quiero una asesoría')) {
+    const isWhatsAppAction = trigger.classList.contains('wa-btn') || topic || customMsg || 
+      text.includes('Hablar con un asesor') || text.includes('Cotizar por WhatsApp') || 
+      text.includes('Solicitar asesoría') || text.includes('Cotizar este Plan') || 
+      text.includes('Solicitar Asesoría') || text.includes('Quiero una asesoría') ||
+      text.includes('Asesoría Privada') || text.includes('Solicitar crédito');
+
+    if (isWhatsAppAction) {
       e.preventDefault();
+
+      // Validación jurídica: verificar consentimiento activo antes de disparar el contacto
+      if (!isConsentGranted()) {
+        highlightConsentRequirement(trigger);
+        return;
+      }
+
       openWhatsApp(topic || 'general', customMsg || '');
     }
   });

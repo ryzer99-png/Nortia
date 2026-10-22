@@ -37,7 +37,7 @@ const {
 
     <div class="coverage-plans-grid">
       {plans.map((plan, idx) => {
-        const planMsg = `Hola NORTIA, me gustaría recibir asesoría sobre el plan: ${plan.title} para mi ${targetNoun}.`;
+        const planMsg = `Hola NORTIA, deseo cotizar el plan ${plan.title} para mi ${targetNoun}. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.`;
         return (
           <div class={`coverage-plan-card scroll-reveal reveal-fade-up delay-${(idx + 1) * 100}`}>
             <div>

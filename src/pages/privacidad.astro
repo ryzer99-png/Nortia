@@ -16,30 +16,57 @@ const description = 'Política de privacidad y protección de datos personales d
     <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; color: var(--text-dark);">Política de Privacidad</h1>
     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px;">Cumplimiento Ley 1581 de 2012 y Decreto 1377 de 2013 (Colombia)</p>
 
-    <div style="line-height: 1.7; font-size: 1rem; display: flex; flex-direction: column; gap: 24px;">
+    <div class="privacy-content-card" style="line-height: 1.7; font-size: 1rem; display: flex; flex-direction: column; gap: 28px; background: #fff; padding: 36px 32px; border-radius: 16px; border: 1px solid rgba(208,201,190,0.5); box-shadow: 0 4px 20px rgba(16,27,77,0.04);">
       <section>
-        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">1. Responsable del Tratamiento de Datos</h2>
-        <p>
-          {SITE_CONTENT.brand.name} declara que la información y datos personales suministrados por los titulares serán tratados de manera confidencial, segura y con apego estricto a las disposiciones normativas vigentes en la República de Colombia.
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--primary);">1. Responsable del Tratamiento de Datos</h2>
+        <p style="margin-bottom: 14px;">
+          <strong>{SITE_CONTENT.legal.policyContent.responsable.razonSocial}</strong>, en calidad de Correduría de Seguros, es la entidad responsable del tratamiento de los datos personales suministrados voluntariamente por los titulares y usuarios a través del portal oficial y sus canales digitales de atención.
         </p>
-      </section>
-
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">2. Finalidad de la Información Recolectada</h2>
-        <p>
-          Los datos de contacto (nombre, teléfono, correo electrónico e información básica de riesgo o bienes a asegurar) serán utilizados exclusivamente para:
-        </p>
-        <ul style="padding-left: 20px; margin-top: 8px; display: flex; flex-direction: column; gap: 6px;">
-          <li>Elaborar cotizaciones y comparativos de seguros solicitados voluntariamente por el usuario.</li>
-          <li>Brindar acompañamiento y asesoría técnica respecto a coberturas y pólizas de interés.</li>
-          <li>Gestionar la comunicación directa mediante WhatsApp o correo electrónico.</li>
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; background: rgba(16,27,77,0.02); border: 1px solid rgba(208,201,190,0.5); border-radius: 10px; padding: 14px 18px;">
+          <li><strong>Domicilio Principal:</strong> {SITE_CONTENT.legal.policyContent.responsable.domicilio}</li>
+          <li><strong>Portal Web:</strong> <a href={SITE_CONTENT.legal.policyContent.responsable.sitioWeb} style="color: var(--primary); font-weight: 600;" target="_blank" rel="noopener">{SITE_CONTENT.legal.policyContent.responsable.sitioWeb}</a></li>
+          <li><strong>Correo Electrónico:</strong> <a href={`mailto:${SITE_CONTENT.legal.policyContent.responsable.email}`} style="color: var(--primary); font-weight: 600;">{SITE_CONTENT.legal.policyContent.responsable.email}</a></li>
+          <li><strong>Línea Telefónica:</strong> {SITE_CONTENT.legal.policyContent.responsable.telefono}</li>
         </ul>
       </section>
 
       <section>
-        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">3. Derechos del Titular (Habeas Data)</h2>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: var(--primary);">2. Finalidades del Tratamiento de la Información</h2>
         <p>
-          Como titular de los datos personales, usted tiene derecho a conocer, actualizar, rectificar y solicitar la supresión de su información de nuestras bases de datos en cualquier momento enviando una solicitud a <a href={`mailto:${SITE_CONTENT.brand.email}`} style="color: var(--primary);">{SITE_CONTENT.brand.email}</a>.
+          {SITE_CONTENT.legal.policyContent.finalidades.description}
+        </p>
+        <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+          {SITE_CONTENT.legal.policyContent.finalidades.items.map((item: string) => (
+            <li style="color: var(--text-dark);">{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: var(--primary);">3. Derechos del Titular (Derechos ARCO)</h2>
+        <p>
+          {SITE_CONTENT.legal.policyContent.derechos.description}
+        </p>
+        <ul style="padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+          {SITE_CONTENT.legal.policyContent.derechos.items.map((derecho: string) => (
+            <li style="color: var(--text-dark);">{derecho}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section style="background: rgba(16,27,77,0.03); border: 1px dashed rgba(217,165,43,0.5); padding: 20px; border-radius: 12px;">
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: var(--primary);">4. Canales de Atención y Ejercicio de Derechos (Habeas Data)</h2>
+        <p>
+          {SITE_CONTENT.legal.policyContent.canales.description}
+        </p>
+        <p style="margin-top: 10px;">
+          <strong>Correo electrónico de Habeas Data:</strong>{' '}
+          <a href={`mailto:${SITE_CONTENT.legal.policyContent.canales.email}?subject=${encodeURIComponent(SITE_CONTENT.legal.policyContent.canales.asuntoRecomendado)}`} style="color: var(--primary); font-weight: 700;">
+            {SITE_CONTENT.legal.policyContent.canales.email}
+          </a>
+        </p>
+        <p style="margin-top: 6px; font-size: 0.9rem; color: var(--text-muted);">
+          ⏱ {SITE_CONTENT.legal.policyContent.canales.tiempoRespuesta}
         </p>
       </section>
     </div>

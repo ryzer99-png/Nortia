@@ -109,6 +109,16 @@ const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             <li><a href="/#camino">El Camino</a></li>
             <li>
               <a
+                href="/privacidad"
+                data-open-privacy-modal
+                class="legal-modal-trigger"
+                title="Habeas Data Colombia"
+              >
+                Habeas Data (Ley 1581)
+              </a>
+            </li>
+            <li>
+              <a
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -154,7 +164,9 @@ const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
       </p>
       <div class="footer-bottom-links">
         <a href="/terminos">{footer.termsText}</a>
-        <a href="/privacidad">{footer.privacyText}</a>
+        <a href="/privacidad" data-open-privacy-modal class="footer-legal-link">
+          * {footer.privacyText}
+        </a>
       </div>
     </div>
   </div>

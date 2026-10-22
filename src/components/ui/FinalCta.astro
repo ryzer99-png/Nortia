@@ -1,5 +1,6 @@
 ---
 import { SITE_CONTENT } from '@data/content.js';
+import ConsentCheckbox from '@components/ui/ConsentCheckbox.astro';
 
 interface Props {
   title?: string;
@@ -20,9 +21,15 @@ const {
   <div class="cta-content scroll-reveal reveal-fade-up">
     <h2>{title}</h2>
     <p>{subtitle}</p>
-    <button data-wa-topic={waTopic} class="wa-btn btn-wa-large">
-      <span class="material-symbols-outlined" style="font-size:24px">chat</span>
-      <span>{btnText}</span>
-    </button>
+
+    <div class="final-cta-action-box">
+      <!-- Checkbox de Consentimiento Activo Ley 1581 de 2012 -->
+      <ConsentCheckbox id="final-cta-consent-check" theme="dark" align="center" />
+
+      <button data-wa-topic={waTopic} class="wa-btn btn-wa-large">
+        <span class="material-symbols-outlined" style="font-size:24px">chat</span>
+        <span>{btnText}</span>
+      </button>
+    </div>
   </div>
 </section>

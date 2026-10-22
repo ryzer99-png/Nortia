@@ -129,12 +129,19 @@ main {
   max-width: 540px;
 }
 
+.hero-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  padding-top: 6px;
+}
+
 .hero-cta-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
-  padding-top: 8px;
 }
 
 .hero-cta-note {

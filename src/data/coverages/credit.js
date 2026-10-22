@@ -147,7 +147,7 @@ export const CREDITOS_DATA = {
             'Acompañamiento experto y resolución de dudas durante todo el camino'
           ],
           ctaText: 'Solicitar crédito de compra',
-          waMsg: 'Hola NORTIA, me gustaría recibir asesoría para solicitar un crédito de compra de vehículo (carro / moto / camión).'
+          waMsg: 'Hola NORTIA, deseo cotizar mi crédito de compra de vehículo (carro / moto / camión). He leído y acepto la política de tratamiento de datos para recibir mi asesoría.'
         },
         {
           id: 'compra-cartera',
@@ -162,7 +162,7 @@ export const CREDITOS_DATA = {
             'Alivia tu flujo de caja con mejores condiciones y tasas competitivas'
           ],
           ctaText: 'Mejorar mi tasa actual',
-          waMsg: 'Hola NORTIA, me gustaría recibir asesoría para compra de cartera vehicular y mejorar la tasa de mi crédito actual.'
+          waMsg: 'Hola NORTIA, deseo cotizar la compra de cartera vehicular para mejorar mi tasa. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.'
         },
         {
           id: 'libre-inversion-prenda',
@@ -177,7 +177,7 @@ export const CREDITOS_DATA = {
             'Tasas de interés mucho más bajas y favorables que un crédito de consumo'
           ],
           ctaText: 'Solicitar crédito con prenda',
-          waMsg: 'Hola NORTIA, me interesa recibir asesoría para un crédito de libre inversión dejando mi vehículo como garantía prendaria mientras lo sigo utilizando.'
+          waMsg: 'Hola NORTIA, deseo cotizar un crédito de libre inversión con prenda sobre mi vehículo. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.'
         }
       ],
       banks: [

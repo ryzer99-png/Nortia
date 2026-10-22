@@ -17,14 +17,14 @@ export const GLOBAL_DATA = {
     }
   },
 
-  // Mensajes preconfigurados para WhatsApp según el contexto del usuario (enfoque de asesoría)
+  // Mensajes preconfigurados para WhatsApp con constancia expresa de aceptación Ley 1581 de 2012
   whatsappMessages: {
-    personas: 'Hola Nortia, me gustaría recibir asesoría personalizada para la protección de personas y familias (salud / vida).',
-    hogar: 'Hola Nortia, me gustaría recibir asesoría e información sobre la protección de mi hogar y patrimonio.',
-    empresas: 'Hola Nortia, busco asesoría corporativa para blindar y proteger mi empresa / pyme.',
-    movilidad: 'Hola Nortia, me gustaría recibir asesoría sobre opciones de protección todo riesgo / SOAT para mi vehículo o moto.',
-    creditos: 'Hola Nortia, me gustaría recibir asesoría sobre las opciones de crédito para vehículo, compra de cartera o libre inversión con prenda.',
-    general: 'Hola Nortia, quisiera hablar con un agente para conocer su portafolio de seguros y recibir asesoría.'
+    personas: 'Hola NORTIA, deseo cotizar mi seguro de Personas / Salud / Vida. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.',
+    hogar: 'Hola NORTIA, deseo cotizar mi seguro de Hogar y patrimonio. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.',
+    empresas: 'Hola NORTIA, deseo cotizar el seguro para mi Empresa / Pyme. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.',
+    movilidad: 'Hola NORTIA, deseo cotizar mi seguro de Auto / Movilidad. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.',
+    creditos: 'Hola NORTIA, deseo cotizar las opciones de crédito y financiación. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.',
+    general: 'Hola NORTIA, deseo cotizar mi asesoría en seguros. He leído y acepto la política de tratamiento de datos para recibir mi asesoría.'
   },
 
   // Menú de navegación principal
@@ -42,6 +42,6 @@ export const GLOBAL_DATA = {
     col2Title: 'Nosotros',
     col3Title: 'Contacto',
     termsText: 'Términos y condiciones',
-    privacyText: 'Política de privacidad'
+    privacyText: 'Política de Tratamiento de Datos Personales | NORTIA Seguros'
   }
 };
