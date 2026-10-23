@@ -7,7 +7,7 @@ const { coberturas } = SITE_CONTENT;
 ---
 
 <section id="coberturas">
-  <div style="max-width:1280px;margin:0 auto">
+  <div class="container">
     <div class="section-header scroll-reveal reveal-fade-up">
       <div class="chip">
         <span class="dot"></span>
@@ -48,15 +48,6 @@ const { coberturas } = SITE_CONTENT;
                     {card.tags.map((tag: string) => (
                       <span class="card-tag">{tag}</span>
                     ))}
-                  </div>
-                  <div class="card-flip-prompt" role="button" aria-label="Toca la tarjeta para voltear y leer qué incluye">
-                    <div class="prompt-left">
-                      <span class="material-symbols-outlined prompt-icon">touch_app</span>
-                      <span class="prompt-text">Toca para conocer qué incluye</span>
-                    </div>
-                    <div class="prompt-badge">
-                      <span class="material-symbols-outlined prompt-arrow">sync</span>
-                    </div>
                   </div>
                 </div>
               </div>

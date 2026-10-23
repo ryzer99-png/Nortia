@@ -4,18 +4,6 @@
 // =========================================================
 
 export const LEGAL_DATA = {
-  habeasData: {
-    ley: 'Ley 1581 de 2012',
-    decreto: 'Decreto 1377 de 2013',
-    entidadReguladora: 'Superintendencia de Industria y Comercio (SIC)',
-    checkboxText: 'Autorizo el tratamiento de mis datos personales de acuerdo con la',
-    policyLinkText: 'Política de Privacidad y Tratamiento de Datos',
-    checkboxSuffix: 'de NORTIA para recibir mi cotización y asesoría en seguros.',
-    validationWarning: 'Por favor, acepta la política para continuar con tu cotización.',
-    footerNotice: 'Política de Tratamiento de Datos Personales | NORTIA Seguros (Ley 1581 de 2012)',
-    whatsappConsentNotice: 'He leído y acepto la política de tratamiento de datos para recibir mi asesoría.',
-  },
-
   policyContent: {
     title: 'Aviso de Privacidad y Autorización de Datos Personales',
     subtitle: 'NORTIA Corredores de Seguros — En cumplimiento de la Ley 1581 de 2012',

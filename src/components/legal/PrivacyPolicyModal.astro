@@ -170,9 +170,7 @@ const { policyContent } = legal;
 </div>
 
 <style>
-  /* =========================================================
-     1. Estructura y Contenedor Principal (Overlay & Modal Card)
-     ========================================================= */
+  /* ── 1. Overlay & Backdrop ── */
   .privacy-modal-overlay {
     position: fixed;
     inset: 0;
@@ -180,10 +178,8 @@ const { policyContent } = legal;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     min-height: 100dvh;
-    padding: 16px;
-    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    padding: max(12px, env(safe-area-inset-bottom));
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -206,16 +202,15 @@ const { policyContent } = legal;
     cursor: pointer;
   }
 
-  /* Tarjeta Modal: w-full, max-w-2xl en desktop, max-h-[85vh / 88dvh], overflow-hidden, flex-col */
+  /* ── 2. Modal Container ── */
   .privacy-modal-container {
     position: relative;
     z-index: 1001;
     background: #FDFBF7;
-    border: 1px solid rgba(217, 165, 43, 0.35);
-    border-radius: 20px;
+    border: 1px solid rgba(var(--secondary-rgb), 0.35);
+    border-radius: clamp(16px, 3vw, 20px);
     width: 100%;
     max-width: 680px;
-    max-height: 85vh;
     max-height: 85dvh;
     display: flex;
     flex-direction: column;
@@ -230,21 +225,17 @@ const { policyContent } = legal;
     transform: translateY(0) scale(1);
   }
 
-  /* =========================================================
-     2. Capa A: Cabecera Fija (flex: none / sin scroll)
-     ========================================================= */
+  /* ── 3. Fixed Header ── */
   .privacy-modal-header {
     flex: none;
-    padding: 20px 24px 16px;
+    padding: clamp(14px, 2.5vw, 20px) clamp(16px, 3vw, 24px) 14px;
     border-bottom: 1px solid rgba(208, 201, 190, 0.5);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 14px;
+    gap: 12px;
     background: #FAF8F3;
-    position: relative;
     z-index: 2;
-    box-shadow: 0 2px 10px rgba(16, 27, 77, 0.03);
   }
 
   .privacy-header-content {
@@ -256,16 +247,16 @@ const { policyContent } = legal;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--secondary, #D9A52B);
-    background: rgba(217, 165, 43, 0.12);
-    border: 1px solid rgba(217, 165, 43, 0.32);
-    padding: 3px 9px;
+    color: var(--secondary);
+    background: rgba(var(--secondary-rgb), 0.12);
+    border: 1px solid rgba(var(--secondary-rgb), 0.32);
+    padding: 2.5px 8px;
     border-radius: 999px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .badge-icon {
@@ -274,17 +265,17 @@ const { policyContent } = legal;
 
   .privacy-modal-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
     font-weight: 700;
-    color: var(--primary, #101B4D);
+    color: var(--primary);
     line-height: 1.3;
     margin: 0;
   }
 
   .privacy-modal-subtitle {
-    font-size: 0.82rem;
-    color: var(--on-surface-variant, #5C6478);
-    margin: 4px 0 0;
+    font-size: clamp(0.76rem, 1.8vw, 0.82rem);
+    color: var(--on-surface-variant);
+    margin: 3px 0 0;
     font-weight: 500;
     line-height: 1.4;
   }
@@ -292,12 +283,11 @@ const { policyContent } = legal;
   .privacy-close-btn {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(208, 201, 190, 0.7);
-    color: var(--on-surface-variant, #5C6478);
+    color: var(--on-surface-variant);
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    min-height: 36px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -307,120 +297,104 @@ const { policyContent } = legal;
   }
 
   .privacy-close-btn:hover {
-    background: var(--primary, #101B4D);
+    background: var(--primary);
     color: #fff;
-    border-color: var(--primary, #101B4D);
+    border-color: var(--primary);
     transform: rotate(90deg);
   }
 
-  /* =========================================================
-     3. Capa B: Contenido Legal (Único bloque con scroll vertical)
-     ========================================================= */
+  /* ── 4. Scrollable Body ── */
   .privacy-modal-body {
     flex: 1 1 auto;
-    min-height: 0; /* Clave en flexbox para habilitar scroll interno */
+    min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
-    padding: 20px 24px 26px;
+    padding: clamp(14px, 2.5vw, 20px) clamp(16px, 3vw, 24px) 24px;
     display: flex;
     flex-direction: column;
-    gap: 18px; /* space-y consistente */
+    gap: clamp(14px, 2.5vw, 18px);
     font-family: 'Montserrat', sans-serif;
-    color: #2D3748;
     line-height: 1.6;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     scrollbar-width: thin;
-    scrollbar-color: rgba(217, 165, 43, 0.5) rgba(234, 230, 223, 0.3);
+    scrollbar-color: rgba(var(--secondary-rgb), 0.5) rgba(234, 230, 223, 0.3);
   }
 
-  /* Custom scrollbar Webkit */
   .privacy-modal-body::-webkit-scrollbar {
     width: 6px;
-  }
-  .privacy-modal-body::-webkit-scrollbar-track {
-    background: rgba(234, 230, 223, 0.35);
-    border-radius: 999px;
   }
   .privacy-modal-body::-webkit-scrollbar-thumb {
     background: rgba(16, 27, 77, 0.24);
     border-radius: 999px;
   }
-  .privacy-modal-body::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary, #D9A52B);
-  }
 
   .privacy-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .section-title-wrap {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--primary, #101B4D);
+    color: var(--primary);
   }
 
   .section-title-wrap h3 {
-    font-size: 0.96rem;
+    font-size: clamp(0.88rem, 2vw, 0.96rem);
     font-weight: 700;
     margin: 0;
-    color: var(--primary, #101B4D);
-    letter-spacing: -0.01em;
+    color: var(--primary);
   }
 
   .section-icon {
-    font-size: 19px;
-    color: var(--secondary, #D9A52B);
+    font-size: 18px;
+    color: var(--secondary);
     flex-shrink: 0;
   }
 
   .section-desc {
     margin: 0;
-    font-size: 0.88rem;
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem);
     color: #4A5568;
     line-height: 1.5;
   }
 
-  /* 1. Responsable Card */
-  .responsable-card {
+  /* Cards in Sections */
+  .responsable-card,
+  .canal-card {
     background: #FFFFFF;
-    border: 1px solid rgba(217, 165, 43, 0.28);
+    border: 1px solid rgba(var(--secondary-rgb), 0.3);
     border-radius: 14px;
-    padding: 16px 18px;
+    padding: clamp(13px, 2vw, 16px) clamp(14px, 2.5vw, 18px);
     box-shadow: 0 4px 14px rgba(16, 27, 77, 0.04);
   }
 
   .responsable-intro {
     margin: 0;
-    font-size: 0.88rem;
-    line-height: 1.55;
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem);
+    line-height: 1.5;
     color: #2D3748;
   }
 
   .responsable-intro strong {
-    color: var(--primary, #101B4D);
+    color: var(--primary);
     font-weight: 700;
   }
 
   .legal-inline-link {
-    color: var(--primary, #101B4D);
+    color: var(--primary);
     font-weight: 600;
     text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .legal-inline-link:hover {
-    color: var(--secondary, #D9A52B);
   }
 
   .responsable-meta-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 14px;
-    margin-top: 12px;
-    padding-top: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px 12px;
+    margin-top: 10px;
+    padding-top: 10px;
     border-top: 1px solid rgba(208, 201, 190, 0.45);
   }
 
@@ -431,90 +405,50 @@ const { policyContent } = legal;
   }
 
   .meta-icon {
-    font-size: 17px;
-    color: var(--secondary, #D9A52B);
+    font-size: 16px;
+    color: var(--secondary);
     flex-shrink: 0;
   }
 
   .meta-data {
     display: flex;
     flex-direction: column;
-    font-size: 0.8rem;
+    font-size: clamp(0.74rem, 1.6vw, 0.8rem);
     line-height: 1.3;
     overflow: hidden;
   }
 
   .meta-label {
-    color: var(--on-surface-variant, #5C6478);
-    font-size: 0.72rem;
+    color: var(--on-surface-variant);
+    font-size: 0.7rem;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.04em;
   }
 
-  .meta-val {
-    color: var(--primary, #101B4D);
+  .meta-val,
+  .meta-link {
+    color: var(--primary);
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .meta-link {
-    color: var(--primary, #101B4D);
-    font-weight: 600;
     text-decoration: none;
   }
 
   .meta-link:hover {
-    color: var(--secondary, #D9A52B);
+    color: var(--secondary);
     text-decoration: underline;
   }
 
-  /* 2. Finalidades Grid */
+  /* Finalidades & Derechos Cards */
   .finalidades-grid {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
   }
 
-  .finalidad-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background: #FFFFFF;
-    border: 1px solid rgba(208, 201, 190, 0.5);
-    border-radius: 10px;
-    padding: 10px 14px;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .finalidad-card:hover {
-    border-color: rgba(217, 165, 43, 0.6);
-    background: #FFFDF9;
-  }
-
-  .check-bullet {
-    font-size: 18px;
-    color: var(--secondary, #D9A52B);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .finalidad-text {
-    margin: 0;
-    font-size: 0.85rem;
-    color: #334155;
-    line-height: 1.48;
-  }
-
-  /* 3. Derechos Grid (2 Columnas en tablet/desktop) */
-  .derechos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
+  .finalidad-card,
   .derecho-card {
     display: flex;
     align-items: flex-start;
@@ -522,56 +456,60 @@ const { policyContent } = legal;
     background: #FFFFFF;
     border: 1px solid rgba(208, 201, 190, 0.5);
     border-radius: 10px;
-    padding: 9px 12px;
+    padding: clamp(8px, 1.6vw, 10px) clamp(10px, 2vw, 14px);
     transition: border-color 0.2s ease;
   }
 
-  .derecho-card:last-child:nth-child(odd) {
-    grid-column: span 2;
-  }
-
+  .finalidad-card:hover,
   .derecho-card:hover {
-    border-color: rgba(16, 27, 77, 0.3);
+    border-color: rgba(var(--secondary-rgb), 0.6);
   }
 
-  .derecho-icon {
+  .check-bullet {
     font-size: 17px;
-    color: var(--primary, #101B4D);
+    color: var(--secondary);
     flex-shrink: 0;
     margin-top: 1px;
   }
 
+  .derecho-icon {
+    font-size: 16px;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .finalidad-text,
   .derecho-text {
     margin: 0;
-    font-size: 0.82rem;
+    font-size: clamp(0.78rem, 1.7vw, 0.85rem);
     color: #334155;
-    line-height: 1.4;
+    line-height: 1.45;
   }
 
-  /* 4. Canales Box */
-  .canal-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(217, 165, 43, 0.35);
-    border-radius: 14px;
-    padding: 16px 18px;
+  .derechos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 7px;
   }
 
+  /* Canal Contact Box */
   .email-action-box {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(16, 27, 77, 0.03);
+    gap: 10px;
+    background: rgba(var(--primary-rgb), 0.03);
     border: 1px solid rgba(208, 201, 190, 0.6);
-    padding: 11px 15px;
+    padding: clamp(8px, 1.8vw, 11px) clamp(10px, 2vw, 15px);
     border-radius: 10px;
     margin-top: 4px;
   }
 
   .email-icon-wrapper {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 8px;
-    background: rgba(217, 165, 43, 0.15);
+    background: rgba(var(--secondary-rgb), 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -579,8 +517,8 @@ const { policyContent } = legal;
   }
 
   .email-box-icon {
-    color: var(--secondary, #D9A52B);
-    font-size: 19px;
+    color: var(--secondary);
+    font-size: 18px;
   }
 
   .email-details {
@@ -591,23 +529,23 @@ const { policyContent } = legal;
   }
 
   .email-caption {
-    font-size: 0.74rem;
-    color: var(--on-surface-variant, #5C6478);
+    font-size: 0.72rem;
+    color: var(--on-surface-variant);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
 
   .email-address {
-    font-size: 0.92rem;
+    font-size: clamp(0.84rem, 2vw, 0.92rem);
     font-weight: 700;
-    color: var(--primary, #101B4D);
+    color: var(--primary);
     text-decoration: none;
     word-break: break-all;
   }
 
   .email-address:hover {
-    color: var(--secondary, #D9A52B);
+    color: var(--secondary);
     text-decoration: underline;
   }
 
@@ -615,49 +553,44 @@ const { policyContent } = legal;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.78rem;
-    color: var(--on-surface-variant, #5C6478);
-    margin-top: 8px;
-    line-height: 1.4;
+    font-size: clamp(0.72rem, 1.6vw, 0.78rem);
+    color: var(--on-surface-variant);
+    margin-top: 6px;
   }
 
   .sla-icon {
     font-size: 15px;
-    color: var(--secondary, #D9A52B);
+    color: var(--secondary);
     flex-shrink: 0;
   }
 
-  /* =========================================================
-     4. Capa C: Pie de Página Fijo (flex: none / mt-auto)
-     ========================================================= */
+  /* ── 5. Fixed Footer ── */
   .privacy-modal-footer {
     flex: none;
     margin-top: auto;
-    padding: 14px 24px;
+    padding: clamp(12px, 2vw, 14px) clamp(16px, 3vw, 24px);
     border-top: 1px solid rgba(208, 201, 190, 0.5);
     background: #FAF8F3;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    position: relative;
+    gap: 12px;
     z-index: 2;
-    box-shadow: 0 -2px 10px rgba(16, 27, 77, 0.02);
   }
 
   .full-policy-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.82rem;
-    color: var(--on-surface-variant, #5C6478);
+    font-size: 0.8rem;
+    color: var(--on-surface-variant);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
   }
 
   .full-policy-link:hover {
-    color: var(--primary, #101B4D);
+    color: var(--primary);
     text-decoration: underline;
   }
 
@@ -666,7 +599,7 @@ const { policyContent } = legal;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: var(--primary, #101B4D);
+    background: var(--primary);
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -681,189 +614,41 @@ const { policyContent } = legal;
   }
 
   .btn-accept-policy:hover {
-    background: var(--secondary, #D9A52B);
-    color: var(--primary, #101B4D);
+    background: var(--secondary);
+    color: var(--primary);
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(217, 165, 43, 0.35);
+    box-shadow: 0 6px 16px rgba(var(--secondary-rgb), 0.35);
   }
 
-  /* =========================================================
-     5. Ajustes Responsivos Móviles (iPhone / Android)
-     ========================================================= */
   @media (max-width: 640px) {
-    .privacy-modal-overlay {
-      padding: 12px;
-      padding-bottom: max(12px, env(safe-area-inset-bottom));
-      align-items: center; /* Centrado con padding seguro para no desbordar */
-    }
-
-    .privacy-modal-container {
-      max-width: 100%;
-      max-height: 88dvh;
-      border-radius: 16px;
-    }
-
-    .privacy-modal-header {
-      padding: 14px 16px 12px;
-      gap: 10px;
-    }
-
-    .privacy-badge {
-      font-size: 10px;
-      padding: 2px 7px;
-      margin-bottom: 4px;
-    }
-
-    .privacy-modal-title {
-      font-size: 1.05rem;
-    }
-
-    .privacy-modal-subtitle {
-      font-size: 0.76rem;
-      margin-top: 3px;
-    }
-
-    .privacy-close-btn {
-      width: 32px;
-      height: 32px;
-      min-width: 32px;
-      min-height: 32px;
-    }
-
-    .privacy-modal-body {
-      padding: 14px 16px 18px;
-      gap: 14px;
-      font-size: 0.82rem;
-    }
-
-    .section-title-wrap h3 {
-      font-size: 0.88rem;
-    }
-
-    .section-icon {
-      font-size: 17px;
-    }
-
-    .responsable-card {
-      padding: 13px 14px;
-    }
-
-    .responsable-intro {
-      font-size: 0.8rem;
-      line-height: 1.45;
-    }
-
-    .responsable-meta-grid {
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 10px;
-      padding-top: 10px;
-    }
-
-    .meta-data {
-      font-size: 0.76rem;
-    }
-
-    .finalidad-card {
-      padding: 8px 11px;
-      gap: 8px;
-    }
-
-    .check-bullet {
-      font-size: 16px;
-    }
-
-    .finalidad-text {
-      font-size: 0.78rem;
-      line-height: 1.4;
-    }
-
-    .derechos-grid {
-      grid-template-columns: 1fr;
-      gap: 6px;
-    }
-
-    .derecho-card {
-      padding: 8px 10px;
-    }
-
-    .derecho-card:last-child:nth-child(odd) {
-      grid-column: span 1;
-    }
-
-    .derecho-icon {
-      font-size: 15px;
-    }
-
-    .derecho-text {
-      font-size: 0.76rem;
-      line-height: 1.35;
-    }
-
-    .canal-card {
-      padding: 13px 14px;
-    }
-
-    .email-action-box {
-      padding: 9px 12px;
-      gap: 10px;
-    }
-
-    .email-icon-wrapper {
-      width: 30px;
-      height: 30px;
-    }
-
-    .email-box-icon {
-      font-size: 16px;
-    }
-
-    .email-address {
-      font-size: 0.84rem;
-    }
-
-    .sla-badge {
-      font-size: 0.72rem;
-    }
-
     .privacy-modal-footer {
-      padding: 12px 16px;
-      padding-bottom: max(12px, env(safe-area-inset-bottom));
       flex-direction: column-reverse;
       align-items: stretch;
-      gap: 10px;
     }
 
     .btn-accept-policy {
       width: 100%;
-      min-height: 44px; /* Tamaño táctil seguro */
-      font-size: 0.86rem;
+      min-height: 44px;
     }
 
     .full-policy-link {
       justify-content: center;
-      font-size: 0.78rem;
-      padding: 2px 0;
     }
   }
 
-  /* Dispositivos con altura de pantalla reducida (ej. modo horizontal) */
   @media (max-height: 520px) {
     .privacy-modal-container {
       max-height: 94dvh;
     }
-
-    .privacy-modal-header {
-      padding: 10px 16px 8px;
-    }
-
-    .privacy-modal-body {
-      padding: 10px 16px 14px;
-      gap: 10px;
-    }
-
+    .privacy-modal-header,
     .privacy-modal-footer {
-      padding: 8px 16px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .privacy-modal-body {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      gap: 10px;
     }
   }
 </style>

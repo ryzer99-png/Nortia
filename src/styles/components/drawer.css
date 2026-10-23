@@ -102,12 +102,10 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--secondary);
-  color: var(--on-secondary);
   border-radius: 12px;
   padding: 12px;
-  font-size: 16px;
+  font-size: 15px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }

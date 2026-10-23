@@ -19,10 +19,6 @@ header nav {
   grid-template-columns: 1fr;
 }
 
-.insight-cards {
-  grid-template-columns: 1fr;
-}
-
 #floating-wa-btn .wa-label {
   display: none;
 }
@@ -33,12 +29,7 @@ header nav {
     display: inline;
   }
 
-  #hero .hero-ctas {
-    flex-direction: row;
-  }
-
-  .btn-primary-cta,
-  .btn-outline-hero {
+  .btn-primary-cta {
     width: auto;
   }
 
@@ -48,21 +39,6 @@ header nav {
 
   .stat-tabs-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .spotlight-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .spotlight-cta {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .spotlight-cta p {
-    text-align: left;
   }
 
   #floating-wa-btn {
@@ -110,14 +86,6 @@ header nav {
     grid-template-columns: 7fr 5fr;
   }
 
-  .stat-tabs-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .insight-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .camino-steps {
     gap: 80px;
   }
@@ -141,11 +109,7 @@ header nav {
 
   .path-step.step-even .text-col {
     order: 2;
-    text-align: right;
-  }
-
-  .path-step.step-even .step-badge {
-    margin-left: auto;
+    text-align: left;
   }
 
   .camino-track svg {
@@ -178,6 +142,10 @@ header nav {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+  }
+
+  .stat-tabs-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .camino-steps {

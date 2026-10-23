@@ -336,7 +336,5 @@ export function initInteractions() {
       el.classList.add('active-step');
     });
 
-    const progressLine = document.getElementById('camino-progress-line');
-    if (progressLine) progressLine.style.height = '100%';
   }
 }
