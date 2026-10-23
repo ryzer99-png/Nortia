@@ -12,6 +12,7 @@
 
 import { GLOBAL_DATA } from './global.js';
 import { HOME_DATA } from './home.js';
+import { LEGAL_DATA } from './legal.js';
 import { PERSONAS_DATA } from './coverages/life.js';
 import { HOGAR_DATA } from './coverages/home.js';
 import { EMPRESAS_DATA } from './coverages/business.js';
@@ -24,6 +25,7 @@ export const SITE_CONTENT = {
   whatsappMessages: GLOBAL_DATA.whatsappMessages,
   nav: GLOBAL_DATA.nav,
   footer: GLOBAL_DATA.footer,
+  legal: LEGAL_DATA,
 
   // ── 2. Página Principal (Home / Index) ──
   hero: HOME_DATA.hero,

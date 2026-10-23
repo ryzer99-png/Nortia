@@ -8,7 +8,7 @@ export const HOME_DATA = {
     badge: '+10 AÑOS ASESORANDO EN SEGUROS',
     titleLine1: 'Protege lo que amas.',
     titleHighlight: 'Protege lo que has construido.',
-    subtitle: 'Asesoría en seguros para tu familia, tu hogar, tu empresa y tu movilidad.',
+    subtitle: 'Asesoría experta en seguros para tu familia, tu hogar, tu empresa y tu movilidad en Bucaramanga y toda Colombia.',
     ctaPrimary: 'Quiero una asesoría',
     ctaSecondary: 'Hablar con un asesor',
     ctaNoteHtml: '<strong>Comparamos alternativas</strong> de cobertura, condiciones y precio.<br>Tú eliges.'
@@ -18,7 +18,7 @@ export const HOME_DATA = {
   coberturasHeader: {
     chip: 'Líneas de protección',
     title: '¿Qué quieres proteger?',
-    subtitle: 'Soluciones integrales de seguros diseñadas a la medida para personas, familias, patrimonio y empresas.'
+    subtitle: 'Soluciones integrales de seguros diseñadas a la medida para personas, familias, patrimonio y empresas en Colombia.'
   },
 
   // Sección EDITORIAL & Filosofía Nortia

@@ -2,7 +2,8 @@
    NORTIA — Footer Section
    ========================================================= */
 
-footer {
+body > footer,
+#site-footer {
   background: var(--primary);
   color: var(--on-primary);
   padding: 64px 24px 112px;

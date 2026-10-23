@@ -3,6 +3,7 @@ import Header from "@components/layout/Header.astro";
 import Drawer from "@components/layout/Drawer.astro";
 import Footer from "@components/layout/Footer.astro";
 import FloatingWhatsApp from "@components/layout/FloatingWhatsApp.astro";
+import PrivacyPolicyModal from "@components/legal/PrivacyPolicyModal.astro";
 import JsonLd from "@components/seo/JsonLd.astro";
 import "@styles/styles.css";
 
@@ -16,45 +17,87 @@ interface Props {
 }
 
 const {
-  title = "NORTIA | Seguros y Protección Patrimonial en Colombia",
-  description = "Compara seguros de vida, salud, hogar, autos y empresas en Colombia con las mejores aseguradoras. Asesoría experta y transparente.",
+  title = "NORTIA | Asesoría y Cotización de Seguros en Colombia",
+  description = "Cotiza seguros de vida, salud, autos, hogar y empresas en Colombia con Sura, Allianz y Bolívar. Asesoría experta en Bucaramanga y Santander. ¡Cotiza hoy!",
   waTopic = "general",
-  keywords = "seguros colombia, asesoria seguros, seguro de vida, medicina prepagada, seguro de hogar, seguro todo riesgo autos, poliza cumplimiento empresas, nortia",
-  ogImage = "https://nortia.com.co/assets/img/happy-family.jpg",
+  keywords = "seguros colombia, asesoria en seguros, cotizar seguros bucaramanga, seguro de vida colombia, medicina prepagada, seguro de hogar, seguro todo riesgo autos, poliza cumplimiento empresas, sura, allianz, bolivar, nortia",
+  ogImage = "https://nortia.com.co/assets/img/og-preview.webp",
   schemas = [],
 } = Astro.props;
 
 const siteUrl = "https://nortia.com.co";
-const canonicalUrl =
-  new URL(Astro.url.pathname, siteUrl).href.replace(/\/$/, "") || siteUrl;
+const pathName = Astro.url.pathname.replace(/\/$/, "");
+const canonicalUrl = pathName ? `${siteUrl}${pathName}` : `${siteUrl}/`;
 
-// Schema.org Oficial de Agencia de Seguros
+// Schema.org Oficial de Agencia de Seguros / Servicios Financieros (SEO Local Bucaramanga & Colombia)
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "InsuranceAgency",
+  "@type": ["InsuranceAgency", "FinancialService"],
   "@id": `${siteUrl}/#organization`,
-  name: "NORTIA",
-  url: siteUrl,
-  logo: `${siteUrl}/assets/img/brand/nortia-logo.png`,
-  image: `${siteUrl}/assets/img/happy-family.webp`,
+  name: "NORTIA Corredores de Seguros",
+  alternateName: ["NORTIA Seguros", "NORTIA"],
+  url: `${siteUrl}/`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/assets/img/brand/nortia-logo.png`,
+    width: "320",
+    height: "80"
+  },
+  image: ogImage,
   description: description,
   telephone: "+573239004028",
   email: "info@nortia.com.co",
+  priceRange: "$$",
+  currenciesAccepted: "COP",
+  paymentAccepted: "Transferencia bancaria, PSE, Tarjeta de crédito, Débito automático",
   address: {
     "@type": "PostalAddress",
-    addressCountry: "CO",
-    addressRegion: "Colombia",
+    addressLocality: "Bucaramanga",
+    addressRegion: "Santander",
+    postalCode: "680001",
+    addressCountry: "CO"
   },
-  areaServed: {
-    "@type": "Country",
-    name: "Colombia",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 7.1193,
+    longitude: -73.1227
   },
-  priceRange: "$$",
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Bucaramanga",
+      "@id": "https://es.wikipedia.org/wiki/Bucaramanga"
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Santander",
+      "@id": "https://es.wikipedia.org/wiki/Santander_(Colombia)"
+    },
+    {
+      "@type": "Country",
+      name: "Colombia",
+      "@id": "https://es.wikipedia.org/wiki/Colombia"
+    }
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: "08:00",
+      closes: "12:00"
+    }
+  ],
   sameAs: [
     "https://wa.me/573239004028",
     "https://www.instagram.com/nortiaseguros/",
-    "https://www.facebook.com/profile.php?id=61593321252648",
-  ],
+    "https://www.facebook.com/profile.php?id=61593321252648"
+  ]
 };
 ---
 
@@ -88,29 +131,37 @@ const organizationSchema = {
       type="image/webp"
     />
 
-    <!-- Georreferenciación para SEO Local Colombia -->
-    <meta name="geo.region" content="CO" />
-    <meta name="geo.placename" content="Colombia" />
+    <!-- Georreferenciación para SEO Local (Bucaramanga, Santander, Colombia) -->
+    <meta name="geo.region" content="CO-SAN" />
+    <meta name="geo.placename" content="Bucaramanga, Santander, Colombia" />
+    <meta name="geo.position" content="7.1193;-73.1227" />
+    <meta name="ICBM" content="7.1193, -73.1227" />
 
     <!-- OpenGraph (WhatsApp, Facebook, LinkedIn) -->
-    <meta property="og:site_name" content="NORTIA" />
+    <meta property="og:site_name" content="NORTIA Seguros" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CO" />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="NORTIA Seguros Colombia" />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="NORTIA - Asesoría y Cotización de Seguros en Colombia" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="NORTIA - Asesoría y Cotización de Seguros en Colombia" />
 
-    <!-- Favicons -->
+    <!-- Favicons & Apple Touch Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Preconnect & Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -136,6 +187,7 @@ const organizationSchema = {
 
     <Footer waTopic={waTopic} />
     <FloatingWhatsApp waTopic={waTopic} />
+    <PrivacyPolicyModal />
 
     <script>
       import { initInteractions } from "@scripts/interactions.js";

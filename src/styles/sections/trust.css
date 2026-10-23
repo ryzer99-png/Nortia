@@ -182,20 +182,6 @@
   transform: scale(1.04);
 }
 
-.aseguradora-badge .aseguradora-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 0.3px;
-}
-
-.aseguradora-badge .aseguradora-sub {
-  font-size: 10px;
-  color: var(--on-surface-variant);
-  font-weight: 500;
-  margin-top: 2px;
-}
 
 @media (max-width: 768px) {
   .trust-banner-card {

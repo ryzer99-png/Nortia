@@ -124,15 +124,3 @@
   line-height: 1.7;
 }
 
-/* El Camino Step Node (for path-step-node) */
-.path-step-node {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.path-step.active-step .path-step-node {
-  background-color: var(--secondary) !important;
-  color: var(--primary) !important;
-  border-color: var(--secondary) !important;
-  transform: scale(1.2);
-  box-shadow: 0 0 25px rgba(var(--secondary-rgb), 0.6);
-}

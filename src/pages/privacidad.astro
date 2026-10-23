@@ -4,44 +4,188 @@ import { SITE_CONTENT } from '@data/content.js';
 
 const title = 'Política de Privacidad y Tratamiento de Datos | NORTIA';
 const description = 'Política de privacidad y protección de datos personales de NORTIA en cumplimiento de la Ley 1581 de 2012 en Colombia.';
+const { policyContent } = SITE_CONTENT.legal;
 ---
 
 <Layout title={title} description={description} waTopic="general">
-  <main style="max-width: 800px; margin: 0 auto; padding: 140px 24px 80px; color: var(--text);">
-    <a href="/" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 24px;">
-      <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
-      <span>Volver al inicio</span>
-    </a>
+  <main class="legal-page">
+    <div class="legal-container">
+      <a href="/" aria-label="Volver al inicio" class="legal-back-link">
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+        <span>Volver al inicio</span>
+      </a>
 
-    <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; color: var(--text-dark);">Política de Privacidad</h1>
-    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px;">Cumplimiento Ley 1581 de 2012 y Decreto 1377 de 2013 (Colombia)</p>
+      <h1 class="legal-page-title">Política de Privacidad</h1>
+      <p class="legal-page-meta">Cumplimiento Ley 1581 de 2012 y Decreto 1377 de 2013 (Colombia)</p>
 
-    <div style="line-height: 1.7; font-size: 1rem; display: flex; flex-direction: column; gap: 24px;">
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">1. Responsable del Tratamiento de Datos</h2>
-        <p>
-          {SITE_CONTENT.brand.name} declara que la información y datos personales suministrados por los titulares serán tratados de manera confidencial, segura y con apego estricto a las disposiciones normativas vigentes en la República de Colombia.
-        </p>
-      </section>
+      <div class="legal-card">
+        <section class="legal-section">
+          <h2>1. Responsable del Tratamiento de Datos</h2>
+          <p>
+            <strong>{policyContent.responsable.razonSocial}</strong>, en calidad de Correduría de Seguros, es la entidad responsable del tratamiento de los datos personales suministrados voluntariamente por los titulares y usuarios a través del portal oficial y sus canales digitales de atención.
+          </p>
+          <ul class="legal-info-grid">
+            <li><strong>Domicilio Principal:</strong> {policyContent.responsable.domicilio}</li>
+            <li><strong>Portal Web:</strong> <a href={policyContent.responsable.sitioWeb} target="_blank" rel="noopener">{policyContent.responsable.sitioWeb}</a></li>
+            <li><strong>Correo Electrónico:</strong> <a href={`mailto:${policyContent.responsable.email}`}>{policyContent.responsable.email}</a></li>
+            <li><strong>Línea Telefónica:</strong> {policyContent.responsable.telefono}</li>
+          </ul>
+        </section>
 
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">2. Finalidad de la Información Recolectada</h2>
-        <p>
-          Los datos de contacto (nombre, teléfono, correo electrónico e información básica de riesgo o bienes a asegurar) serán utilizados exclusivamente para:
-        </p>
-        <ul style="padding-left: 20px; margin-top: 8px; display: flex; flex-direction: column; gap: 6px;">
-          <li>Elaborar cotizaciones y comparativos de seguros solicitados voluntariamente por el usuario.</li>
-          <li>Brindar acompañamiento y asesoría técnica respecto a coberturas y pólizas de interés.</li>
-          <li>Gestionar la comunicación directa mediante WhatsApp o correo electrónico.</li>
-        </ul>
-      </section>
+        <section class="legal-section">
+          <h2>2. Finalidades del Tratamiento de la Información</h2>
+          <p>{policyContent.finalidades.description}</p>
+          <ul class="legal-list">
+            {policyContent.finalidades.items.map((item: string) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
 
-      <section>
-        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">3. Derechos del Titular (Habeas Data)</h2>
-        <p>
-          Como titular de los datos personales, usted tiene derecho a conocer, actualizar, rectificar y solicitar la supresión de su información de nuestras bases de datos en cualquier momento enviando una solicitud a <a href={`mailto:${SITE_CONTENT.brand.email}`} style="color: var(--primary);">{SITE_CONTENT.brand.email}</a>.
-        </p>
-      </section>
+        <section class="legal-section">
+          <h2>3. Derechos del Titular (Derechos ARCO)</h2>
+          <p>{policyContent.derechos.description}</p>
+          <ul class="legal-list">
+            {policyContent.derechos.items.map((derecho: string) => (
+              <li>{derecho}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="legal-section legal-highlight-box">
+          <h2>4. Canales de Atención y Ejercicio de Derechos (Habeas Data)</h2>
+          <p>{policyContent.canales.description}</p>
+          <p class="legal-contact-line">
+            <strong>Correo electrónico de Habeas Data:</strong>{' '}
+            <a href={`mailto:${policyContent.canales.email}?subject=${encodeURIComponent(policyContent.canales.asuntoRecomendado)}`}>
+              {policyContent.canales.email}
+            </a>
+          </p>
+          <p class="legal-response-time">
+            ⏱ {policyContent.canales.tiempoRespuesta}
+          </p>
+        </section>
+      </div>
     </div>
   </main>
 </Layout>
+
+<style>
+  .legal-page {
+    padding: 120px 24px 80px;
+    color: var(--on-surface);
+  }
+
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--on-surface-variant);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+  }
+
+  .legal-back-link:hover {
+    color: var(--primary);
+  }
+
+  .legal-page-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+
+  .legal-page-meta {
+    color: var(--on-surface-variant);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .legal-card {
+    line-height: 1.7;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    background: #ffffff;
+    padding: 36px 32px;
+    border-radius: 16px;
+    border: 1px solid rgba(var(--primary-rgb), 0.08);
+    box-shadow: 0 4px 20px rgba(16, 27, 77, 0.04);
+  }
+
+  .legal-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+
+  .legal-info-grid {
+    list-style: none;
+    padding: 14px 18px;
+    margin: 14px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    background: rgba(var(--primary-rgb), 0.02);
+    border: 1px solid rgba(var(--primary-rgb), 0.08);
+    border-radius: 10px;
+    font-size: 0.92rem;
+  }
+
+  .legal-info-grid a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .legal-list {
+    padding-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--on-surface);
+  }
+
+  .legal-highlight-box {
+    background: rgba(var(--primary-rgb), 0.02);
+    border: 1px dashed rgba(var(--secondary-rgb), 0.6);
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .legal-contact-line {
+    margin-top: 10px;
+  }
+
+  .legal-contact-line a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .legal-response-time {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: var(--on-surface-variant);
+  }
+
+  @media (max-width: 640px) {
+    .legal-card {
+      padding: 24px 20px;
+    }
+  }
+</style>

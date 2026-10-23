@@ -2,10 +2,6 @@
    NORTIA — Hero Section
    ========================================================= */
 
-main {
-  padding-top: 72px;
-}
-
 #hero {
   position: relative;
   min-height: 85vh;
@@ -14,6 +10,7 @@ main {
   justify-content: center;
   overflow: hidden;
   background: var(--primary);
+  padding-top: 72px;
 }
 
 #hero .hero-bg {
@@ -134,7 +131,7 @@ main {
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
-  padding-top: 8px;
+  padding-top: 6px;
 }
 
 .hero-cta-note {

@@ -47,24 +47,6 @@
   transform: translateY(-1px);
 }
 
-.btn-outline-hero {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 2px solid rgba(247,244,239,0.3);
-  color: #F7F4EF;
-  border-radius: 12px;
-  padding: 16px 32px;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.3s;
-  text-align: center;
-}
-
-.btn-outline-hero:hover {
-  background: rgba(247,244,239,0.1);
-}
 
 /* ── Card WhatsApp Button ── */
 .btn-wa {
@@ -146,27 +128,6 @@
   transform: translateY(-2px);
 }
 
-/* ── Footer WhatsApp Button ── */
-.btn-footer-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(var(--secondary-rgb), 0.2);
-  border: 1px solid rgba(var(--secondary-rgb), 0.3);
-  color: var(--secondary);
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.2s;
-  width: fit-content;
-}
-
-.btn-footer-wa:hover {
-  background: var(--secondary);
-  color: var(--on-secondary);
-}
 
 /* ── Floating WhatsApp Button ── */
 #floating-wa-btn {

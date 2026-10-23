@@ -24,7 +24,13 @@
   grid-template-columns: 1fr;
   gap: 32px;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 64px;
+}
+
+.editorial-col-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .editorial-chip {
@@ -42,6 +48,14 @@
   letter-spacing: 0.1em;
   width: fit-content;
   align-self: flex-start;
+}
+
+.editorial-chip .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+  display: inline-block;
 }
 
 #editorial h2 {

@@ -11,15 +11,12 @@
   display: flex;
 }
 
-header nav {
+body > header nav,
+#site-header nav {
   display: none;
 }
 
 .stat-tabs-grid {
-  grid-template-columns: 1fr;
-}
-
-.insight-cards {
   grid-template-columns: 1fr;
 }
 
@@ -33,12 +30,7 @@ header nav {
     display: inline;
   }
 
-  #hero .hero-ctas {
-    flex-direction: row;
-  }
-
-  .btn-primary-cta,
-  .btn-outline-hero {
+  .btn-primary-cta {
     width: auto;
   }
 
@@ -48,21 +40,6 @@ header nav {
 
   .stat-tabs-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .spotlight-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .spotlight-cta {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .spotlight-cta p {
-    text-align: left;
   }
 
   #floating-wa-btn {
@@ -83,7 +60,8 @@ header nav {
 
 /* ── RESPONSIVE — md (768px - Tablet & Desktop Navigation) ── */
 @media (min-width: 768px) {
-  header nav {
+  body > header nav,
+  #site-header nav {
     display: flex;
     align-items: center;
     gap: 32px;
@@ -93,7 +71,8 @@ header nav {
     display: none;
   }
 
-  header .logo img {
+  body > header .logo img,
+  #site-header .logo img {
     height: 40px;
   }
 
@@ -108,14 +87,6 @@ header nav {
 
   .editorial-grid {
     grid-template-columns: 7fr 5fr;
-  }
-
-  .stat-tabs-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .insight-cards {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .camino-steps {
@@ -141,11 +112,7 @@ header nav {
 
   .path-step.step-even .text-col {
     order: 2;
-    text-align: right;
-  }
-
-  .path-step.step-even .step-badge {
-    margin-left: auto;
+    text-align: left;
   }
 
   .camino-track svg {
@@ -167,7 +134,8 @@ header nav {
 
 /* ── RESPONSIVE — lg (1024px - Large Screens) ── */
 @media (min-width: 1024px) {
-  header .inner {
+  body > header .inner,
+  #site-header .inner {
     padding: 14px 24px;
   }
 
@@ -178,6 +146,10 @@ header nav {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+  }
+
+  .stat-tabs-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .camino-steps {

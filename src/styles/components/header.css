@@ -2,7 +2,8 @@
    NORTIA — Header & Navigation Component (Optimizado Mobile-First)
    ========================================================= */
 
-header {
+body > header,
+#site-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +17,8 @@ header {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-header .inner {
+body > header .inner,
+#site-header .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,25 +27,29 @@ header .inner {
   margin: 0 auto;
 }
 
-header .logo {
+body > header .logo,
+#site-header .logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-header .logo img {
+body > header .logo img,
+#site-header .logo img {
   height: 34px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s;
 }
 
-header .logo:hover img {
+body > header .logo:hover img,
+#site-header .logo:hover img {
   transform: scale(1.04);
 }
 
 /* En Mobile (< 768px), la navegación desktop está 100% OCULTA */
-header nav {
+body > header nav,
+#site-header nav {
   display: none;
 }
 

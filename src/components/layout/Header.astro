@@ -10,11 +10,11 @@ interface Props {
 const { waTopic = 'general' } = Astro.props;
 ---
 
-<header>
+<header id="site-header" class="site-header">
   <div class="inner">
     <!-- Logo -->
-    <a href="/" class="logo">
-      <Image src={ASSETS.logos.header} alt={SITE_CONTENT.brand.name} width={160} height={42} loading="eager" />
+    <a href="/" class="logo" aria-label="NORTIA Corredores de Seguros - Ir al inicio">
+      <Image src={ASSETS.logos.header} alt="NORTIA Corredores de Seguros Colombia" width={160} height={42} loading="eager" decoding="async" />
     </a>
 
     <!-- Desktop Nav -->

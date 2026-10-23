@@ -30,11 +30,16 @@ const pageUrlMap: Record<string, string> = {
       const subpageUrl = pageUrlMap[key] || `/${key}`;
 
       return (
-        <a href={subpageUrl} class={`risk-tab-btn scroll-reveal reveal-fade-up delay-${delay}`} style="text-decoration:none">
+        <a
+          href={subpageUrl}
+          class={`risk-tab-btn scroll-reveal reveal-fade-up delay-${delay}`}
+          style="text-decoration:none"
+          aria-label={`Ver análisis y planes de ${shortCategory}: ${data.title}`}
+        >
           <div>
             <div class="tab-top">
               <div class="tab-label">
-                <span class="material-symbols-outlined" style="font-size:16px">{data.icon}</span>
+                <span class="material-symbols-outlined" aria-hidden="true" style="font-size:16px">{data.icon}</span>
                 <span>{shortCategory}</span>
               </div>
             </div>
@@ -43,7 +48,7 @@ const pageUrlMap: Record<string, string> = {
           </div>
           <div class="tab-footer">
             <span>Ver análisis y planes</span>
-            <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            <span class="material-symbols-outlined" aria-hidden="true" style="font-size:16px">arrow_forward</span>
           </div>
         </a>
       );

@@ -7,7 +7,7 @@ const { coberturas } = SITE_CONTENT;
 ---
 
 <section id="coberturas">
-  <div style="max-width:1280px;margin:0 auto">
+  <div class="container">
     <div class="section-header scroll-reveal reveal-fade-up">
       <div class="chip">
         <span class="dot"></span>
@@ -30,13 +30,13 @@ const { coberturas } = SITE_CONTENT;
               <!-- Cara Frontal -->
               <div class="flip-card-front card-front">
                 <div class="card-brand-badge" title="NORTIA">
-                  <Image alt="NORTIA" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} width={36} height={36} />
+                  <Image alt="NORTIA Corredores de Seguros" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} width={36} height={36} />
                 </div>
                 <div class="card-tap-pill" aria-hidden="true">
                   <span class="material-symbols-outlined tap-hand">touch_app</span>
                   <span>Toca para ver</span>
                 </div>
-                <Image class="card-cover-img" alt={card.title} src={imgUrl} width={600} height={400} loading="lazy" decoding="async" />
+                <Image class="card-cover-img" alt={`Póliza y seguro de ${card.title} en Colombia - NORTIA Seguros`} src={imgUrl} width={600} height={400} loading="lazy" decoding="async" />
                 <div class="gradient-overlay"></div>
                 <div class="card-content">
                   <div class="card-icon">
@@ -48,15 +48,6 @@ const { coberturas } = SITE_CONTENT;
                     {card.tags.map((tag: string) => (
                       <span class="card-tag">{tag}</span>
                     ))}
-                  </div>
-                  <div class="card-flip-prompt" role="button" aria-label="Toca la tarjeta para voltear y leer qué incluye">
-                    <div class="prompt-left">
-                      <span class="material-symbols-outlined prompt-icon">touch_app</span>
-                      <span class="prompt-text">Toca para conocer qué incluye</span>
-                    </div>
-                    <div class="prompt-badge">
-                      <span class="material-symbols-outlined prompt-arrow">sync</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -84,12 +75,21 @@ const { coberturas } = SITE_CONTENT;
                   </ul>
                 </div>
                 <div class="card-back-actions">
-                  <a href={subpageUrl} class="btn-subpage-link">
+                  <a
+                    href={subpageUrl}
+                    class="btn-subpage-link"
+                    aria-label={`${card.id === 'creditos' ? 'Conocer opciones de crédito' : 'Ver coberturas completas'} de ${card.title}`}
+                  >
                     <span>{card.id === 'creditos' ? 'Conocer opciones de crédito' : 'Ver coberturas completas'}</span>
-                    <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+                    <span class="material-symbols-outlined" aria-hidden="true" style="font-size:16px">arrow_forward</span>
                   </a>
-                  <button data-wa-topic={card.waTopic} class="wa-btn btn-wa" style="margin-top:0">
-                    <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+                  <button
+                    data-wa-topic={card.waTopic}
+                    class="wa-btn btn-wa"
+                    style="margin-top:0"
+                    aria-label={`Solicitar asesoría sobre ${card.title}`}
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true" style="font-size:18px">chat</span>
                     <span>Solicitar asesoría</span>
                   </button>
                 </div>

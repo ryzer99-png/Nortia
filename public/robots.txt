@@ -1,9 +1,13 @@
 # =========================================================
-# NORTIA — Directivas de Rastreo Robots.txt
+# NORTIA — Directivas Oficiales de Rastreo Robots.txt
 # =========================================================
 
 User-agent: *
 Allow: /
+Disallow: /crm/
+Disallow: /clientes/
+Disallow: /pipeline/
 
 # Sitemap Oficial para Google y Motores de Búsqueda
 Sitemap: https://nortia.com.co/sitemap-index.xml
+Sitemap: https://nortia.com.co/sitemap-0.xml

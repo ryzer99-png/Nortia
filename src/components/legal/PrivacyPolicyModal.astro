@@ -1,0 +1,750 @@
+---
+import { SITE_CONTENT } from "@data/content.js";
+
+const { legal, brand } = SITE_CONTENT;
+const { policyContent } = legal;
+---
+
+<!-- Modal / Drawer Ligero de Tratamiento de Datos Personales (Ley 1581 de 2012) -->
+<div
+  id="privacy-policy-modal"
+  class="privacy-modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="privacy-modal-title"
+  aria-describedby="privacy-modal-desc"
+  tabindex="-1"
+  hidden
+>
+  <div class="privacy-modal-backdrop" id="privacy-modal-backdrop"></div>
+
+  <div class="privacy-modal-container">
+    <!-- Encabezado del Modal -->
+    <header class="privacy-modal-header">
+      <div class="privacy-header-content">
+        <div class="privacy-badge">
+          <span class="material-symbols-outlined badge-icon">verified_user</span>
+          <span>Habeas Data Colombia · Ley 1581 de 2012</span>
+        </div>
+        <h2 id="privacy-modal-title" class="privacy-modal-title">
+          {policyContent.title}
+        </h2>
+        <p id="privacy-modal-desc" class="privacy-modal-subtitle">
+          {policyContent.subtitle}
+        </p>
+      </div>
+      <button
+        type="button"
+        id="close-privacy-modal-btn"
+        class="privacy-close-btn"
+        aria-label="Cerrar modal de privacidad"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </header>
+
+    <!-- Cuerpo con los 4 Ejes Jurídicos Exigidos -->
+    <div class="privacy-modal-body">
+      <!-- 1. Responsable del Tratamiento (Card Destacada y Legible) -->
+      <section class="privacy-section responsable-card">
+        <div class="section-title-wrap">
+          <span class="material-symbols-outlined section-icon">corporate_fare</span>
+          <h3>{policyContent.responsable.title}</h3>
+        </div>
+        
+        <p class="responsable-intro">
+          <strong>{policyContent.responsable.razonSocial}</strong>, domiciliada en 
+          <strong>{policyContent.responsable.domicilio}</strong>, en calidad de Correduría de Seguros, es la entidad responsable del tratamiento de los datos personales recolectados a través del portal 
+          <a href={policyContent.responsable.sitioWeb} class="legal-inline-link" target="_blank" rel="noopener">{policyContent.responsable.sitioWeb}</a> 
+          y sus canales digitales oficiales de atención.
+        </p>
+
+        <!-- Ficha técnica rápida para lectura instantánea -->
+        <div class="responsable-meta-grid">
+          <div class="meta-item">
+            <span class="material-symbols-outlined meta-icon">location_on</span>
+            <div class="meta-data">
+              <span class="meta-label">Domicilio</span>
+              <span class="meta-val">{policyContent.responsable.domicilio}</span>
+            </div>
+          </div>
+          <div class="meta-item">
+            <span class="material-symbols-outlined meta-icon">language</span>
+            <div class="meta-data">
+              <span class="meta-label">Portal Web</span>
+              <a href={policyContent.responsable.sitioWeb} class="meta-link" target="_blank" rel="noopener">nortia.com.co</a>
+            </div>
+          </div>
+          <div class="meta-item">
+            <span class="material-symbols-outlined meta-icon">mail</span>
+            <div class="meta-data">
+              <span class="meta-label">Canal Oficial</span>
+              <span class="meta-val">{policyContent.responsable.email}</span>
+            </div>
+          </div>
+          <div class="meta-item">
+            <span class="material-symbols-outlined meta-icon">call</span>
+            <div class="meta-data">
+              <span class="meta-label">Línea Telefónica</span>
+              <span class="meta-val">{policyContent.responsable.telefono}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Finalidades del Tratamiento -->
+      <section class="privacy-section">
+        <div class="section-title-wrap">
+          <span class="material-symbols-outlined section-icon">task_alt</span>
+          <h3>{policyContent.finalidades.title}</h3>
+        </div>
+        <p class="section-desc">{policyContent.finalidades.description}</p>
+        
+        <div class="finalidades-grid">
+          {policyContent.finalidades.items.map((item) => (
+            <div class="finalidad-card">
+              <span class="material-symbols-outlined check-bullet">check_circle</span>
+              <p class="finalidad-text">{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- 3. Derechos del Titular (Derechos ARCO) -->
+      <section class="privacy-section">
+        <div class="section-title-wrap">
+          <span class="material-symbols-outlined section-icon">gavel</span>
+          <h3>{policyContent.derechos.title}</h3>
+        </div>
+        <p class="section-desc">{policyContent.derechos.description}</p>
+        
+        <div class="derechos-grid">
+          {policyContent.derechos.items.map((derecho) => (
+            <div class="derecho-card">
+              <span class="material-symbols-outlined derecho-icon">shield</span>
+              <p class="derecho-text">{derecho}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- 4. Canales de Atención y Habeas Data -->
+      <section class="privacy-section canal-card">
+        <div class="section-title-wrap">
+          <span class="material-symbols-outlined section-icon">mark_email_read</span>
+          <h3>{policyContent.canales.title}</h3>
+        </div>
+        <p class="section-desc">{policyContent.canales.description}</p>
+        
+        <div class="email-action-box">
+          <div class="email-icon-wrapper">
+            <span class="material-symbols-outlined email-box-icon">outgoing_mail</span>
+          </div>
+          <div class="email-details">
+            <span class="email-caption">Correo formal para consultas y revocatorias:</span>
+            <a href={`mailto:${policyContent.canales.email}?subject=${encodeURIComponent(policyContent.canales.asuntoRecomendado)}`} class="email-address">
+              {policyContent.canales.email}
+            </a>
+          </div>
+        </div>
+
+        <div class="sla-badge">
+          <span class="material-symbols-outlined sla-icon">schedule</span>
+          <span>{policyContent.canales.tiempoRespuesta}</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- Pie del Modal con Acción de Aceptación Rápida -->
+    <footer class="privacy-modal-footer">
+      <a href="/privacidad" class="full-policy-link" target="_blank" rel="noopener">
+        <span>Ver política completa documentada</span>
+        <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+      </a>
+      <button type="button" id="accept-and-close-modal-btn" class="btn-accept-policy">
+        <span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+        <span>Aceptar y Continuar</span>
+      </button>
+    </footer>
+  </div>
+</div>
+
+<style>
+  /* ── 1. Overlay & Backdrop ── */
+  .privacy-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .privacy-modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .privacy-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(16, 27, 77, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+  }
+
+  /* ── 2. Modal Container ── */
+  .privacy-modal-container {
+    position: relative;
+    z-index: 1001;
+    background: #FDFBF7;
+    border: 1px solid rgba(var(--secondary-rgb), 0.35);
+    border-radius: clamp(16px, 3vw, 20px);
+    width: 100%;
+    max-width: 680px;
+    height: min(85dvh, 760px);
+    max-height: calc(100% - 16px);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 28px 70px rgba(16, 27, 77, 0.4);
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .privacy-modal-overlay.is-open .privacy-modal-container {
+    transform: translateY(0) scale(1);
+  }
+
+  /* ── 3. Fixed Header (In Flex Flow) ── */
+  .privacy-modal-header {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    padding: clamp(14px, 2.5vw, 20px) clamp(16px, 3vw, 24px) 14px;
+    border-bottom: 1px solid rgba(208, 201, 190, 0.5);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    background: #FAF8F3;
+    z-index: 2;
+  }
+
+  .privacy-header-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .privacy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondary);
+    background: rgba(var(--secondary-rgb), 0.12);
+    border: 1px solid rgba(var(--secondary-rgb), 0.32);
+    padding: 2.5px 8px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+  }
+
+  .badge-icon {
+    font-size: 14px;
+  }
+
+  .privacy-modal-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .privacy-modal-subtitle {
+    font-size: clamp(0.76rem, 1.8vw, 0.82rem);
+    color: var(--on-surface-variant);
+    margin: 3px 0 0;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .privacy-close-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(208, 201, 190, 0.7);
+    color: var(--on-surface-variant);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .privacy-close-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    transform: rotate(90deg);
+  }
+
+  /* ── 4. Scrollable Body ── */
+  .privacy-modal-body {
+    flex: 1 1 0px;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: clamp(14px, 2.5vw, 20px) clamp(16px, 3vw, 24px) 24px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.5vw, 18px);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    font-size: 0.88rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--secondary-rgb), 0.5) rgba(234, 230, 223, 0.3);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .privacy-modal-body::-webkit-scrollbar {
+    width: 6px;
+  }
+  .privacy-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(16, 27, 77, 0.24);
+    border-radius: 999px;
+  }
+
+  .privacy-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+  }
+
+  .section-title-wrap h3 {
+    font-size: clamp(0.88rem, 2vw, 0.96rem);
+    font-weight: 700;
+    margin: 0;
+    color: var(--primary);
+  }
+
+  .section-icon {
+    font-size: 18px;
+    color: var(--secondary);
+    flex-shrink: 0;
+  }
+
+  .section-desc {
+    margin: 0;
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem);
+    color: #4A5568;
+    line-height: 1.5;
+  }
+
+  /* Cards in Sections */
+  .responsable-card,
+  .canal-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(var(--secondary-rgb), 0.3);
+    border-radius: 14px;
+    padding: clamp(13px, 2vw, 16px) clamp(14px, 2.5vw, 18px);
+    box-shadow: 0 4px 14px rgba(16, 27, 77, 0.04);
+  }
+
+  .responsable-intro {
+    margin: 0;
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem);
+    line-height: 1.5;
+    color: #2D3748;
+  }
+
+  .responsable-intro strong {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .legal-inline-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .responsable-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px 12px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(208, 201, 190, 0.45);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .meta-icon {
+    font-size: 16px;
+    color: var(--secondary);
+    flex-shrink: 0;
+  }
+
+  .meta-data {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(0.74rem, 1.6vw, 0.8rem);
+    line-height: 1.3;
+    overflow: hidden;
+  }
+
+  .meta-label {
+    color: var(--on-surface-variant);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .meta-val,
+  .meta-link {
+    color: var(--primary);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+  }
+
+  .meta-link:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+
+  /* Finalidades & Derechos Cards */
+  .finalidades-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .finalidad-card,
+  .derecho-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(208, 201, 190, 0.5);
+    border-radius: 10px;
+    padding: clamp(8px, 1.6vw, 10px) clamp(10px, 2vw, 14px);
+    transition: border-color 0.2s ease;
+  }
+
+  .finalidad-card:hover,
+  .derecho-card:hover {
+    border-color: rgba(var(--secondary-rgb), 0.6);
+  }
+
+  .check-bullet {
+    font-size: 17px;
+    color: var(--secondary);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .derecho-icon {
+    font-size: 16px;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .finalidad-text,
+  .derecho-text {
+    margin: 0;
+    font-size: clamp(0.78rem, 1.7vw, 0.85rem);
+    color: #334155;
+    line-height: 1.45;
+  }
+
+  .derechos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 7px;
+  }
+
+  /* Canal Contact Box */
+  .email-action-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(var(--primary-rgb), 0.03);
+    border: 1px solid rgba(208, 201, 190, 0.6);
+    padding: clamp(8px, 1.8vw, 11px) clamp(10px, 2vw, 15px);
+    border-radius: 10px;
+    margin-top: 4px;
+  }
+
+  .email-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(var(--secondary-rgb), 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .email-box-icon {
+    color: var(--secondary);
+    font-size: 18px;
+  }
+
+  .email-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  .email-caption {
+    font-size: 0.72rem;
+    color: var(--on-surface-variant);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .email-address {
+    font-size: clamp(0.84rem, 2vw, 0.92rem);
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    word-break: break-all;
+  }
+
+  .email-address:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+
+  .sla-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: clamp(0.72rem, 1.6vw, 0.78rem);
+    color: var(--on-surface-variant);
+    margin-top: 6px;
+  }
+
+  .sla-icon {
+    font-size: 15px;
+    color: var(--secondary);
+    flex-shrink: 0;
+  }
+
+  /* ── 5. Fixed Footer (In Flex Flow) ── */
+  .privacy-modal-footer {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    margin-top: 0;
+    padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 24px);
+    border-top: 1px solid rgba(208, 201, 190, 0.5);
+    background: #FAF8F3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .full-policy-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .full-policy-link:hover {
+    color: var(--secondary);
+    background: rgba(16, 27, 77, 0.04);
+  }
+
+  .btn-accept-policy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--primary);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 10px 22px;
+    min-height: 42px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 27, 77, 0.25);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-accept-policy:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(var(--secondary-rgb), 0.35);
+  }
+
+  @media (max-width: 640px) {
+    .privacy-modal-overlay {
+      padding: 10px;
+      padding-top: max(10px, env(safe-area-inset-top));
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    .privacy-modal-container {
+      height: min(92dvh, 680px);
+      max-height: calc(100% - 16px);
+      border-radius: 16px;
+    }
+
+    .privacy-modal-header {
+      padding: 12px 14px 10px;
+      gap: 10px;
+    }
+
+    .privacy-badge {
+      font-size: 9.5px;
+      padding: 2px 7px;
+    }
+
+    .privacy-modal-title {
+      font-size: 0.98rem;
+    }
+
+    .privacy-modal-subtitle {
+      font-size: 0.74rem;
+    }
+
+    .privacy-modal-body {
+      padding: 10px 12px 14px;
+      gap: 10px;
+    }
+
+    .privacy-modal-footer {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      gap: 6px;
+      padding: 8px 12px 10px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    .btn-accept-policy {
+      width: 100%;
+      min-height: 42px;
+      font-size: 0.88rem;
+      border-radius: 10px;
+    }
+
+    .full-policy-link {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      background: transparent;
+      border: none;
+      box-sizing: border-box;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .full-policy-link:hover,
+    .full-policy-link:active {
+      color: var(--secondary);
+    }
+  }
+
+  @media (max-height: 720px) {
+    .privacy-badge {
+      display: none;
+    }
+    .privacy-modal-subtitle {
+      display: none;
+    }
+    .privacy-modal-header {
+      padding: 8px 12px 6px;
+    }
+    .privacy-modal-title {
+      font-size: 0.92rem;
+    }
+    .privacy-modal-body {
+      padding: 8px 12px;
+      gap: 8px;
+    }
+    .privacy-modal-footer {
+      padding: 6px 12px 8px;
+      gap: 4px;
+    }
+    .btn-accept-policy {
+      min-height: 38px;
+      padding: 6px 12px;
+      font-size: 0.84rem;
+    }
+    .full-policy-link {
+      font-size: 0.76rem;
+      padding: 2px 4px;
+    }
+  }
+</style>

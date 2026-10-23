@@ -7,7 +7,7 @@ const { camino } = SITE_CONTENT;
 ---
 
 <section id="camino">
-  <div style="max-width:1280px;margin:0 auto">
+  <div class="container">
     <div class="camino-header scroll-reveal reveal-fade-up">
       <div class="chip">
         <span class="dot"></span>
@@ -56,9 +56,9 @@ const { camino } = SITE_CONTENT;
             <div class={`path-step ${isEven ? 'step-even' : ''}`}>
               <div class="img-col scroll-reveal reveal-scale delay-200" style="position:relative">
                 <div class="card-brand-badge" title="NORTIA">
-                  <Image alt="NORTIA" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} width={36} height={36} />
+                  <Image alt="NORTIA Corredores de Seguros" src={ASSETS.logos.isotipo || ASSETS.logos.favicon} width={36} height={36} />
                 </div>
-                <Image alt={step.title} src={imgUrl} width={600} height={400} loading="lazy" decoding="async" />
+                <Image alt={`Paso ${step.number}: ${step.title} - Proceso de asesoría en seguros NORTIA`} src={imgUrl} width={600} height={400} loading="lazy" decoding="async" />
               </div>
               <div class="text-col step-text scroll-reveal reveal-fade-up">
                 <div class="step-badge">
