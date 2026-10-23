@@ -9,9 +9,49 @@ import CaminoSteps from '@components/home/CaminoSteps.astro';
 import FinalCta from '@components/ui/FinalCta.astro';
 import { SITE_CONTENT } from '@data/content.js';
 
-const title = "NORTIA | Seguros y Protección Patrimonial en Colombia";
-const description = "Compara seguros de vida, salud, hogar, autos y empresas en Colombia con las mejores aseguradoras. Asesoría experta y transparente.";
-const keywords = "seguros colombia, asesoria en seguros, cotizar seguros colombia, seguro de vida, medicina prepagada colombia, seguro de hogar, seguro todo riesgo autos, seguros para pymes colombia, sura, allianz, nortia";
+const title = "NORTIA | Asesoría y Cotización de Seguros en Colombia";
+const description = "Cotiza seguros de vida, salud, autos, hogar y empresas en Colombia con Sura, Allianz y Bolívar. Asesoría experta en Bucaramanga y Santander. ¡Cotiza hoy!";
+const keywords = "seguros colombia, asesoria en seguros bucaramanga, cotizar seguro autos, seguro de vida colombia, medicina prepagada, seguro de hogar santander, seguros pymes colombia, sura, allianz, bolivar, nortia";
+
+// Schema.org FAQPage para Rich Snippets en Google
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo cotizar un seguro con NORTIA en Bucaramanga y Colombia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes solicitar tu asesoría personalizada a través de nuestro botón de WhatsApp o canales oficiales. Analizamos tu perfil de riesgo, comparamos ofertas objetivas entre las principales aseguradoras de Colombia y te presentamos la mejor opción sin costo adicional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con cuáles compañías aseguradoras trabaja NORTIA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NORTIA trabaja como corredor de seguros aliado de las aseguradoras líderes del país, entre ellas SURA, Allianz, HDI Seguros, Seguros Bolívar, Coomeva Medicina Prepagada, AXA Colpatria, Seguros Mundial y La Equidad Seguros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipos de pólizas y seguros puedo comparar y contratar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ofrecemos asesoría y cotización en seguros de movilidad (todo riesgo para autos y motos), pólizas para el hogar y patrimonio familiar, seguros de vida y salud con medicina prepagada, pólizas empresariales (cumplimiento, responsabilidad civil, multirriesgo) y soluciones de crédito y financiación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tiene algún costo adicional cotizar con NORTIA en vez de directamente con la aseguradora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nuestra asesoría experta y acompañamiento continuo ante siniestros no tiene ningún sobrecosto para el cliente. Pagas la tarifa oficial de la aseguradora con el beneficio de contar con un equipo especializado que defiende tus intereses."
+      }
+    }
+  ]
+};
 ---
 
 <Layout
@@ -19,9 +59,10 @@ const keywords = "seguros colombia, asesoria en seguros, cotizar seguros colombi
   description={description}
   keywords={keywords}
   waTopic="general"
-  ogImage="https://nortia.com.co/assets/img/happy-family.webp"
+  ogImage="https://nortia.com.co/assets/img/og-preview.webp"
+  schemas={[faqSchema]}
 >
-  <main>
+  <main id="main-content">
     <Hero />
     <CoberturasGrid />
     <Editorial>
