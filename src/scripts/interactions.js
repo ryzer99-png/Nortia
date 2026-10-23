@@ -88,17 +88,23 @@ export function initInteractions() {
     }
     if (!privacyModal) return;
 
-    // Asegurar que el scroll comience en la parte superior
-    const modalBody = privacyModal.querySelector('.privacy-modal-body');
-    if (modalBody) {
-      modalBody.scrollTop = 0;
-    }
-
     privacyModal.removeAttribute('hidden');
     // Forzar reflow para animación suave
     void privacyModal.offsetWidth;
     privacyModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+
+    // Asegurar que el scroll comience en la parte superior
+    const modalBody = privacyModal.querySelector('.privacy-modal-body');
+    if (modalBody) {
+      modalBody.scrollTop = 0;
+      modalBody.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    requestAnimationFrame(() => {
+      if (modalBody) {
+        modalBody.scrollTop = 0;
+      }
+    });
 
     // Auto-focus para accesibilidad sin forzar salto de scroll
     if (closePrivacyModalBtn) {

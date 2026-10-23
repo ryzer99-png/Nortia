@@ -11,7 +11,8 @@
   display: flex;
 }
 
-header nav {
+body > header nav,
+#site-header nav {
   display: none;
 }
 
@@ -59,7 +60,8 @@ header nav {
 
 /* ── RESPONSIVE — md (768px - Tablet & Desktop Navigation) ── */
 @media (min-width: 768px) {
-  header nav {
+  body > header nav,
+  #site-header nav {
     display: flex;
     align-items: center;
     gap: 32px;
@@ -69,7 +71,8 @@ header nav {
     display: none;
   }
 
-  header .logo img {
+  body > header .logo img,
+  #site-header .logo img {
     height: 40px;
   }
 
@@ -131,7 +134,8 @@ header nav {
 
 /* ── RESPONSIVE — lg (1024px - Large Screens) ── */
 @media (min-width: 1024px) {
-  header .inner {
+  body > header .inner,
+  #site-header .inner {
     padding: 14px 24px;
   }
 
