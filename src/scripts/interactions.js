@@ -1,15 +1,47 @@
 // =========================================================
-// NORTIA — Client-Side Interactions
+// NORTIA — Client-Side Interactions & Legal Gate Modal
 // =========================================================
 
 import { SITE_CONTENT } from '@data/content.js';
 
-export function openWhatsApp(topic = 'general', customMessage = '') {
+let pendingWhatsAppAction = null;
+
+/**
+ * Consulta si el usuario ya autorizó el tratamiento de datos en la sesión actual
+ */
+export function isConsentGranted() {
+  try {
+    return sessionStorage.getItem('habeasDataAccepted') === 'true' ||
+           sessionStorage.getItem('nortia_data_consent') === 'true';
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
+ * Guarda el consentimiento legal en sessionStorage
+ */
+export function saveConsentState(granted = true) {
+  try {
+    sessionStorage.setItem('habeasDataAccepted', granted ? 'true' : 'false');
+    sessionStorage.setItem('nortia_data_consent', granted ? 'true' : 'false');
+    if (granted) {
+      sessionStorage.setItem('nortia_consent_timestamp', new Date().toISOString());
+    }
+  } catch (e) {
+    console.warn('[NORTIA Legal] Storage no disponible:', e);
+  }
+}
+
+/**
+ * Construye la URL de WhatsApp enriquecida con el mensaje según tema y contexto
+ */
+export function buildWhatsAppUrl(topic = 'general', customMessage = '') {
   const phone = SITE_CONTENT.brand.phone;
 
   let activeTopic = topic;
   if (!activeTopic || activeTopic === 'general') {
-    const path = window.location.pathname;
+    const path = typeof window !== 'undefined' ? window.location.pathname : '';
     if (path.includes('empresas') || path.includes('business')) activeTopic = 'empresas';
     else if (path.includes('personas') || path.includes('life')) activeTopic = 'personas';
     else if (path.includes('hogar') || path.includes('home')) activeTopic = 'hogar';
@@ -18,71 +50,45 @@ export function openWhatsApp(topic = 'general', customMessage = '') {
   }
 
   const message = customMessage || SITE_CONTENT.whatsappMessages[activeTopic] || SITE_CONTENT.whatsappMessages.general;
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+/**
+ * Abre WhatsApp respetando el Gate Modal de Protección de Datos
+ */
+export function openWhatsApp(topic = 'general', customMessage = '', bypassGate = false) {
+  if (!bypassGate && !isConsentGranted()) {
+    pendingWhatsAppAction = { topic, customMessage };
+    if (typeof window !== 'undefined' && typeof window.__openPrivacyModal === 'function') {
+      window.__openPrivacyModal(pendingWhatsAppAction);
+    }
+    return;
+  }
+
+  const url = buildWhatsAppUrl(topic, customMessage);
   window.open(url, '_blank');
 }
 
 // Exponer globalmente
 if (typeof window !== 'undefined') {
   window.openWhatsApp = openWhatsApp;
+  window.isConsentGranted = isConsentGranted;
 }
 
 export function initInteractions() {
-  // ── A. Gestión de Consentimiento Legal (Ley 1581 de 2012) ──
-  const consentInputs = document.querySelectorAll('.nortia-consent-input');
+  // ── A. Modal de Aviso de Privacidad y Tratamiento de Datos (Gate Modal) ──
   const privacyModal = document.getElementById('privacy-policy-modal');
   const closePrivacyModalBtn = document.getElementById('close-privacy-modal-btn');
   const modalBackdrop = document.getElementById('privacy-modal-backdrop');
   const acceptModalBtn = document.getElementById('accept-and-close-modal-btn');
 
-  function isConsentGranted() {
-    try {
-      if (sessionStorage.getItem('nortia_data_consent') === 'true') return true;
-    } catch (e) {
-      // Fallback si storage está bloqueado
+  function openPrivacyModal(pendingAction = null) {
+    if (pendingAction) {
+      pendingWhatsAppAction = pendingAction;
     }
-    const anyChecked = Array.from(consentInputs).some(input => input.checked);
-    return anyChecked;
-  }
-
-  function applyConsent(granted = true) {
-    try {
-      sessionStorage.setItem('nortia_data_consent', granted ? 'true' : 'false');
-      if (granted) {
-        sessionStorage.setItem('nortia_consent_timestamp', new Date().toISOString());
-      }
-    } catch (e) {}
-
-    consentInputs.forEach(input => {
-      input.checked = granted;
-    });
-
-    // Ocultar cualquier tooltip de validación activo
-    document.querySelectorAll('[data-consent-tooltip]').forEach(tooltip => {
-      tooltip.classList.remove('is-visible');
-    });
-    document.querySelectorAll('[data-consent-container]').forEach(container => {
-      container.classList.remove('shake-attention');
-    });
-  }
-
-  // Restaurar consentimiento en la sesión si ya fue otorgado previamente
-  if (isConsentGranted()) {
-    applyConsent(true);
-  }
-
-  // Sincronizar estado entre todos los checkboxes de la página
-  consentInputs.forEach(input => {
-    input.addEventListener('change', () => {
-      applyConsent(input.checked);
-    });
-  });
-
-  // ── B. Control del Modal / Drawer de Privacidad ──
-  function openPrivacyModal() {
     if (!privacyModal) return;
 
-    // Asegurar que el scroll siempre comience arriba
+    // Asegurar que el scroll comience en la parte superior
     const modalBody = privacyModal.querySelector('.privacy-modal-body');
     if (modalBody) {
       modalBody.scrollTop = 0;
@@ -94,7 +100,7 @@ export function initInteractions() {
     privacyModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
 
-    // Auto-focus para accesibilidad sin forzar scroll del viewport
+    // Auto-focus para accesibilidad sin forzar salto de scroll
     if (closePrivacyModalBtn) {
       try {
         closePrivacyModalBtn.focus({ preventScroll: true });
@@ -104,10 +110,15 @@ export function initInteractions() {
     }
   }
 
-  function closePrivacyModal() {
+  function closePrivacyModal(clearPending = true) {
     if (!privacyModal) return;
     privacyModal.classList.remove('is-open');
     document.body.style.overflow = '';
+
+    if (clearPending) {
+      pendingWhatsAppAction = null;
+    }
+
     setTimeout(() => {
       if (!privacyModal.classList.contains('is-open')) {
         privacyModal.setAttribute('hidden', '');
@@ -115,73 +126,44 @@ export function initInteractions() {
     }, 250);
   }
 
-  // Disparadores para abrir el modal en enlaces legales
-  document.addEventListener('click', (e) => {
-    const legalTrigger = e.target.closest('[data-open-privacy-modal], .legal-policy-trigger, .legal-modal-trigger');
-    if (legalTrigger) {
-      e.preventDefault();
-      openPrivacyModal();
-    }
-  });
+  // Exponer métodos de apertura y cierre para el interceptor
+  window.__openPrivacyModal = openPrivacyModal;
+  window.__closePrivacyModal = closePrivacyModal;
 
-  if (closePrivacyModalBtn) closePrivacyModalBtn.addEventListener('click', closePrivacyModal);
-  if (modalBackdrop) modalBackdrop.addEventListener('click', closePrivacyModal);
-
-  if (acceptModalBtn) {
-    acceptModalBtn.addEventListener('click', () => {
-      applyConsent(true);
-      closePrivacyModal();
-    });
+  // Cancelar / Cerrar modal sin redirigir (X, clic exterior en backdrop, Escape)
+  if (closePrivacyModalBtn) {
+    closePrivacyModalBtn.addEventListener('click', () => closePrivacyModal(true));
   }
-
-  // Cerrar con tecla Escape
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', () => closePrivacyModal(true));
+  }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('is-open')) {
-      closePrivacyModal();
+      closePrivacyModal(true);
     }
   });
 
-  // Función para destacar el checkbox con micro-resaltado y animación
-  function highlightConsentRequirement(sourceElement) {
-    // Buscar el checkbox más cercano al botón o el primero disponible en la pantalla
-    let targetWrapper = null;
-    if (sourceElement) {
-      const section = sourceElement.closest('section, .hero-content, .cta-content, .footer-inner') || document;
-      targetWrapper = section.querySelector('[data-consent-container]');
-    }
-    if (!targetWrapper) {
-      targetWrapper = document.querySelector('[data-consent-container]');
-    }
+  // Acción "Aceptar y Continuar": registrar consentimiento y ejecutar redirección inmediata
+  if (acceptModalBtn) {
+    acceptModalBtn.addEventListener('click', () => {
+      // 1. Guardar consentimiento en sessionStorage
+      saveConsentState(true);
 
-    if (targetWrapper) {
-      const tooltip = targetWrapper.querySelector('[data-consent-tooltip]');
-      const checkbox = targetWrapper.querySelector('.nortia-consent-input');
+      // 2. Extraer destino pendiente
+      const targetAction = pendingWhatsAppAction;
 
-      targetWrapper.classList.remove('shake-attention');
-      void targetWrapper.offsetWidth; // reiniciar animación
-      targetWrapper.classList.add('shake-attention');
+      // 3. Cerrar el modal
+      closePrivacyModal(false);
+      pendingWhatsAppAction = null;
 
-      if (tooltip) {
-        tooltip.classList.add('is-visible');
-        setTimeout(() => {
-          tooltip.classList.remove('is-visible');
-        }, 4500);
+      // 4. Si viene de un botón de contacto/WhatsApp, redirigir inmediatamente
+      if (targetAction) {
+        const topic = targetAction.topic || 'general';
+        const msg = targetAction.customMsg || targetAction.customMessage || '';
+        const url = buildWhatsAppUrl(topic, msg);
+        window.open(url, '_blank');
       }
-
-      if (checkbox) {
-        checkbox.focus({ preventScroll: true });
-      }
-
-      // Scroll suave hacia el contenedor si no está visible
-      const rect = targetWrapper.getBoundingClientRect();
-      const inView = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
-      if (!inView) {
-        targetWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    } else {
-      // Si no hay checkbox en la vista (por ej. botón flotante aislado), abrir el modal de consulta
-      openPrivacyModal();
-    }
+    });
   }
 
   // 1. Mobile Drawer Navigation
@@ -215,19 +197,19 @@ export function initInteractions() {
     link.addEventListener('click', closeDrawer);
   });
 
-  // 2. Eventos de WhatsApp en todo el sitio con Validación de Ley 1581
+  // 2. Eventos de WhatsApp en todo el sitio con Flujo Interceptado (Gate Modal)
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.wa-btn, button, a');
     if (!trigger) return;
 
-    // Si el link va a una subpágina, permitir navegación normal
+    // Si el link va a una subpágina o archivo, permitir navegación normal
     if (trigger.tagName === 'A' && trigger.getAttribute('href') && !trigger.getAttribute('href').startsWith('#') && !trigger.classList.contains('wa-btn')) {
       return;
     }
 
     const topic = trigger.getAttribute('data-wa-topic');
     const customMsg = trigger.getAttribute('data-wa-msg');
-    const text = trigger.textContent || '';
+    const text = (trigger.textContent || '').trim();
 
     const isWhatsAppAction = trigger.classList.contains('wa-btn') || topic || customMsg || 
       text.includes('Hablar con un asesor') || text.includes('Cotizar por WhatsApp') || 
@@ -238,13 +220,18 @@ export function initInteractions() {
     if (isWhatsAppAction) {
       e.preventDefault();
 
-      // Validación jurídica: verificar consentimiento activo antes de disparar el contacto
-      if (!isConsentGranted()) {
-        highlightConsentRequirement(trigger);
+      // Si ya autorizó previamente en la sesión, pasar directo a WhatsApp
+      if (isConsentGranted()) {
+        const url = buildWhatsAppUrl(topic || 'general', customMsg || '');
+        window.open(url, '_blank');
         return;
       }
 
-      openWhatsApp(topic || 'general', customMsg || '');
+      // Si no ha autorizado, interceptar y abrir el Gate Modal con destino guardado
+      openPrivacyModal({
+        topic: topic || 'general',
+        customMsg: customMsg || ''
+      });
     }
   });
 

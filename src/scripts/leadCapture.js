@@ -18,7 +18,7 @@ export function buildLeadPayload(leadData = {}) {
     origen: 'landing_web',
     fecha_autorizacion: timestamp,
     normativa_aceptada: 'Ley 1581 de 2012 / Decreto 1377 de 2013',
-    canal_consentimiento: 'checkbox_opt_in_web',
+    canal_consentimiento: 'gate_modal_opt_in_web',
     ip_registro: typeof window !== 'undefined' ? (window.__client_ip || 'client_browser') : 'server',
     url_origen: typeof window !== 'undefined' ? window.location.href : 'https://nortia.com.co/'
   };
@@ -30,6 +30,7 @@ export function buildLeadPayload(leadData = {}) {
 export function saveConsentState(accepted = true) {
   if (typeof window === 'undefined') return;
   try {
+    sessionStorage.setItem('habeasDataAccepted', accepted ? 'true' : 'false');
     sessionStorage.setItem('nortia_data_consent', accepted ? 'true' : 'false');
     sessionStorage.setItem('nortia_consent_timestamp', new Date().toISOString());
   } catch (err) {
@@ -43,7 +44,8 @@ export function saveConsentState(accepted = true) {
 export function hasConsented() {
   if (typeof window === 'undefined') return false;
   try {
-    return sessionStorage.getItem('nortia_data_consent') === 'true';
+    return sessionStorage.getItem('habeasDataAccepted') === 'true' ||
+           sessionStorage.getItem('nortia_data_consent') === 'true';
   } catch {
     return false;
   }

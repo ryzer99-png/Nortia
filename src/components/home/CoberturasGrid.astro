@@ -84,12 +84,21 @@ const { coberturas } = SITE_CONTENT;
                   </ul>
                 </div>
                 <div class="card-back-actions">
-                  <a href={subpageUrl} class="btn-subpage-link">
+                  <a
+                    href={subpageUrl}
+                    class="btn-subpage-link"
+                    aria-label={`${card.id === 'creditos' ? 'Conocer opciones de crédito' : 'Ver coberturas completas'} de ${card.title}`}
+                  >
                     <span>{card.id === 'creditos' ? 'Conocer opciones de crédito' : 'Ver coberturas completas'}</span>
-                    <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+                    <span class="material-symbols-outlined" aria-hidden="true" style="font-size:16px">arrow_forward</span>
                   </a>
-                  <button data-wa-topic={card.waTopic} class="wa-btn btn-wa" style="margin-top:0">
-                    <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+                  <button
+                    data-wa-topic={card.waTopic}
+                    class="wa-btn btn-wa"
+                    style="margin-top:0"
+                    aria-label={`Solicitar asesoría sobre ${card.title}`}
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true" style="font-size:18px">chat</span>
                     <span>Solicitar asesoría</span>
                   </button>
                 </div>

@@ -16,13 +16,13 @@ const { breadcrumb, badge, title, subtitle, ctaHero, bgImage, waTopic } = Astro.
 
 <section class="subpage-hero">
   <div class="subpage-hero-bg">
-    <Image alt={breadcrumb} src={bgImage} width={1600} height={900} loading="eager" decoding="async" />
+    <Image alt={breadcrumb} src={bgImage} width={1600} height={900} loading="eager" fetchpriority="high" decoding="async" />
   </div>
   <div class="subpage-hero-overlay"></div>
   <div class="subpage-hero-content">
     <div class="breadcrumb-nav">
-      <a href="/">
-        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span> Inicio
+      <a href="/" aria-label="Volver a la página de inicio">
+        <span class="material-symbols-outlined" aria-hidden="true" style="font-size:16px">arrow_back</span> Inicio
       </a>
       <span>/</span>
       <span style="color:var(--on-primary)">{breadcrumb}</span>

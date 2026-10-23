@@ -13,8 +13,8 @@ const { waTopic = 'general' } = Astro.props;
 <header>
   <div class="inner">
     <!-- Logo -->
-    <a href="/" class="logo">
-      <Image src={ASSETS.logos.header} alt={SITE_CONTENT.brand.name} width={160} height={42} loading="eager" />
+    <a href="/" class="logo" aria-label="NORTIA - Ir al inicio">
+      <Image src={ASSETS.logos.header} alt={SITE_CONTENT.brand.name} width={160} height={42} loading="eager" decoding="async" />
     </a>
 
     <!-- Desktop Nav -->

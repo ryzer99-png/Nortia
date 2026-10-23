@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import { SITE_CONTENT } from '@data/content.js';
 import { ASSETS } from '@data/assets.js';
-import ConsentCheckbox from '@components/ui/ConsentCheckbox.astro';
 
 const { hero } = SITE_CONTENT;
 ---
@@ -26,9 +25,6 @@ const { hero } = SITE_CONTENT;
         {hero.subtitle}
       </p>
       <div class="hero-actions-container scroll-reveal reveal-fade-up delay-300 is-visible">
-        <!-- Checkbox de Consentimiento Activo Ley 1581 de 2012 -->
-        <ConsentCheckbox id="hero-consent-check" theme="dark" align="left" />
-
         <div class="hero-cta-wrapper">
           <button class="btn-primary-cta wa-btn" data-wa-topic="general">
             <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor">
@@ -49,6 +45,8 @@ const { hero } = SITE_CONTENT;
         width={320}
         height={264}
         class="hero-brand-logo"
+        loading="eager"
+        decoding="async"
       />
     </div>
   </div>
