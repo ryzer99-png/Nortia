@@ -52,7 +52,7 @@ export const LEGAL_DATA = {
       description: 'Para ejercer cualquiera de sus derechos de Habeas Data (consultas, reclamos, rectificaciones o supresión de datos), NORTIA ha habilitado el siguiente canal formal y gratuito:',
       email: 'info@nortia.com.co',
       asuntoRecomendado: 'Solicitud Habeas Data — Ley 1581 de 2012',
-      tiempoRespuesta: 'Término legal máximo de quince (15) días hábiles conforme al régimen general de protección de datos personales de Colombia.'
+      tiempoRespuesta: 'Términos legales: máximo diez (10) días hábiles para consultas y quince (15) días hábiles para reclamos o supresión (Arts. 14 y 15, Ley 1581 de 2012).'
     }
   }
 };

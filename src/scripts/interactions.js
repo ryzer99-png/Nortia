@@ -36,6 +36,8 @@ export function saveConsentState(granted = true) {
 /**
  * Construye la URL de WhatsApp enriquecida con el mensaje según tema y contexto
  */
+const CONSENT_SUFFIX = 'He leído y acepto la política de tratamiento de datos para recibir mi asesoría.';
+
 export function buildWhatsAppUrl(topic = 'general', customMessage = '') {
   const phone = SITE_CONTENT.brand.phone;
 
@@ -49,18 +51,27 @@ export function buildWhatsAppUrl(topic = 'general', customMessage = '') {
     else if (path.includes('creditos') || path.includes('credit')) activeTopic = 'creditos';
   }
 
-  const message = customMessage || SITE_CONTENT.whatsappMessages[activeTopic] || SITE_CONTENT.whatsappMessages.general;
+  let message = customMessage || SITE_CONTENT.whatsappMessages[activeTopic] || SITE_CONTENT.whatsappMessages.general;
+
+  // Garantizar constancia expresa de consentimiento en cualquier mensaje personalizado
+  if (message) {
+    const lower = message.toLowerCase();
+    if (!lower.includes('tratamiento de datos') && !lower.includes('política de privacidad') && !lower.includes('ley 1581')) {
+      message = `${message.trim()} ${CONSENT_SUFFIX}`;
+    }
+  }
+
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
 /**
  * Abre WhatsApp respetando el Gate Modal de Protección de Datos
  */
-export function openWhatsApp(topic = 'general', customMessage = '', bypassGate = false) {
+export function openWhatsApp(topic = 'general', customMessage = '', bypassGate = false, triggerEl = null) {
   if (!bypassGate && !isConsentGranted()) {
     pendingWhatsAppAction = { topic, customMessage };
     if (typeof window !== 'undefined' && typeof window.__openPrivacyModal === 'function') {
-      window.__openPrivacyModal(pendingWhatsAppAction);
+      window.__openPrivacyModal(pendingWhatsAppAction, triggerEl);
     }
     return;
   }
@@ -76,20 +87,108 @@ if (typeof window !== 'undefined') {
 }
 
 export function initInteractions() {
-  // ── A. Modal de Aviso de Privacidad y Tratamiento de Datos (Gate Modal) ──
+  // ── 1. Mobile Drawer Navigation ──
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const closeDrawerBtn = document.getElementById('close-drawer-btn');
+  const navDrawer = document.getElementById('nav-drawer');
+  const drawerBackdrop = document.getElementById('drawer-backdrop');
+  const drawerLinks = document.querySelectorAll('.nav-drawer-link');
+
+  function openDrawer() {
+    if (navDrawer && drawerBackdrop) {
+      navDrawer.classList.add('is-open');
+      drawerBackdrop.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDrawer() {
+    if (navDrawer && drawerBackdrop) {
+      navDrawer.classList.remove('is-open');
+      drawerBackdrop.classList.remove('is-active');
+      // Solo restaurar overflow si el modal de privacidad no está activo
+      const privacyModal = document.getElementById('privacy-policy-modal');
+      if (!privacyModal || !privacyModal.classList.contains('is-open')) {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // ── 2. Modal de Aviso de Privacidad y Tratamiento de Datos (Gate Modal) ──
   const privacyModal = document.getElementById('privacy-policy-modal');
   const closePrivacyModalBtn = document.getElementById('close-privacy-modal-btn');
   const modalBackdrop = document.getElementById('privacy-modal-backdrop');
   const acceptModalBtn = document.getElementById('accept-and-close-modal-btn');
 
-  function openPrivacyModal(pendingAction = null) {
+  let lastFocusedElement = null;
+
+  function getBackgroundElements() {
+    return Array.from(document.body.children).filter(
+      el => el !== privacyModal && el.tagName !== 'SCRIPT' && el.tagName !== 'STYLE'
+    );
+  }
+
+  function handleFocusTrap(e) {
+    if (!privacyModal || !privacyModal.classList.contains('is-open')) return;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closePrivacyModal(true);
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusableSelector = 'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      const focusables = Array.from(privacyModal.querySelectorAll(focusableSelector)).filter(
+        el => !el.hasAttribute('hidden') && el.offsetParent !== null
+      );
+
+      if (focusables.length === 0) {
+        e.preventDefault();
+        return;
+      }
+
+      const firstElement = focusables[0];
+      const lastElement = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement || !privacyModal.contains(document.activeElement)) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement || !privacyModal.contains(document.activeElement)) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    }
+  }
+
+  function openPrivacyModal(pendingAction = null, triggerEl = null) {
     if (pendingAction) {
       pendingWhatsAppAction = pendingAction;
     }
     if (!privacyModal) return;
 
+    // Guardar elemento que disparó el modal para restaurar foco
+    lastFocusedElement = triggerEl || document.activeElement;
+
+    // Cerrar mobile drawer inmediatamente si está abierto al desplegar el modal
+    closeDrawer();
+
+    // Aislar fondo con atributo inert para accesibilidad estricta (WCAG)
+    getBackgroundElements().forEach(el => el.setAttribute('inert', ''));
+
     privacyModal.removeAttribute('hidden');
-    // Forzar reflow para animación suave
     void privacyModal.offsetWidth;
     privacyModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -106,6 +205,9 @@ export function initInteractions() {
       }
     });
 
+    // Activar trampa de foco (Focus Trap)
+    document.addEventListener('keydown', handleFocusTrap);
+
     // Auto-focus para accesibilidad sin forzar salto de scroll
     if (closePrivacyModalBtn) {
       try {
@@ -118,11 +220,31 @@ export function initInteractions() {
 
   function closePrivacyModal(clearPending = true) {
     if (!privacyModal) return;
+
+    // Desactivar trampa de foco
+    document.removeEventListener('keydown', handleFocusTrap);
+
+    // Remover inert de los elementos del fondo
+    getBackgroundElements().forEach(el => el.removeAttribute('inert'));
+
     privacyModal.classList.remove('is-open');
     document.body.style.overflow = '';
 
+    // Cerrar también el drawer si estuviera en estado abierto
+    closeDrawer();
+
     if (clearPending) {
       pendingWhatsAppAction = null;
+    }
+
+    // Restaurar foco al elemento que activó el modal
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      try {
+        lastFocusedElement.focus({ preventScroll: true });
+      } catch (e) {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
     }
 
     setTimeout(() => {
@@ -136,18 +258,13 @@ export function initInteractions() {
   window.__openPrivacyModal = openPrivacyModal;
   window.__closePrivacyModal = closePrivacyModal;
 
-  // Cancelar / Cerrar modal sin redirigir (X, clic exterior en backdrop, Escape)
+  // Cancelar / Cerrar modal sin redirigir (X, clic exterior en backdrop)
   if (closePrivacyModalBtn) {
     closePrivacyModalBtn.addEventListener('click', () => closePrivacyModal(true));
   }
   if (modalBackdrop) {
     modalBackdrop.addEventListener('click', () => closePrivacyModal(true));
   }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('is-open')) {
-      closePrivacyModal(true);
-    }
-  });
 
   // Acción "Aceptar y Continuar": registrar consentimiento y ejecutar redirección inmediata
   if (acceptModalBtn) {
@@ -172,38 +289,7 @@ export function initInteractions() {
     });
   }
 
-  // 1. Mobile Drawer Navigation
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const closeDrawerBtn = document.getElementById('close-drawer-btn');
-  const navDrawer = document.getElementById('nav-drawer');
-  const drawerBackdrop = document.getElementById('drawer-backdrop');
-  const drawerLinks = document.querySelectorAll('.nav-drawer-link');
-
-  function openDrawer() {
-    if (navDrawer && drawerBackdrop) {
-      navDrawer.classList.add('is-open');
-      drawerBackdrop.classList.add('is-active');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeDrawer() {
-    if (navDrawer && drawerBackdrop) {
-      navDrawer.classList.remove('is-open');
-      drawerBackdrop.classList.remove('is-active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
-  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-  if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
-  drawerLinks.forEach(link => {
-    link.addEventListener('click', closeDrawer);
-  });
-
-  // 2. Eventos de WhatsApp en todo el sitio con Flujo Interceptado (Gate Modal)
+  // ── 3. Eventos de WhatsApp en todo el sitio con Flujo Interceptado (Gate Modal) ──
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.wa-btn, button, a');
     if (!trigger) return;
@@ -237,7 +323,7 @@ export function initInteractions() {
       openPrivacyModal({
         topic: topic || 'general',
         customMsg: customMsg || ''
-      });
+      }, trigger);
     }
   });
 

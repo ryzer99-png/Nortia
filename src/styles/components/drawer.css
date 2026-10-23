@@ -96,16 +96,43 @@
   border-top: 1px solid rgba(208,201,190,0.3);
 }
 
-#nav-drawer .drawer-footer button {
+#nav-drawer .drawer-footer button,
+#nav-drawer .drawer-footer .wa-btn {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   border-radius: 12px;
-  padding: 12px;
+  padding: 14px 18px;
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  font-weight: 700;
+  background: var(--primary);
+  color: #ffffff;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(16, 27, 77, 0.25);
+  transition: all 0.25s ease;
+}
+
+#nav-drawer .drawer-footer button:hover,
+#nav-drawer .drawer-footer .wa-btn:hover {
+  background: var(--secondary);
+  color: var(--primary);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(var(--secondary-rgb), 0.35);
+}
+
+#nav-drawer .drawer-footer button .material-symbols-outlined,
+#nav-drawer .drawer-footer .wa-btn .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--secondary);
+  transition: color 0.2s ease;
+}
+
+#nav-drawer .drawer-footer button:hover .material-symbols-outlined,
+#nav-drawer .drawer-footer .wa-btn:hover .material-symbols-outlined {
+  color: var(--primary);
 }
